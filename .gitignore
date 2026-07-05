@@ -1,0 +1,4 @@
+.playwright-mcp/
+.image-slots.state.json
+.vercel
+output/
