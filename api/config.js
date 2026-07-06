@@ -1,6 +1,8 @@
 const DEFAULT_REPO = "eyeinthesky6/artistpass-epk-demo";
 const DEFAULT_BRANCH = "main";
 const CONFIG_PATH = "artist-config.js";
+const BLOB_CONFIG_PATH = "config/artist-config.js";
+let blobSdk;
 
 function repoPath(path) {
   return path.split("/").map(encodeURIComponent).join("/");
@@ -20,9 +22,35 @@ async function githubJson(url, options) {
   return { response, data };
 }
 
+function validConfigJs(content) {
+  return /^window\.ARTIST_CONFIG\s*=/.test(String(content || "").trim());
+}
+
+async function streamToText(stream) {
+  if (!stream) return "";
+  return await new Response(stream).text();
+}
+
+async function readBlobConfig() {
+  if (!process.env.BLOB_READ_WRITE_TOKEN) return "";
+  if (!blobSdk) blobSdk = require("@vercel/blob");
+  const blob = await blobSdk.get(BLOB_CONFIG_PATH, { access: "public" });
+  if (!blob || blob.statusCode !== 200) return "";
+  return await streamToText(blob.stream);
+}
+
 module.exports = async function config(req, res) {
   if (req.method !== "GET" && req.method !== "HEAD") {
     return sendJs(res, 405, "window.ARTIST_CONFIG = {};\n");
+  }
+
+  try {
+    const blobContent = await readBlobConfig();
+    if (validConfigJs(blobContent)) {
+      return sendJs(res, 200, blobContent);
+    }
+  } catch (error) {
+    // Fall back to GitHub/static config for older installs or missing Blob stores.
   }
 
   const githubToken = process.env.GITHUB_TOKEN;
@@ -42,7 +70,7 @@ module.exports = async function config(req, res) {
       return sendJs(res, 200, "window.ARTIST_CONFIG = {};\n");
     }
     const content = Buffer.from(String(current.data.content).replace(/\s/g, ""), "base64").toString("utf8");
-    if (!/^window\.ARTIST_CONFIG\s*=/.test(content.trim())) {
+    if (!validConfigJs(content)) {
       return sendJs(res, 200, "window.ARTIST_CONFIG = {};\n");
     }
     return sendJs(res, 200, content);

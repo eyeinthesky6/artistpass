@@ -1,6 +1,8 @@
 const DEFAULT_REPO = "eyeinthesky6/artistpass-epk-demo";
 const DEFAULT_BRANCH = "main";
 const CONFIG_PATH = "artist-config.js";
+const BLOB_CONFIG_PATH = "config/artist-config.js";
+let blobSdk;
 
 function sendJson(res, status, body) {
   res.statusCode = status;
@@ -33,11 +35,12 @@ module.exports = async function publishConfig(req, res) {
   if (req.method !== "POST") return sendJson(res, 405, { ok: false, error: "Use POST" });
 
   const publishPassword = process.env.ADMIN_PUBLISH_PASSWORD || process.env.ARTIST_ADMIN_PASSWORD;
+  const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
   const githubToken = process.env.GITHUB_TOKEN;
   const repo = process.env.GITHUB_REPO || DEFAULT_REPO;
   const branch = process.env.GITHUB_BRANCH || DEFAULT_BRANCH;
 
-  if (!publishPassword || !githubToken) {
+  if (!publishPassword || (!blobToken && !githubToken)) {
     return sendJson(res, 503, {
       ok: false,
       error: "Publish is not configured on Vercel"
@@ -71,6 +74,32 @@ module.exports = async function publishConfig(req, res) {
   }
 
   const content = "window.ARTIST_CONFIG = " + configJson + ";\n";
+
+  if (blobToken) {
+    try {
+      if (!blobSdk) blobSdk = require("@vercel/blob");
+      const blob = await blobSdk.put(BLOB_CONFIG_PATH, content, {
+        access: "public",
+        allowOverwrite: true,
+        contentType: "application/javascript; charset=utf-8",
+        cacheControlMaxAge: 60
+      });
+      return sendJson(res, 200, {
+        ok: true,
+        storage: "blob",
+        path: BLOB_CONFIG_PATH,
+        url: blob.url
+      });
+    } catch (error) {
+      if (!githubToken) {
+        return sendJson(res, 500, {
+          ok: false,
+          error: "Blob publish failed"
+        });
+      }
+    }
+  }
+
   const apiBase = "https://api.github.com/repos/" + repo + "/contents/" + repoPath(CONFIG_PATH);
   const headers = {
     Authorization: "Bearer " + githubToken,

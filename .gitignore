@@ -1,4 +1,9 @@
 .playwright-mcp/
 .image-slots.state.json
 .vercel
+.env.local
+node_modules/
 output/
+tmp/
+
+.env*

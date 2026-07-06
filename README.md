@@ -9,6 +9,8 @@
 <p align="center">
   <a href="https://artistpass.vercel.app"><strong>Live Site</strong></a>
   ·
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+the+password+that+unlocks+the+website+Admin+panel+and+Publish+live+button.&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D"><strong>Make It Yours</strong></a>
+  ·
   <a href="#screenshots"><strong>Screenshots</strong></a>
   ·
   <a href="#admin-flow"><strong>Admin Flow</strong></a>
@@ -46,9 +48,9 @@ The current profile is a sample fictional artist. Swap the config, images and re
 | --- | --- |
 | Fast launch | Static `index.html`, no build pipeline required. |
 | Non-technical edits | Admin panel follows the page order and writes a config file. |
-| Shared live updates | `Publish live` can write `artist-config.js` to GitHub through a Vercel API route. |
+| Shared live updates | `Publish live` writes the live config to Vercel Blob, with GitHub fallback for older installs. |
 | Casting workflow | Role-fit cards, reel section, headshots, resume, casting card image/PDF and share messages. |
-| Low maintenance | No database by default. Media can live in the repo, YouTube, Google Drive, Cloudinary or Vercel Blob. |
+| Low maintenance | No database and no heavy CMS. Media can live in the repo, YouTube, Google Drive, Cloudinary or Vercel Blob. |
 
 ## Features
 
@@ -72,7 +74,7 @@ flowchart LR
   D --> E{"Looks right?"}
   E -- "No" --> C
   E -- "Yes" --> F["Publish live"]
-  F --> G["artist-config.js in GitHub"]
+  F --> G["artist-config.js in Vercel Blob"]
   G --> H["Live site reads /api/config"]
   H --> I["Everyone sees the update after refresh"]
 ```
@@ -80,14 +82,15 @@ flowchart LR
 Admin is deliberately simple:
 
 - **Preview locally** changes only your current browser.
-- **Publish live** pushes the config to GitHub. The live site reads the latest config on refresh.
+- **Publish live** pushes the config to Vercel Blob. The live site reads the latest config on refresh.
 - Images and videos are link/path based. For full uploads, add Cloudinary or Vercel Blob behind authentication.
 
 ## Project Structure
 
 ```text
 .
-├── api/publish-config.js       # Optional GitHub publisher for Admin
+├── api/config.js               # Runtime config loader
+├── api/publish-config.js       # Admin publisher: Blob first, GitHub fallback
 ├── artist-config.js            # Published content override
 ├── downloads/                  # Resume and generated static downloads
 ├── docs/                       # README logo and screenshots
@@ -115,23 +118,34 @@ http://127.0.0.1:4177/
 
 ## Deploy
 
+Fastest setup:
+
+<p>
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+the+password+that+unlocks+the+website+Admin+panel+and+Publish+live+button.&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D">
+    <img src="https://vercel.com/button" alt="Deploy with Vercel">
+  </a>
+</p>
+
+The button clones the template, creates a Vercel project, asks for the Admin password, and connects a public Blob store for live config.
+
 Vercel settings:
 
 - Framework preset: **Other**
 - Build command: none
 - Output/root: repo root
 
-If you use the Admin publish route, add these Vercel environment variables.
+If you set up manually, add these Vercel environment variables.
 The website loads `/api/config` at runtime, so Admin updates can appear on refresh without waiting for a full Vercel redeploy.
 
 | Variable | Purpose |
 | --- | --- |
 | `ADMIN_PUBLISH_PASSWORD` | Server-side publish password. |
-| `GITHUB_TOKEN` | GitHub token with contents read/write access to this repo. |
-| `GITHUB_REPO` | Optional. Defaults to `eyeinthesky6/artistpass-epk-demo`. |
-| `GITHUB_BRANCH` | Optional. Defaults to `main`. |
-| `GITHUB_COMMITTER_NAME` | Optional commit identity. |
-| `GITHUB_COMMITTER_EMAIL` | Optional commit email. |
+| `BLOB_READ_WRITE_TOKEN` | Preferred. Added automatically when a Vercel Blob store is connected. |
+| `GITHUB_TOKEN` | Optional fallback. GitHub token with contents read/write access to this repo. |
+| `GITHUB_REPO` | Optional fallback repo. Defaults to `eyeinthesky6/artistpass-epk-demo`. |
+| `GITHUB_BRANCH` | Optional fallback branch. Defaults to `main`. |
+| `GITHUB_COMMITTER_NAME` | Optional fallback commit identity. |
+| `GITHUB_COMMITTER_EMAIL` | Optional fallback commit email. |
 
 ## Media Guidance
 

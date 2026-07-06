@@ -1,0 +1,7 @@
+{
+  "name": "artistpass-epk-demo",
+  "private": true,
+  "dependencies": {
+    "@vercel/blob": "^2.5.0"
+  }
+}
