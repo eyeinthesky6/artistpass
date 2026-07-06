@@ -280,7 +280,7 @@
       <!-- MAIN REEL -->
       <sc-if value="{{ reel.showMain }}" hint-placeholder-val="{{ true }}">
         <div data-reel-main="true" ref="{{ reel.frameRef }}" style="position:relative;border-radius:10px;overflow:hidden;border:1px solid rgba(242,235,221,0.1);margin-bottom:14px;aspect-ratio:16/8;background:#0E0B09">
-          <sc-if value="{{ reel.hasVideo }}" hint-placeholder-val="{{ false }}"><video ref="{{ reel.videoRef }}" title="Ananya Rao reel" controls autoplay playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#0E0B09;object-fit:contain;opacity:{{ reel.videoOpacity }};pointer-events:{{ reel.videoPointer }}"></video></sc-if>
+          <sc-if value="{{ reel.hasVideo }}" hint-placeholder-val="{{ false }}"><video ref="{{ reel.videoRef }}" title="Ananya Rao reel" controls playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#0E0B09;object-fit:contain;opacity:{{ reel.videoOpacity }};pointer-events:{{ reel.videoPointer }}"></video></sc-if>
           <sc-if value="{{ reel.playing }}" hint-placeholder-val="{{ false }}">
             <sc-if value="{{ reel.hasFrame }}" hint-placeholder-val="{{ true }}"><iframe ref="{{ reel.embedRef }}" title="Ananya Rao reel" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></sc-if>
           </sc-if>
@@ -1480,9 +1480,11 @@ class Component extends DCLogic {
   setVideo(n, src, shouldPlay) {
     if (!n || !src) return;
     n.controls = true;
-    n.autoplay = true;
+    n.autoplay = !!shouldPlay;
     n.playsInline = true;
     n.preload = "metadata";
+    if (shouldPlay) n.setAttribute("autoplay", "");
+    else n.removeAttribute("autoplay");
     if (n.dataset.src !== src) {
       n.dataset.src = src;
       n.src = src;
