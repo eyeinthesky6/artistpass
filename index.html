@@ -548,11 +548,14 @@
         </div>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(242,235,221,0.08)">
-        <span style="font-size:12px;color:#6E6152">ArtistPass profile template. To make your own, contact 6edroid@gmail.com.</span>
-        <button onClick="{{ openAdmin }}" style="cursor:pointer;display:flex;align-items:center;gap:7px;border:1px solid rgba(201,155,69,0.35);background:rgba(201,155,69,0.12);color:#E4B85E;font-family:inherit;font-size:12px;font-weight:700;padding:8px 13px;border-radius:999px;box-shadow:0 8px 24px -16px rgba(201,155,69,0.9)" style-hover="background:rgba(201,155,69,0.2);border-color:#C99B45;color:#F2EBDD">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-          Admin
-        </button>
+        <span style="font-size:12px;color:#6E6152">ArtistPass profile template. Make your own or contact 6edroid@gmail.com.</span>
+        <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">
+          <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo%23admin-flow&demo-title=ArtistPass+EPK+Demo&demo-description=Cinematic+artist+profile+with+simple+admin%2C+share+cards%2C+reels+and+Vercel+Blob+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D" target="_blank" rel="noreferrer" style="display:flex;align-items:center;gap:7px;text-decoration:none;border:none;background:#C99B45;color:#1A130A;font-family:inherit;font-size:12px;font-weight:800;padding:8px 13px;border-radius:999px;box-shadow:0 8px 24px -16px rgba(201,155,69,0.9)" style-hover="background:#E4B85E">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 3 7v10l9 5 9-5V7zm0 2.3L18.4 8 12 11.7 5.6 8zm-7 5.4 6 3.5v6.1l-6-3.3zm8 9.6v-6.1l6-3.5V16z"/></svg>
+            Make yours
+          </a>
+          <button onClick="{{ openAdmin }}" style="cursor:pointer;display:flex;align-items:center;gap:7px;border:1px solid rgba(201,155,69,0.35);background:rgba(201,155,69,0.12);color:#E4B85E;font-family:inherit;font-size:12px;font-weight:700;padding:8px 13px;border-radius:999px;box-shadow:0 8px 24px -16px rgba(201,155,69,0.9)" style-hover="background:rgba(201,155,69,0.2);border-color:#C99B45;color:#F2EBDD">Admin</button>
+        </div>
       </div>
     </div>
   </footer>
@@ -634,7 +637,7 @@
           <div style="padding:40px 24px;display:flex;flex-direction:column;gap:16px;max-width:360px;margin:0 auto">
             <div style="text-align:center">
               <div style="font-family:'Instrument Serif',serif;font-size:26px;color:#F4EDDF">Enter password</div>
-              <p style="font-size:13px;color:#8A7B67;margin-top:6px">Admin password. Default: <span style="color:#C99B45">demo2026</span></p>
+              <p style="font-size:13px;color:#8A7B67;margin-top:6px">Use the Admin password you chose during Vercel deployment. It is checked when you upload or publish.</p>
             </div>
             <input type="password" placeholder="Password" value="{{ passField.value }}" onInput="{{ passField.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:15px;padding:13px 14px;text-align:center;letter-spacing:0.1em">
             <button onClick="{{ tryUnlock }}" style="cursor:pointer;border:none;background:#C99B45;color:#1A130A;font-family:inherit;font-size:14px;font-weight:700;padding:13px;border-radius:8px" style-hover="background:#E4B85E">Unlock</button>
@@ -903,7 +906,6 @@ class Component extends DCLogic {
   constructor(props) {
     super(props);
     this.KEY = "artistPassConfig_v1";
-    this.ADMIN = "demo2026";
     this.OPTIMIZED_IMAGES = {};
     this._blobClient = null;
     this.draft = null;
@@ -1821,8 +1823,9 @@ class Component extends DCLogic {
   openAdmin() { this.draft = this.clone(this.state.config); this.setState({ adminOpen: true }); }
   closeAdmin() { this.setState({ adminOpen: false }); }
   tryUnlock() {
-    if (this.state.pass === this.ADMIN) this.setState({ unlocked: true });
-    else this.flash("Wrong password");
+    const pass = String(this.state.pass || "").trim();
+    if (!pass) return this.flash("Enter the Admin password you set in Vercel");
+    this.setState({ pass, unlocked: true });
   }
   bind(obj, key) {
     return { value: (obj && obj[key] != null) ? obj[key] : "", onInput: (e) => { obj[key] = e.target.value; this.forceUpdate(); } };
@@ -1993,7 +1996,7 @@ class Component extends DCLogic {
   }
   async publishAdmin() {
     const cfg = this.clone(this.draft);
-    const publishPassword = typeof window !== "undefined" ? window.prompt("Publish password") : "";
+    const publishPassword = String(this.state.pass || "").trim() || (typeof window !== "undefined" ? window.prompt("Publish password") : "");
     if (!publishPassword) {
       this.flash("Publish cancelled");
       return;
@@ -2012,7 +2015,8 @@ class Component extends DCLogic {
       this.setState({ config: cfg });
       this.flash("Published live — refresh the public site to see it");
     } catch (e) {
-      this.flash(((e && e.message) ? e.message : "Publish failed") + " — not published");
+      const message = (e && e.message) ? e.message : "Publish failed";
+      this.flash((/wrong/i.test(message) ? "Wrong Admin password" : message) + " — not published");
     } finally {
       this.setState({ publishing: false });
     }
