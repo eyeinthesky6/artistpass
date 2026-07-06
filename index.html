@@ -1197,6 +1197,7 @@ class Component extends DCLogic {
 
   profileShareBody(text, url, reelUrl) {
     const site = this.siteUrl();
+    const normalizedReelUrl = reelUrl ? this.assetUrl(reelUrl) : "";
     let body = this.formatProfileShareText(String(text || "").trim());
     if (url && url !== site && body.indexOf(site) >= 0 && body.indexOf(url) < 0) {
       body = body.split(site).join(url);
@@ -1204,8 +1205,8 @@ class Component extends DCLogic {
     if (url && body.indexOf(url) < 0 && body.indexOf(site) < 0) {
       body += (body ? "\n\n" : "") + "Casting card: " + url;
     }
-    if (reelUrl && body.indexOf(reelUrl) < 0) {
-      body += (body ? "\n" : "") + "Reel: " + reelUrl;
+    if (normalizedReelUrl && body.indexOf(normalizedReelUrl) < 0) {
+      body += (body ? "\n" : "") + "Reel: " + normalizedReelUrl;
     }
     return this.formatProfileShareText(body);
   }
@@ -1824,7 +1825,8 @@ class Component extends DCLogic {
     const defaultDirectory = "";
     const waNumber = this.contactNumber();
     const waPretty = this.prettyPhone(waNumber);
-    const mainReelLink = (cfg.reel && cfg.reel.youtube) || (((cfg.clips || []).find(cl => cl.youtube) || {}).youtube) || (site + "#showreel");
+    const rawMainReelLink = (cfg.reel && cfg.reel.youtube) || (((cfg.clips || []).find(cl => cl.youtube) || {}).youtube) || (site + "#showreel");
+    const mainReelLink = this.assetUrl(rawMainReelLink);
     const shareContact = this.shareContactLabel();
     const castingCardText = this.profileShareText(site, shareContact, mainReelLink);
     const intro = castingCardText;
