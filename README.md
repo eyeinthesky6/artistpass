@@ -61,7 +61,7 @@ The current profile is a sample fictional artist. Swap the config, images and re
 - Casting card image and PDF export.
 - Resume PDF download.
 - Native share flows with editable message templates.
-- Browser admin panel with one-section editing, local preview, Blob image/PDF uploads and live publishing.
+- Browser admin panel with one-section editing, local preview, favicon/image/PDF uploads and live publishing.
 - SEO/AEO basics: canonical URL, social preview image, JSON-LD, sitemap and robots file.
 
 ## Admin Flow
@@ -83,7 +83,7 @@ Admin is deliberately simple:
 
 - **Preview locally** changes only your current browser.
 - **Publish live** pushes the config to Vercel Blob. The live site reads the latest config on refresh.
-- **Upload** buttons store images/PDFs in Vercel Blob and place the URL into the right field.
+- **Upload** buttons store favicon/images/PDFs in Vercel Blob and place the URL into the right field.
 - Common items are edited once: the main headshot drives the casting card and normal share preview, while contact details drive footer/contact/share text.
 - Videos stay link-based for now. Use YouTube, Google Drive, Vimeo or another video host, then paste the link.
 
@@ -167,6 +167,7 @@ ArtistPass keeps media management intentionally light.
 - Private/restricted clips: Google Drive links are simple and less publicly searchable, but anyone with the link can forward them.
 - Controlled sharing: DocSend-style tools add passcodes, expiry, viewer verification, download controls and analytics.
 - Images/headshots: use Admin upload. Images are compressed in-browser before upload and stored in Vercel Blob.
+- Favicon/browser tab icon: upload or paste it in the Hero section. SVG, PNG, WebP, JPEG and ICO are accepted.
 - PDFs: use Admin upload for resume and casting-card PDFs.
 - Videos: paste links. Direct video upload is intentionally not included yet because video hosting, transcoding and privacy controls need more product decisions.
 

@@ -7,7 +7,7 @@
 <meta name="description" content="Ananya Rao is a Mumbai actor profile built for casting, reels, headshots, role-fit notes and simple self-managed updates.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://artistpass.vercel.app">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link id="siteFavicon" rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Ananya Rao - Actor EPK">
 <meta property="og:description" content="Mumbai actor profile for corporate, legal, investigator, doctor, professor and urban-professional roles. Watch the reel.">
 <meta property="og:type" content="website">
@@ -690,6 +690,10 @@
                   <label style="display:block;flex:1"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Hero image URL / path</span><input value="{{ d.heroImg.value }}" onInput="{{ d.heroImg.onInput }}" placeholder="portfolio/hero.jpg or https://..." style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
                   <label class="adminUpload">Upload<input type="file" accept="image/*" onChange="{{ uploadHeroImage }}"></label>
                 </div>
+                <div style="display:flex;gap:8px;align-items:flex-end">
+                  <label style="display:block;flex:1"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Favicon / browser tab icon</span><input value="{{ d.faviconImg.value }}" onInput="{{ d.faviconImg.onInput }}" placeholder="favicon.svg or https://..." style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
+                  <label class="adminUpload">Upload<input type="file" accept="image/*,.ico" onChange="{{ uploadFaviconImage }}"></label>
+                </div>
               </div>
             </div>
             </sc-if>
@@ -1054,6 +1058,7 @@ class Component extends DCLogic {
     set('meta[property="og:image:type"]', this.mimeFromExt(this.fileExt(image)));
     set('meta[property="og:image:width"]', "1200");
     set('meta[property="og:image:height"]', "630");
+    this.applyFavicon(this.assetUrl(this.faviconSrc()));
     const person = document.querySelector('script[type="application/ld+json"]');
     if (person && image) {
       try {
@@ -1115,10 +1120,30 @@ class Component extends DCLogic {
 
   mimeFromExt(ext) {
     const e = String(ext || "").toLowerCase();
+    if (e === "svg") return "image/svg+xml";
+    if (e === "ico") return "image/x-icon";
     if (e === "png") return "image/png";
     if (e === "webp") return "image/webp";
     if (e === "pdf") return "application/pdf";
     return "image/jpeg";
+  }
+
+  faviconSrc() {
+    const cfg = this.state.config || {};
+    return (cfg.images && cfg.images.favicon) || "favicon.svg";
+  }
+
+  applyFavicon(url) {
+    if (typeof document === "undefined" || !url) return;
+    let link = document.getElementById("siteFavicon") || document.querySelector('link[rel="icon"]');
+    if (!link) {
+      link = document.createElement("link");
+      link.id = "siteFavicon";
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+    link.href = url;
+    link.type = this.mimeFromExt(this.fileExt(url));
   }
 
   canvasBlob(canvas, type, quality) {
@@ -1400,7 +1425,7 @@ class Component extends DCLogic {
       subline: "Screen-ready for corporate, legal, investigative, medical, family and urban character roles.",
       quickFacts: ["Late 30s/40s", "Hindi", "English", "Self-test"],
       contact: { whatsapp: "919000000000", email: "6edroid@gmail.com", instagram: "", youtube: "", linkedin: "", imdb: "", directory: "" },
-      images: { hero: "portfolio/demo-ananya/ananya-hero.png", story: "portfolio/demo-ananya/ananya-investigator.png", headshot: "portfolio/demo-ananya/ananya-headshot.png" },
+      images: { hero: "portfolio/demo-ananya/ananya-hero.png", story: "portfolio/demo-ananya/ananya-investigator.png", headshot: "portfolio/demo-ananya/ananya-headshot.png", favicon: "favicon.svg" },
       sharing: {
         image: "",
         profileText: "{name}\nActor - Mumbai\n\nComposed screen presence for authority, family and urban-professional roles.\nStrong fit for:\nCorporate - Legal - Investigator - Doctor - Mother - Professor - Journalist\n\nLate 30s / early 40s - Hindi - English\nSelf-test ready - TV - OTT - Ads - Theatre - VO\n\nCasting card: {site}\nContact: {contact}",
@@ -1845,7 +1870,7 @@ class Component extends DCLogic {
       URL.revokeObjectURL(objectUrl);
     }
   }
-  async uploadSelectedFiles(event, kind, label) {
+  async uploadSelectedFiles(event, kind, label, options) {
     const input = event && event.target;
     const files = Array.from((input && input.files) || []);
     if (!files.length) return [];
@@ -1860,7 +1885,7 @@ class Component extends DCLogic {
     try {
       const client = await this.blobUploadClient();
       for (const file of files) {
-        const prepared = kind === "image" ? await this.imageFileForUpload(file) : file;
+        const prepared = (kind === "image" && !(options && options.preserveImage)) ? await this.imageFileForUpload(file) : file;
         const ext = (prepared.name.match(/\.[a-z0-9]+$/i) || [kind === "pdf" ? ".pdf" : ".jpg"])[0].toLowerCase();
         const path = "uploads/" + folder + "/" + Date.now() + "-" + this.safeUploadName(prepared.name, label) + ext;
         this.setState({ uploading: "Uploading " + label + "..." });
@@ -1899,6 +1924,14 @@ class Component extends DCLogic {
     const urls = await this.uploadSelectedFiles(event, "image", "hero image");
     if (urls[0]) {
       this.draft.images.hero = urls[0];
+      this.forceUpdate();
+    }
+  }
+  async uploadFaviconImage(event) {
+    this.ensureDraftParts();
+    const urls = await this.uploadSelectedFiles(event, "image", "favicon", { preserveImage: true });
+    if (urls[0]) {
+      this.draft.images.favicon = urls[0];
       this.forceUpdate();
     }
   }
@@ -2201,6 +2234,7 @@ class Component extends DCLogic {
         positioning: this.bind(dr, "positioning"), subline: this.bind(dr, "subline"),
         quickFacts: this.bindList(dr, "quickFacts", ", "),
         heroImg: this.bind(dr.images, "hero"), storyImg: this.bind(dr.images, "story"),
+        faviconImg: this.bind(dr.images, "favicon"),
         cardImage: this.bind(dr.images, "headshot"),
         cardLabel: this.bind(dr.castingCard, "label"),
         cardRoleLine: this.bind(dr.castingCard, "roleLine"),
@@ -2341,6 +2375,7 @@ class Component extends DCLogic {
       downloadConfig: () => this.downloadConfig(),
       importJSON: () => this.importJSON(),
       uploadHeroImage: (e) => this.uploadHeroImage(e),
+      uploadFaviconImage: (e) => this.uploadFaviconImage(e),
       uploadStoryImage: (e) => this.uploadStoryImage(e),
       uploadCardImage: (e) => this.uploadCardImage(e),
       uploadGalleryImages: (e) => this.uploadGalleryImages(e),

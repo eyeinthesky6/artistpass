@@ -1,6 +1,6 @@
 const MAX_IMAGE_SIZE = 12 * 1024 * 1024;
 const MAX_PDF_SIZE = 20 * 1024 * 1024;
-const IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
+const IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif", "image/svg+xml", "image/x-icon", "image/vnd.microsoft.icon"];
 const PDF_TYPES = ["application/pdf"];
 
 let blobClient;
