@@ -121,7 +121,8 @@ Vercel settings:
 - Build command: none
 - Output/root: repo root
 
-If you use the Admin publish route, add these Vercel environment variables:
+If you use the Admin publish route, add these Vercel environment variables.
+The website loads `/api/config` at runtime, so Admin updates can appear on refresh without waiting for a full Vercel redeploy.
 
 | Variable | Purpose |
 | --- | --- |
