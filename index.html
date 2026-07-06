@@ -92,6 +92,10 @@
   [data-clip-frame="true"]:-webkit-full-screen{width:100vw!important;height:100vh!important;aspect-ratio:auto!important;background:#000!important;border-radius:0!important}
   [data-clip-frame="true"]:fullscreen iframe,[data-clip-frame="true"]:fullscreen video,[data-clip-frame="true"]:-webkit-full-screen iframe,[data-clip-frame="true"]:-webkit-full-screen video{width:100%!important;height:100%!important;object-fit:contain!important}
   .adminScroll{scrollbar-width:thin;scrollbar-color:#C99B45 transparent}
+  .adminUpload{cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid rgba(201,155,69,0.42);background:rgba(201,155,69,0.12);color:#E4B85E;font-family:inherit;font-size:12px;font-weight:800;padding:8px 11px;border-radius:7px;white-space:nowrap}
+  .adminUpload:hover{background:rgba(201,155,69,0.22);border-color:#C99B45}
+  .adminUpload input{display:none}
+  .adminSelect{width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:9px;color:#F2EBDD;font-family:inherit;font-size:13.5px;font-weight:700;padding:11px 12px}
   input,textarea,select{outline:none}
   input:focus,textarea:focus{border-color:#C99B45!important}
   @media print { body *{visibility:hidden!important} #castingCard,#castingCard *{visibility:visible!important} #castingCard{position:absolute!important;left:0;top:0;width:100%!important;border:none!important;box-shadow:none!important} }
@@ -115,7 +119,7 @@
   <section id="hero" style="position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden">
     <div style="position:absolute;inset:0;overflow:hidden">
       <div style="position:absolute;inset:-12.5%;width:125%;height:125%;animation:kenburns 22s ease-out forwards">
-        <sc-if value="{{ hasHeroImg }}" hint-placeholder-val="{{ false }}"><img class="heroPhoto" alt="Ananya Rao" ref="{{ heroImgRef }}" loading="eager" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 25%"></sc-if>
+        <sc-if value="{{ hasHeroImg }}" hint-placeholder-val="{{ false }}"><img class="heroPhoto" alt="{{ name }}" ref="{{ heroImgRef }}" loading="eager" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 25%"></sc-if>
         <sc-if value="{{ noHeroImg }}" hint-placeholder-val="{{ true }}"><div class="ph"></div></sc-if>
       </div>
     </div>
@@ -161,7 +165,7 @@
       <div class="storyGrid" style="display:grid;grid-template-columns:0.82fr 1.18fr;gap:clamp(28px,5vw,72px);align-items:center">
         <div style="position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden;border:1px solid rgba(242,235,221,0.1)">
           <div style="position:absolute;inset:-5%;width:110%;height:110%;animation:kenburns2 28s ease-in-out infinite alternate;filter:saturate(0.9) contrast(1.03)">
-            <sc-if value="{{ hasStoryImg }}" hint-placeholder-val="{{ false }}"><img alt="Ananya Rao portrait" ref="{{ storyImgRef }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 22%"></sc-if>
+            <sc-if value="{{ hasStoryImg }}" hint-placeholder-val="{{ false }}"><img alt="{{ name }} portrait" ref="{{ storyImgRef }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 22%"></sc-if>
             <sc-if value="{{ noStoryImg }}" hint-placeholder-val="{{ true }}"><div class="ph"></div></sc-if>
           </div>
           <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(160deg,rgba(22,18,15,0.15),rgba(22,18,15,0.5));mix-blend-mode:multiply"></div>
@@ -280,9 +284,9 @@
       <!-- MAIN REEL -->
       <sc-if value="{{ reel.showMain }}" hint-placeholder-val="{{ true }}">
         <div data-reel-main="true" ref="{{ reel.frameRef }}" style="position:relative;border-radius:10px;overflow:hidden;border:1px solid rgba(242,235,221,0.1);margin-bottom:14px;aspect-ratio:16/8;background:#0E0B09">
-          <sc-if value="{{ reel.hasVideo }}" hint-placeholder-val="{{ false }}"><video ref="{{ reel.videoRef }}" title="Ananya Rao reel" controls playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#0E0B09;object-fit:contain;opacity:{{ reel.videoOpacity }};pointer-events:{{ reel.videoPointer }}"></video></sc-if>
+          <sc-if value="{{ reel.hasVideo }}" hint-placeholder-val="{{ false }}"><video ref="{{ reel.videoRef }}" title="{{ name }} reel" controls playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#0E0B09;object-fit:contain;opacity:{{ reel.videoOpacity }};pointer-events:{{ reel.videoPointer }}"></video></sc-if>
           <sc-if value="{{ reel.playing }}" hint-placeholder-val="{{ false }}">
-            <sc-if value="{{ reel.hasFrame }}" hint-placeholder-val="{{ true }}"><iframe ref="{{ reel.embedRef }}" title="Ananya Rao reel" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></sc-if>
+            <sc-if value="{{ reel.hasFrame }}" hint-placeholder-val="{{ true }}"><iframe ref="{{ reel.embedRef }}" title="{{ name }} reel" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></sc-if>
           </sc-if>
           <sc-if value="{{ reel.idle }}" hint-placeholder-val="{{ true }}">
             <div onClick="{{ playReel }}" style="position:absolute;inset:0;cursor:pointer">
@@ -432,7 +436,7 @@
     <div class="filmstrip" style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px clamp(16px,4vw,40px) 22px">
       <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="7">
         <div style="scroll-snap-align:start;flex:0 0 auto;width:clamp(230px,32vw,300px);aspect-ratio:4/5;border-radius:12px;overflow:hidden;border:1px solid rgba(242,235,221,0.1);background:#211A15;position:relative">
-          <img alt="Ananya Rao" ref="{{ g.refFn }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 22%">
+          <img alt="{{ name }}" ref="{{ g.refFn }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 22%">
           <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(20,16,13,0.35),transparent 40%)"></div>
         </div>
       </sc-for>
@@ -452,7 +456,7 @@
         <!-- CASTING CARD (printable comp card) -->
         <div id="castingCard" style="position:relative;width:100%;max-width:620px;margin:0 auto;border:1px solid rgba(242,235,221,0.14);border-radius:14px;overflow:hidden;background:#1E1815;display:flex;flex-direction:column">
           <div style="position:relative;aspect-ratio:16/11;overflow:hidden">
-            <img alt="Ananya Rao" data-card-photo="true" ref="{{ headshotImgRef }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 20%">
+            <img alt="{{ name }}" data-card-photo="true" ref="{{ headshotImgRef }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 20%">
             <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,16,13,0.94),rgba(20,16,13,0.05) 62%)"></div>
             <div style="position:absolute;top:14px;left:16px;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#CBA97C;font-weight:700">{{ cardLabel }}</div>
             <div style="position:absolute;left:20px;bottom:16px;right:20px">
@@ -513,7 +517,7 @@
     <div style="max-width:1180px;margin:0 auto">
       <div class="footGrid" style="display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:start">
         <div>
-          <div style="font-family:'Instrument Serif',serif;font-size:clamp(30px,5vw,48px);line-height:1;color:#F4EDDF">Ananya Rao</div>
+          <div style="font-family:'Instrument Serif',serif;font-size:clamp(30px,5vw,48px);line-height:1;color:#F4EDDF">{{ name }}</div>
           <p style="font-size:14px;color:#A3927C;margin-top:12px;max-width:44ch">Mumbai actor. Built for corporate, legal, investigative, medical, family and urban-professional roles.</p>
           <sc-if value="{{ hasEmail }}" hint-placeholder-val="{{ false }}">
             <a href="{{ emailUrl }}" style="display:inline-flex;align-items:center;gap:8px;color:#D8CBB6;text-decoration:none;font-size:14px;margin-top:14px" style-hover="color:#E4B85E">
@@ -576,7 +580,7 @@
         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px">
           <div>
             <div style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#C99B45">Contact</div>
-            <div style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;color:#F4EDDF;margin-top:5px">Ananya Rao</div>
+            <div style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;color:#F4EDDF;margin-top:5px">{{ name }}</div>
             <p style="font-size:13.5px;line-height:1.45;color:#A3927C;margin-top:9px">For casting, production, self-test and availability enquiries.</p>
           </div>
           <button onClick="{{ closeContact }}" aria-label="Close contact options" style="cursor:pointer;flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid rgba(242,235,221,0.16);background:transparent;color:#C4B6A3;font-size:18px" style-hover="background:rgba(242,235,221,0.08)">✕</button>
@@ -636,10 +640,10 @@
             <div style="margin-top:14px;border:1px solid rgba(242,235,221,0.1);border-radius:10px;padding:16px;background:#16120F">
               <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C99B45;margin-bottom:9px">How editing works</div>
               <ul style="margin:0;padding-left:18px;font-size:12.5px;line-height:1.65;color:#9C8D78">
-                <li><b style="color:#C4B6A3">Images:</b> paste an image URL, or a path like <span style="color:#CBA97C">portfolio/name.png</span> for files in the deploy.</li>
+                <li><b style="color:#C4B6A3">Images:</b> use Upload for images, or paste an image URL / existing file path.</li>
                 <li><b style="color:#C4B6A3">Videos:</b> paste a YouTube or Google Drive link per clip. YouTube pulls its own thumbnail; Drive uses the poster image.</li>
                 <li><b style="color:#C4B6A3">Preview locally</b> only changes this browser and downloads a backup <span style="color:#CBA97C">artist-config.js</span>.</li>
-                <li><b style="color:#C4B6A3">Publish live</b> updates the GitHub-backed live config so everyone sees the update after refresh.</li>
+                <li><b style="color:#C4B6A3">Publish live</b> updates Vercel Blob so everyone sees the update after refresh. GitHub is only a fallback for older installs.</li>
               </ul>
             </div>
           </div>
@@ -651,7 +655,29 @@
               Preview locally is only for checking this browser. To update the public website for everyone, click <span style="color:#E4B85E;font-weight:700">Publish live</span>.
             </div>
 
-            <div>
+            <div style="border:1px solid rgba(242,235,221,0.1);background:#16120F;border-radius:10px;padding:13px">
+              <label style="display:block">
+                <span style="font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#C99B45">Open section</span>
+                <select class="adminSelect" value="{{ adminSection.value }}" onChange="{{ adminSection.onInput }}" style="margin-top:7px">
+                  <option value="hero">1. Hero</option>
+                  <option value="story">2. The story</option>
+                  <option value="dossier">3. Casting dossier</option>
+                  <option value="reel">4. The reel</option>
+                  <option value="facts">5. Casting facts</option>
+                  <option value="work">6. Selected work</option>
+                  <option value="gallery">7. Headshots &amp; stills</option>
+                  <option value="card">8. Pass it on / casting card</option>
+                  <option value="contact">9. Footer &amp; contact links</option>
+                  <option value="advanced">10. Advanced config</option>
+                </select>
+              </label>
+              <sc-if value="{{ uploading }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:10px;font-size:12px;color:#E4B85E">{{ uploading }}</div>
+              </sc-if>
+            </div>
+
+            <sc-if value="{{ adminHeroOpen }}" hint-placeholder-val="{{ true }}">
+              <div>
               <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#C99B45;margin-bottom:14px">Hero</div>
               <p style="font-size:12px;color:#8A7B67;margin:-6px 0 14px">Changes the first screen: name, headline, short line, four small pills, and hero photo.</p>
               <div style="display:flex;flex-direction:column;gap:13px">
@@ -660,15 +686,23 @@
                 <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Hero positioning line</span><textarea rows="2" value="{{ d.positioning.value }}" onInput="{{ d.positioning.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px;resize:vertical"></textarea></label>
                 <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Hero subline</span><textarea rows="3" value="{{ d.subline.value }}" onInput="{{ d.subline.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px;resize:vertical"></textarea></label>
                 <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Hero fact chips (short, comma separated)</span><input value="{{ d.quickFacts.value }}" onInput="{{ d.quickFacts.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
-                <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Hero image URL / path</span><input value="{{ d.heroImg.value }}" onInput="{{ d.heroImg.onInput }}" placeholder="portfolio/hero.jpg or https://..." style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
+                <div style="display:flex;gap:8px;align-items:flex-end">
+                  <label style="display:block;flex:1"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Hero image URL / path</span><input value="{{ d.heroImg.value }}" onInput="{{ d.heroImg.onInput }}" placeholder="portfolio/hero.jpg or https://..." style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
+                  <label class="adminUpload">Upload<input type="file" accept="image/*" onChange="{{ uploadHeroImage }}"></label>
+                </div>
               </div>
             </div>
+            </sc-if>
 
-            <div>
+            <sc-if value="{{ adminStoryOpen }}" hint-placeholder-val="{{ false }}">
+              <div>
               <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#C99B45;margin-bottom:14px">The story</div>
               <p style="font-size:12px;color:#8A7B67;margin:-6px 0 14px">Changes the portrait and the biography section below the hero.</p>
               <div style="display:flex;flex-direction:column;gap:13px">
-                <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Story portrait URL / path</span><input value="{{ d.storyImg.value }}" onInput="{{ d.storyImg.onInput }}" placeholder="portfolio/story.jpg or https://..." style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
+                <div style="display:flex;gap:8px;align-items:flex-end">
+                  <label style="display:block;flex:1"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Story portrait URL / path</span><input value="{{ d.storyImg.value }}" onInput="{{ d.storyImg.onInput }}" placeholder="portfolio/story.jpg or https://..." style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
+                  <label class="adminUpload">Upload<input type="file" accept="image/*" onChange="{{ uploadStoryImage }}"></label>
+                </div>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px">
                   <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Story headline</span><input value="{{ d.storyHeadline.value }}" onInput="{{ d.storyHeadline.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
                   <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Story gold accent</span><input value="{{ d.storyAccent.value }}" onInput="{{ d.storyAccent.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
@@ -676,8 +710,10 @@
                 <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Story body</span><textarea rows="5" value="{{ d.storyBody.value }}" onInput="{{ d.storyBody.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px;resize:vertical"></textarea></label>
               </div>
             </div>
+            </sc-if>
 
-            <div>
+            <sc-if value="{{ adminDossierOpen }}" hint-placeholder-val="{{ false }}">
+              <div>
               <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#C99B45;margin-bottom:6px">Casting dossier</div>
               <p style="font-size:12px;color:#8A7B67;margin-bottom:14px">Changes the role-specific main reel shown when someone opens a role fit from "What are you casting?"</p>
               <div style="display:flex;flex-direction:column;gap:10px">
@@ -686,8 +722,10 @@
                 </sc-for>
               </div>
             </div>
+            </sc-if>
 
-            <div>
+            <sc-if value="{{ adminReelOpen }}" hint-placeholder-val="{{ false }}">
+              <div>
               <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#C99B45;margin-bottom:14px">The reel</div>
               <p style="font-size:12px;color:#8A7B67;margin:-6px 0 14px">Changes the main reel and the clip cards inside "The reel".</p>
               <div style="display:flex;flex-direction:column;gap:13px;margin-bottom:18px">
@@ -701,14 +739,19 @@
                     <div style="display:flex;flex-direction:column;gap:9px">
                       <label style="display:block"><span style="font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Clip card title</span><input value="{{ c.title.value }}" onInput="{{ c.title.onInput }}" style="width:100%;background:#1A1512;border:1px solid rgba(242,235,221,0.14);border-radius:7px;color:#F2EBDD;font-family:inherit;font-size:13px;padding:9px 11px;margin-top:4px"></label>
                       <label style="display:block"><span style="font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Clip video link</span><input value="{{ c.youtube.value }}" onInput="{{ c.youtube.onInput }}" placeholder="YouTube or Google Drive link" style="width:100%;background:#1A1512;border:1px solid rgba(242,235,221,0.14);border-radius:7px;color:#F2EBDD;font-family:inherit;font-size:13px;padding:9px 11px;margin-top:4px"></label>
-                      <label style="display:block"><span style="font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Clip poster image</span><input value="{{ c.poster.value }}" onInput="{{ c.poster.onInput }}" placeholder="Optional; auto from YouTube if blank" style="width:100%;background:#1A1512;border:1px solid rgba(242,235,221,0.14);border-radius:7px;color:#F2EBDD;font-family:inherit;font-size:13px;padding:9px 11px;margin-top:4px"></label>
+                      <div style="display:flex;gap:8px;align-items:flex-end">
+                        <label style="display:block;flex:1"><span style="font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Clip poster image</span><input value="{{ c.poster.value }}" onInput="{{ c.poster.onInput }}" placeholder="Optional; auto from YouTube if blank" style="width:100%;background:#1A1512;border:1px solid rgba(242,235,221,0.14);border-radius:7px;color:#F2EBDD;font-family:inherit;font-size:13px;padding:9px 11px;margin-top:4px"></label>
+                        <label class="adminUpload">Upload<input type="file" accept="image/*" onChange="{{ c.uploadPoster }}"></label>
+                      </div>
                     </div>
                   </div>
                 </sc-for>
               </div>
             </div>
+            </sc-if>
 
-            <div>
+            <sc-if value="{{ adminFactsOpen }}" hint-placeholder-val="{{ false }}">
+              <div>
               <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
                 <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#C99B45">Casting facts</div>
                 <button onClick="{{ addFact }}" style="cursor:pointer;border:1px solid rgba(201,155,69,0.4);background:rgba(201,155,69,0.12);color:#E4B85E;font-family:inherit;font-size:12px;font-weight:700;padding:6px 12px;border-radius:7px">+ Add</button>
@@ -726,8 +769,10 @@
                 </sc-for>
               </div>
             </div>
+            </sc-if>
 
-            <div>
+            <sc-if value="{{ adminWorkOpen }}" hint-placeholder-val="{{ false }}">
+              <div>
               <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
                 <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#C99B45">Selected work</div>
                 <button onClick="{{ addCredit }}" style="cursor:pointer;border:1px solid rgba(201,155,69,0.4);background:rgba(201,155,69,0.12);color:#E4B85E;font-family:inherit;font-size:12px;font-weight:700;padding:6px 12px;border-radius:7px">+ Add</button>
@@ -749,21 +794,30 @@
                 </sc-for>
               </div>
             </div>
+            </sc-if>
 
-            <div>
+            <sc-if value="{{ adminGalleryOpen }}" hint-placeholder-val="{{ false }}">
+              <div>
               <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#C99B45;margin-bottom:14px">Headshots &amp; stills</div>
               <p style="font-size:12px;color:#8A7B67;margin:-6px 0 14px">Changes the image grid and optional download pack link in "Headshots &amp; stills".</p>
               <div style="display:flex;flex-direction:column;gap:11px">
                 <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Gallery image paths / URLs (comma separated)</span><textarea rows="3" value="{{ d.galleryImages.value }}" onInput="{{ d.galleryImages.onInput }}" placeholder="portfolio/photo-1.png, portfolio/photo-2.jpg" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px;resize:vertical"></textarea></label>
+                <label class="adminUpload" style="align-self:flex-start">Upload gallery images<input type="file" multiple accept="image/*" onChange="{{ uploadGalleryImages }}"></label>
                 <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Headshots pack link</span><input value="{{ d.headshotPack.value }}" onInput="{{ d.headshotPack.onInput }}" placeholder="Drive folder / zip URL" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
               </div>
             </div>
+            </sc-if>
 
-            <div>
+            <sc-if value="{{ adminCardOpen }}" hint-placeholder-val="{{ false }}">
+              <div>
               <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#C99B45;margin-bottom:14px">Pass it on / casting card</div>
               <p style="font-size:12px;color:#8A7B67;margin:-6px 0 14px">Changes the casting card, the hero/footer share message, WhatsApp share text, attached share image and role/clip share wording.</p>
               <div style="display:flex;flex-direction:column;gap:13px">
-                <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Casting card photo URL / path</span><input value="{{ d.cardImage.value }}" onInput="{{ d.cardImage.onInput }}" placeholder="portfolio/demo-ananya/ananya-headshot.png or https://..." style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
+                <div style="border:1px solid rgba(201,155,69,0.18);background:rgba(201,155,69,0.07);border-radius:9px;padding:10px 12px;font-size:12px;line-height:1.45;color:#AFA18C">This is the main shared photo. It updates the casting card, website preview and normal profile shares together.</div>
+                <div style="display:flex;gap:8px;align-items:flex-end">
+                  <label style="display:block;flex:1"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Main headshot / casting card photo</span><input value="{{ d.cardImage.value }}" onInput="{{ d.cardImage.onInput }}" placeholder="portfolio/demo-ananya/ananya-headshot.png or https://..." style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
+                  <label class="adminUpload">Upload<input type="file" accept="image/*" onChange="{{ uploadCardImage }}"></label>
+                </div>
                 <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Casting card label</span><input value="{{ d.cardLabel.value }}" onInput="{{ d.cardLabel.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
                 <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Casting card role line</span><input value="{{ d.cardRoleLine.value }}" onInput="{{ d.cardRoleLine.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
                 <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Casting card summary</span><textarea rows="3" value="{{ d.cardSummary.value }}" onInput="{{ d.cardSummary.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px;resize:vertical"></textarea></label>
@@ -771,17 +825,24 @@
                 <div style="border:1px solid rgba(242,235,221,0.1);background:#16120F;border-radius:10px;padding:13px;display:flex;flex-direction:column;gap:11px">
                   <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#CBA97C">Share messages</div>
                   <p style="font-size:12px;line-height:1.45;color:#8A7B67">Use placeholders: <span style="color:#CBA97C">{site}</span>, <span style="color:#CBA97C">{contact}</span>, <span style="color:#CBA97C">{role}</span>, <span style="color:#CBA97C">{roleUrl}</span>, <span style="color:#CBA97C">{note}</span>, <span style="color:#CBA97C">{videoUrl}</span>, <span style="color:#CBA97C">{roleText}</span>.</p>
-                  <label style="display:block"><span style="font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Share image URL / path</span><input value="{{ d.shareImage.value }}" onInput="{{ d.shareImage.onInput }}" placeholder="portfolio/demo-ananya/ananya-headshot.png" style="width:100%;background:#1A1512;border:1px solid rgba(242,235,221,0.14);border-radius:7px;color:#F2EBDD;font-family:inherit;font-size:13px;padding:9px 11px;margin-top:4px"></label>
                   <label style="display:block"><span style="font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Profile / casting card share text</span><textarea rows="4" value="{{ d.shareProfileText.value }}" onInput="{{ d.shareProfileText.onInput }}" style="width:100%;background:#1A1512;border:1px solid rgba(242,235,221,0.14);border-radius:7px;color:#F2EBDD;font-family:inherit;font-size:13px;padding:9px 11px;margin-top:4px;resize:vertical"></textarea></label>
                   <label style="display:block"><span style="font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Role-fit share text</span><textarea rows="4" value="{{ d.shareRoleText.value }}" onInput="{{ d.shareRoleText.onInput }}" style="width:100%;background:#1A1512;border:1px solid rgba(242,235,221,0.14);border-radius:7px;color:#F2EBDD;font-family:inherit;font-size:13px;padding:9px 11px;margin-top:4px;resize:vertical"></textarea></label>
                   <label style="display:block"><span style="font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Clip share text</span><textarea rows="3" value="{{ d.shareClipText.value }}" onInput="{{ d.shareClipText.onInput }}" style="width:100%;background:#1A1512;border:1px solid rgba(242,235,221,0.14);border-radius:7px;color:#F2EBDD;font-family:inherit;font-size:13px;padding:9px 11px;margin-top:4px;resize:vertical"></textarea></label>
                 </div>
-                <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Actor resume PDF</span><input value="{{ d.resumePdf.value }}" onInput="{{ d.resumePdf.onInput }}" placeholder="Drive / URL to PDF" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
-                <label style="display:block"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Casting card PDF</span><input value="{{ d.castingCardPdf.value }}" onInput="{{ d.castingCardPdf.onInput }}" placeholder="Drive / URL to PDF" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
+                <div style="display:flex;gap:8px;align-items:flex-end">
+                  <label style="display:block;flex:1"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Actor resume PDF</span><input value="{{ d.resumePdf.value }}" onInput="{{ d.resumePdf.onInput }}" placeholder="Drive / URL to PDF" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
+                  <label class="adminUpload">Upload PDF<input type="file" accept="application/pdf" onChange="{{ uploadResumePdf }}"></label>
+                </div>
+                <div style="display:flex;gap:8px;align-items:flex-end">
+                  <label style="display:block;flex:1"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Casting card PDF</span><input value="{{ d.castingCardPdf.value }}" onInput="{{ d.castingCardPdf.onInput }}" placeholder="Drive / URL to PDF" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px"></label>
+                  <label class="adminUpload">Upload PDF<input type="file" accept="application/pdf" onChange="{{ uploadCastingCardPdf }}"></label>
+                </div>
               </div>
             </div>
+            </sc-if>
 
-            <div>
+            <sc-if value="{{ adminContactOpen }}" hint-placeholder-val="{{ false }}">
+              <div>
               <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#C99B45;margin-bottom:14px">Footer &amp; contact links</div>
               <p style="font-size:12px;color:#8A7B67;margin:-6px 0 14px">Changes footer links, call/email details and the direct contact draft shown to visitors.</p>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px">
@@ -795,8 +856,10 @@
               </div>
               <label style="display:block;margin-top:11px"><span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8A7B67">Direct contact message</span><textarea rows="4" value="{{ d.contactText.value }}" onInput="{{ d.contactText.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:13.5px;padding:10px 12px;margin-top:5px;resize:vertical"></textarea></label>
             </div>
+            </sc-if>
 
-            <div>
+            <sc-if value="{{ adminAdvancedOpen }}" hint-placeholder-val="{{ false }}">
+              <div>
               <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#C99B45;margin-bottom:14px">Advanced — full config</div>
               <p style="font-size:12px;color:#8A7B67;margin-bottom:10px">Copy this JSON to back up, or paste one in and Import to replace everything (roles, notes, etc.).</p>
               <textarea rows="4" value="{{ importField.value }}" placeholder="Paste config JSON here, then Import" onInput="{{ importField.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#B4A691;font-family:monospace;font-size:11px;padding:10px 12px;resize:vertical"></textarea>
@@ -806,11 +869,12 @@
                 <button onClick="{{ importJSON }}" style="cursor:pointer;flex:1;border:1px solid rgba(242,235,221,0.18);background:transparent;color:#C4B6A3;font-family:inherit;font-size:12.5px;font-weight:600;padding:9px;border-radius:8px" style-hover="background:rgba(242,235,221,0.08)">Import</button>
               </div>
             </div>
+            </sc-if>
 
           </div>
 
           <div style="position:sticky;bottom:0;display:flex;flex-direction:column;gap:9px;padding:14px 22px 16px;background:rgba(26,21,18,0.96);backdrop-filter:blur(10px);border-top:1px solid rgba(242,235,221,0.1)">
-            <div style="font-size:12px;line-height:1.35;color:#A3927C">Preview locally only changes this browser. <span style="color:#CBA97C">Publish live</span> updates the public website for everyone.</div>
+            <div style="font-size:12px;line-height:1.35;color:#A3927C">Preview locally only changes this browser. <span style="color:#CBA97C">Publish live</span> writes to Vercel Blob so the public website updates for everyone.</div>
             <div style="display:flex;gap:10px">
               <button onClick="{{ resetAdmin }}" style="cursor:pointer;border:1px solid rgba(242,235,221,0.18);background:transparent;color:#A3927C;font-family:inherit;font-size:13px;font-weight:600;padding:12px 16px;border-radius:8px" style-hover="color:#F2EBDD">Reset</button>
               <button onClick="{{ saveAdmin }}" style="cursor:pointer;flex:1;border:1px solid rgba(242,235,221,0.18);background:transparent;color:#C4B6A3;font-family:inherit;font-size:14px;font-weight:700;padding:12px;border-radius:8px" style-hover="background:rgba(242,235,221,0.08)">Preview locally</button>
@@ -836,18 +900,21 @@ class Component extends DCLogic {
     this.KEY = "artistPassConfig_v1";
     this.ADMIN = "demo2026";
     this.OPTIMIZED_IMAGES = {};
+    this._blobClient = null;
     this.draft = null;
     this.state = {
       config: this.loadConfig(),
       activeRole: null,
       toast: "",
       adminOpen: false,
+      adminSection: "hero",
       contactOpen: false,
       unlocked: false,
       pass: "",
       importText: "",
       reelPlaying: false,
       publishing: false,
+      uploading: "",
       playing: {},
       qrData: ""
     };
@@ -1233,7 +1300,7 @@ class Component extends DCLogic {
 
   async shareProfileBundle(text, url, reelUrl) {
     const shareText = this.profileShareBody(text, url, reelUrl);
-    const title = "Ananya Rao Casting Card";
+    const title = this.artistName() + " Casting Card";
     this.flash("Preparing casting card image...");
     try {
       const cardFile = await this.castingCardImageFile();
@@ -1335,11 +1402,11 @@ class Component extends DCLogic {
       contact: { whatsapp: "919000000000", email: "6edroid@gmail.com", instagram: "", youtube: "", linkedin: "", imdb: "", directory: "" },
       images: { hero: "portfolio/demo-ananya/ananya-hero.png", story: "portfolio/demo-ananya/ananya-investigator.png", headshot: "portfolio/demo-ananya/ananya-headshot.png" },
       sharing: {
-        image: "portfolio/demo-ananya/ananya-headshot.png",
-        profileText: "Ananya Rao\nActor - Mumbai\n\nComposed screen presence for authority, family and urban-professional roles.\nStrong fit for:\nCorporate - Legal - Investigator - Doctor - Mother - Professor - Journalist\n\nLate 30s / early 40s - Hindi - English\nSelf-test ready - TV - OTT - Ads - Theatre - VO\n\nCasting card: {site}\nContact: {contact}",
-        roleText: "Ananya Rao - fit for {role} roles.\n{note}\nRole fit: {roleUrl}\nContact: {contact}",
+        image: "",
+        profileText: "{name}\nActor - Mumbai\n\nComposed screen presence for authority, family and urban-professional roles.\nStrong fit for:\nCorporate - Legal - Investigator - Doctor - Mother - Professor - Journalist\n\nLate 30s / early 40s - Hindi - English\nSelf-test ready - TV - OTT - Ads - Theatre - VO\n\nCasting card: {site}\nContact: {contact}",
+        roleText: "{name} - fit for {role} roles.\n{note}\nRole fit: {roleUrl}\nContact: {contact}",
         clipText: "{roleText}\nVideo: {videoUrl}",
-        contactText: "Hi Jai, I saw your website and want to explore if I can use it or make my own."
+        contactText: "Hi, I saw your website and want to explore if I can use it or make my own."
       },
       castingCard: {
         label: "Casting card",
@@ -1517,6 +1584,12 @@ class Component extends DCLogic {
     const cfg = (this.state.config && this.state.config.sharing) || {};
     return { ...this.defaults().sharing, ...cfg };
   }
+  artistName() {
+    return (this.state.config && this.state.config.name) || "Ananya Rao";
+  }
+  escapeRegExp(text) {
+    return String(text || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
   shareContactLabel() {
     const cfg = this.state.config || {};
     const email = ((cfg.contact || {}).email || "").trim();
@@ -1527,12 +1600,12 @@ class Component extends DCLogic {
   shareImageSrc() {
     const cfg = this.state.config || {};
     const sharing = this.sharingConfig();
-    return sharing.image || (cfg.images && (cfg.images.headshot || cfg.images.hero)) || "";
+    return (cfg.images && (cfg.images.headshot || cfg.images.hero)) || sharing.image || "";
   }
   profileShareText(site, contact, reelUrl) {
     const sharing = this.sharingConfig();
     return this.formatProfileShareText(this.templateText(sharing.profileText, {
-      name: (this.state.config && this.state.config.name) || "Ananya Rao",
+      name: this.artistName(),
       site: site || this.siteUrl(),
       contact: contact || this.shareContactLabel(),
       reel: reelUrl || ""
@@ -1542,8 +1615,9 @@ class Component extends DCLogic {
     let body = String(text || "").replace(/\r\n?/g, "\n").replace(/[ \t]+\n/g, "\n").replace(/\n[ \t]+/g, "\n").trim();
     if (!body) return "";
     if (body.indexOf("\n") < 0) {
+      const name = this.artistName();
       body = body
-        .replace(/^Ananya Rao\s*-\s*/i, "Ananya Rao\n")
+        .replace(new RegExp("^" + this.escapeRegExp(name) + "\\s*-\\s*", "i"), name + "\n")
         .replace(/\. Strong fit\s*/i, ".\n\nStrong fit:\n")
         .replace(/\. 40s age bracket\s*/i, "\n\n40s age bracket · ")
         .replace(/\. Casting page:/i, "\n\nCasting card:")
@@ -1557,7 +1631,7 @@ class Component extends DCLogic {
   }
   contactShareText() {
     return this.templateText(this.sharingConfig().contactText, {
-      name: (this.state.config && this.state.config.name) || "Ananya Rao",
+      name: this.artistName(),
       site: this.siteUrl(),
       contact: this.prettyPhone()
     }).trim();
@@ -1572,7 +1646,7 @@ class Component extends DCLogic {
     const email = String(c.email || "").trim();
     if (!email) return "#";
     const cfg = this.state.config || {};
-    return "mailto:" + email + "?subject=" + encodeURIComponent("Casting enquiry for " + (cfg.name || "Ananya Rao")) + "&body=" + encodeURIComponent(text || this.contactShareText());
+    return "mailto:" + email + "?subject=" + encodeURIComponent("Casting enquiry for " + (cfg.name || this.artistName())) + "&body=" + encodeURIComponent(text || this.contactShareText());
   }
   openContact() { this.setState({ contactOpen: true }); }
   closeContact() { this.setState({ contactOpen: false }); }
@@ -1591,7 +1665,7 @@ class Component extends DCLogic {
     const note = this.cleanRoleNote(role.note || role.line || "");
     const mobile = this.shareContactLabel();
     return this.templateText(this.sharingConfig().roleText, {
-      name: (this.state.config && this.state.config.name) || "Ananya Rao",
+      name: this.artistName(),
       role: title,
       note,
       roleUrl: this.roleUrl(role.slug),
@@ -1600,11 +1674,11 @@ class Component extends DCLogic {
     }).replace(/\n{3,}/g, "\n\n").trim();
   }
   clipShareText(clip, role, site) {
-    const base = role ? this.roleShareText(role) : "Ananya Rao - actor profile.";
+    const base = role ? this.roleShareText(role) : this.artistName() + " - actor profile.";
     const rawVideoUrl = (clip && clip.youtube) || (site + "?clip=" + ((clip && clip.slug) || "showreel"));
     const videoUrl = /^https?:\/\//i.test(rawVideoUrl) ? rawVideoUrl : this.assetUrl(rawVideoUrl);
     return this.templateText(this.sharingConfig().clipText, {
-      name: (this.state.config && this.state.config.name) || "Ananya Rao",
+      name: this.artistName(),
       roleText: base,
       videoUrl,
       site: site || this.siteUrl(),
@@ -1733,6 +1807,150 @@ class Component extends DCLogic {
       onInput: (e) => { obj[key] = e.target.value.split(sep.trim()).map(s => s.trim()).filter(Boolean); this.forceUpdate(); }
     };
   }
+  safeUploadName(name, fallback) {
+    const raw = String(name || fallback || "asset").replace(/\.[^.]+$/, "");
+    const safe = raw.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 48);
+    return safe || "asset";
+  }
+  async blobUploadClient() {
+    if (this._blobClient) return this._blobClient;
+    this._blobClient = await import("https://esm.sh/@vercel/blob@2.5.0/client?bundle");
+    return this._blobClient;
+  }
+  async imageFileForUpload(file) {
+    if (!file || !String(file.type || "").startsWith("image/") || file.type === "image/gif") return file;
+    const objectUrl = URL.createObjectURL(file);
+    try {
+      const img = await new Promise((resolve, reject) => {
+        const node = new Image();
+        node.onload = () => resolve(node);
+        node.onerror = reject;
+        node.src = objectUrl;
+      });
+      const maxSide = 2200;
+      const scale = Math.min(1, maxSide / Math.max(img.naturalWidth || img.width, img.naturalHeight || img.height));
+      const width = Math.max(1, Math.round((img.naturalWidth || img.width) * scale));
+      const height = Math.max(1, Math.round((img.naturalHeight || img.height) * scale));
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, width, height);
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", 0.86));
+      if (!blob) return file;
+      return new File([blob], this.safeUploadName(file.name, "image") + ".jpg", { type: "image/jpeg" });
+    } catch (error) {
+      return file;
+    } finally {
+      URL.revokeObjectURL(objectUrl);
+    }
+  }
+  async uploadSelectedFiles(event, kind, label) {
+    const input = event && event.target;
+    const files = Array.from((input && input.files) || []);
+    if (!files.length) return [];
+    const password = this.state.pass || (typeof window !== "undefined" ? window.prompt("Admin password") : "");
+    if (!password) {
+      this.flash("Upload cancelled");
+      return [];
+    }
+
+    const folder = kind === "pdf" ? "docs" : "images";
+    const urls = [];
+    try {
+      const client = await this.blobUploadClient();
+      for (const file of files) {
+        const prepared = kind === "image" ? await this.imageFileForUpload(file) : file;
+        const ext = (prepared.name.match(/\.[a-z0-9]+$/i) || [kind === "pdf" ? ".pdf" : ".jpg"])[0].toLowerCase();
+        const path = "uploads/" + folder + "/" + Date.now() + "-" + this.safeUploadName(prepared.name, label) + ext;
+        this.setState({ uploading: "Uploading " + label + "..." });
+        const blob = await client.upload(path, prepared, {
+          access: "public",
+          handleUploadUrl: "/api/upload",
+          clientPayload: JSON.stringify({ password, kind }),
+          multipart: prepared.size > (8 * 1024 * 1024),
+          onUploadProgress: (p) => {
+            if (p && typeof p.percentage === "number") {
+              this.setState({ uploading: "Uploading " + label + " " + Math.round(p.percentage) + "%" });
+            }
+          }
+        });
+        if (blob && blob.url) urls.push(blob.url);
+      }
+      if (urls.length) this.flash(label + " uploaded");
+      return urls;
+    } catch (error) {
+      this.flash(((error && error.message) || "Upload failed") + " — not uploaded");
+      return [];
+    } finally {
+      if (input) input.value = "";
+      this.setState({ uploading: "" });
+    }
+  }
+  ensureDraftParts() {
+    if (!this.draft) this.draft = this.clone(this.state.config);
+    this.draft.images = this.draft.images || {};
+    this.draft.downloads = this.draft.downloads || {};
+    this.draft.sharing = this.draft.sharing || {};
+    this.draft.gallery = this.draft.gallery || [];
+  }
+  async uploadHeroImage(event) {
+    this.ensureDraftParts();
+    const urls = await this.uploadSelectedFiles(event, "image", "hero image");
+    if (urls[0]) {
+      this.draft.images.hero = urls[0];
+      this.forceUpdate();
+    }
+  }
+  async uploadStoryImage(event) {
+    this.ensureDraftParts();
+    const urls = await this.uploadSelectedFiles(event, "image", "story image");
+    if (urls[0]) {
+      this.draft.images.story = urls[0];
+      this.forceUpdate();
+    }
+  }
+  async uploadCardImage(event) {
+    this.ensureDraftParts();
+    const urls = await this.uploadSelectedFiles(event, "image", "main headshot");
+    if (urls[0]) {
+      this.draft.images.headshot = urls[0];
+      this.draft.sharing.image = "";
+      this.forceUpdate();
+    }
+  }
+  async uploadGalleryImages(event) {
+    this.ensureDraftParts();
+    const urls = await this.uploadSelectedFiles(event, "image", "gallery image");
+    if (urls.length) {
+      this.draft.gallery = (this.draft.gallery || []).concat(urls);
+      this.forceUpdate();
+    }
+  }
+  async uploadResumePdf(event) {
+    this.ensureDraftParts();
+    const urls = await this.uploadSelectedFiles(event, "pdf", "resume PDF");
+    if (urls[0]) {
+      this.draft.downloads.resumePdf = urls[0];
+      this.forceUpdate();
+    }
+  }
+  async uploadCastingCardPdf(event) {
+    this.ensureDraftParts();
+    const urls = await this.uploadSelectedFiles(event, "pdf", "casting card PDF");
+    if (urls[0]) {
+      this.draft.downloads.castingCardPdf = urls[0];
+      this.forceUpdate();
+    }
+  }
+  async uploadDraftClipPoster(event, clip) {
+    this.ensureDraftParts();
+    const urls = await this.uploadSelectedFiles(event, "image", "clip poster");
+    if (urls[0]) {
+      clip.poster = urls[0];
+      this.forceUpdate();
+    }
+  }
   saveAdmin() {
     const cfg = this.clone(this.draft);
     try { localStorage.setItem(this.KEY, JSON.stringify(cfg)); } catch (e) {}
@@ -1805,14 +2023,14 @@ class Component extends DCLogic {
 
   shareLinkedIn(url) { window.open("https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(url), "_blank"); }
   nativeShare(text, url) {
-    if (navigator.share) { navigator.share({ title: (this.state.config && this.state.config.name) || "Ananya Rao", text, url }).catch(() => {}); }
+    if (navigator.share) { navigator.share({ title: this.artistName(), text, url }).catch(() => {}); }
     else this.copyText(text + " " + url, "Copied — paste to share");
   }
   nativeShareText(text, title) {
     const shareText = String(text || "").trim();
     if (!shareText) return;
     if (navigator.share) {
-      navigator.share({ title: title || ((this.state.config && this.state.config.name) || "Ananya Rao"), text: shareText })
+      navigator.share({ title: title || this.artistName(), text: shareText })
         .then(() => this.flash("Share sheet opened"))
         .catch(() => this.flash("Share cancelled"));
       return;
@@ -1845,7 +2063,7 @@ class Component extends DCLogic {
       isActive: r.slug === active,
       notActive: r.slug !== active,
       select: () => this.selectRole(r.slug),
-      share: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.nativeShareText(this.roleShareText(r), "Ananya Rao role fit"); }
+      share: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.nativeShareText(this.roleShareText(r), this.artistName() + " role fit"); }
     }));
 
     const clipsRaw = cfg.clips || [];
@@ -1894,7 +2112,7 @@ class Component extends DCLogic {
           this.fullscreenClip(cl.slug);
         },
         copy: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.copyText(cl.youtube || (site + "?clip=" + cl.slug), "Clip link copied"); },
-        share: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.nativeShareText(this.clipShareText(cl, shareRole, site), "Ananya Rao clip"); }
+        share: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.nativeShareText(this.clipShareText(cl, shareRole, site), this.artistName() + " clip"); }
       };
     });
 
@@ -2005,7 +2223,8 @@ class Component extends DCLogic {
       };
       draftClips = (dr.clips || []).map(cl => ({
         label: cl.title,
-        title: this.bind(cl, "title"), youtube: this.bind(cl, "youtube"), poster: this.bind(cl, "poster")
+        title: this.bind(cl, "title"), youtube: this.bind(cl, "youtube"), poster: this.bind(cl, "poster"),
+        uploadPoster: (e) => this.uploadDraftClipPoster(e, cl)
       }));
       draftCredits = (dr.credits || []).map((cr, i) => ({
         title: this.bind(cr, "title"), format: this.bind(cr, "format"), role: this.bind(cr, "role"),
@@ -2058,6 +2277,18 @@ class Component extends DCLogic {
       toast: this.state.toast, showToast: !!this.state.toast,
       contactOpen: this.state.contactOpen,
       adminOpen: this.state.adminOpen, unlocked: this.state.unlocked, locked: !this.state.unlocked,
+      adminSection: { value: this.state.adminSection, onInput: (e) => this.setState({ adminSection: e.target.value }) },
+      adminHeroOpen: this.state.adminSection === "hero",
+      adminStoryOpen: this.state.adminSection === "story",
+      adminDossierOpen: this.state.adminSection === "dossier",
+      adminReelOpen: this.state.adminSection === "reel",
+      adminFactsOpen: this.state.adminSection === "facts",
+      adminWorkOpen: this.state.adminSection === "work",
+      adminGalleryOpen: this.state.adminSection === "gallery",
+      adminCardOpen: this.state.adminSection === "card",
+      adminContactOpen: this.state.adminSection === "contact",
+      adminAdvancedOpen: this.state.adminSection === "advanced",
+      uploading: this.state.uploading,
       d, draftClips, draftCredits, draftRoles, draftFacts,
       facts, credits,
       gallery: (cfg.gallery || []).map((src, i) => ({ i, refFn: (n) => this.setImg(n, src, 800) })),
@@ -2092,7 +2323,7 @@ class Component extends DCLogic {
       downloadCard: () => { const u = (cfg.downloads || {}).castingCardPdf; if (u) window.open(u, "_blank"); else { try { window.print(); } catch (e) {} } },
       addCredit: () => this.addCredit(),
       addFact: () => this.addFact(),
-      shareFeatured: () => { if (activeObj) this.nativeShareText(this.roleShareText(activeObj), "Ananya Rao role fit"); },
+      shareFeatured: () => { if (activeObj) this.nativeShareText(this.roleShareText(activeObj), this.artistName() + " role fit"); },
       copyIntro: () => this.copyText(intro, "Intro text copied"),
       openContact: () => this.openContact(),
       closeContact: () => this.closeContact(),
@@ -2108,7 +2339,13 @@ class Component extends DCLogic {
       resetAdmin: () => this.resetAdmin(),
       copyJSON: () => this.copyJSON(),
       downloadConfig: () => this.downloadConfig(),
-      importJSON: () => this.importJSON()
+      importJSON: () => this.importJSON(),
+      uploadHeroImage: (e) => this.uploadHeroImage(e),
+      uploadStoryImage: (e) => this.uploadStoryImage(e),
+      uploadCardImage: (e) => this.uploadCardImage(e),
+      uploadGalleryImages: (e) => this.uploadGalleryImages(e),
+      uploadResumePdf: (e) => this.uploadResumePdf(e),
+      uploadCastingCardPdf: (e) => this.uploadCastingCardPdf(e)
     };
   }
 }

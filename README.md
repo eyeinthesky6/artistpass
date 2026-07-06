@@ -47,10 +47,10 @@ The current profile is a sample fictional artist. Swap the config, images and re
 | Need | ArtistPass approach |
 | --- | --- |
 | Fast launch | Static `index.html`, no build pipeline required. |
-| Non-technical edits | Admin panel follows the page order and writes a config file. |
+| Non-technical edits | Admin panel opens one page section at a time, with simple upload buttons and live publishing. |
 | Shared live updates | `Publish live` writes the live config to Vercel Blob, with GitHub fallback for older installs. |
 | Casting workflow | Role-fit cards, reel section, headshots, resume, casting card image/PDF and share messages. |
-| Low maintenance | No database and no heavy CMS. Media can live in the repo, YouTube, Google Drive, Cloudinary or Vercel Blob. |
+| Low maintenance | No database and no heavy CMS. Images/PDFs can upload to Vercel Blob; videos can stay on YouTube, Google Drive or another host. |
 
 ## Features
 
@@ -61,7 +61,7 @@ The current profile is a sample fictional artist. Swap the config, images and re
 - Casting card image and PDF export.
 - Resume PDF download.
 - Native share flows with editable message templates.
-- Browser admin panel with local preview and live publishing.
+- Browser admin panel with one-section editing, local preview, Blob image/PDF uploads and live publishing.
 - SEO/AEO basics: canonical URL, social preview image, JSON-LD, sitemap and robots file.
 
 ## Admin Flow
@@ -83,7 +83,9 @@ Admin is deliberately simple:
 
 - **Preview locally** changes only your current browser.
 - **Publish live** pushes the config to Vercel Blob. The live site reads the latest config on refresh.
-- Images and videos are link/path based. For full uploads, add Cloudinary or Vercel Blob behind authentication.
+- **Upload** buttons store images/PDFs in Vercel Blob and place the URL into the right field.
+- Common items are edited once: the main headshot drives the casting card and normal share preview, while contact details drive footer/contact/share text.
+- Videos stay link-based for now. Use YouTube, Google Drive, Vimeo or another video host, then paste the link.
 
 ## Project Structure
 
@@ -91,6 +93,7 @@ Admin is deliberately simple:
 .
 ├── api/config.js               # Runtime config loader
 ├── api/publish-config.js       # Admin publisher: Blob first, GitHub fallback
+├── api/upload.js               # Password-protected Blob uploads for images/PDFs
 ├── artist-config.js            # Published content override
 ├── downloads/                  # Resume and generated static downloads
 ├── docs/                       # README logo and screenshots
@@ -128,6 +131,15 @@ Fastest setup:
 
 The button clones the template, creates a Vercel project, asks for the Admin password, and connects a public Blob store for live config.
 
+No-GitHub user path:
+
+- For a non-technical artist, treat setup as an assisted service. They do not need to know GitHub.
+- You deploy the template once, give them the website link, admin link and password.
+- After that, they use Admin to edit text, upload images/PDFs and publish live from the browser.
+- If they want their own domain, buy/connect it in Vercel, then set it as the project domain. Routine website edits still happen from Admin.
+
+Self-serve note: Vercel's clone button usually expects the person deploying to connect a Git provider. That is fine for makers, but it is not the easiest promise for artists who do not want technical accounts.
+
 Vercel settings:
 
 - Framework preset: **Other**
@@ -140,7 +152,7 @@ The website loads `/api/config` at runtime, so Admin updates can appear on refre
 | Variable | Purpose |
 | --- | --- |
 | `ADMIN_PUBLISH_PASSWORD` | Server-side publish password. |
-| `BLOB_READ_WRITE_TOKEN` | Preferred. Added automatically when a Vercel Blob store is connected. |
+| `BLOB_READ_WRITE_TOKEN` | Preferred. Enables live config plus admin image/PDF uploads. Added automatically when a Vercel Blob store is connected. |
 | `GITHUB_TOKEN` | Optional fallback. GitHub token with contents read/write access to this repo. |
 | `GITHUB_REPO` | Optional fallback repo. Defaults to `eyeinthesky6/artistpass-epk-demo`. |
 | `GITHUB_BRANCH` | Optional fallback branch. Defaults to `main`. |
@@ -149,13 +161,14 @@ The website loads `/api/config` at runtime, so Admin updates can appear on refre
 
 ## Media Guidance
 
-ArtistPass is a link/path editor by default, not a full media storage backend.
+ArtistPass keeps media management intentionally light.
 
 - Public reels: YouTube unlisted is the easiest playback option.
 - Private/restricted clips: Google Drive links are simple and less publicly searchable, but anyone with the link can forward them.
 - Controlled sharing: DocSend-style tools add passcodes, expiry, viewer verification, download controls and analytics.
-- Images/headshots: committed files in `portfolio/` are simplest.
-- Future direct uploads: use Cloudinary or Vercel Blob with authentication, size limits and optimization.
+- Images/headshots: use Admin upload. Images are compressed in-browser before upload and stored in Vercel Blob.
+- PDFs: use Admin upload for resume and casting-card PDFs.
+- Videos: paste links. Direct video upload is intentionally not included yet because video hosting, transcoding and privacy controls need more product decisions.
 
 ## Template Directions
 
