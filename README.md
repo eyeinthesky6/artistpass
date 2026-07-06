@@ -87,6 +87,21 @@ Admin is deliberately simple:
 - Common items are edited once: the main headshot drives the casting card and normal share preview, while contact details drive footer/contact/share text.
 - Videos stay link-based for now. Use YouTube, Google Drive, Vimeo or another video host, then paste the link.
 
+## From Discovery To Use
+
+The simplest user journey is:
+
+1. A creator, artist or manager sees the demo or GitHub page.
+2. They click **Make It Yours** or ask for an assisted setup.
+3. The site is deployed on Vercel with an Admin password and Blob storage.
+4. They open the live site, click **Admin**, and update the page section by section.
+5. They upload images/PDFs or paste reel links from YouTube, Google Drive, Vimeo or another host.
+6. They use **Preview locally** to check changes in their own browser.
+7. They click **Publish live** so everyone sees the update after refresh.
+8. They share the profile, casting card, reel links or contact card from the public site.
+
+For non-technical users, the cleanest path is assisted setup: they never need to touch GitHub. They only use Admin after the site is live.
+
 ## Project Structure
 
 ```text

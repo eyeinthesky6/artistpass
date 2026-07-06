@@ -108,7 +108,8 @@
   .heroActionWA:hover{background:rgba(201,155,69,0.22)}
   .heroPill{font-size:10.5px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#D8CBB6;border:1px solid rgba(242,235,221,0.14);background:rgba(22,18,15,0.28);padding:4px 8px;border-radius:999px}
   @media (max-width:900px){ #mobileBar{display:flex} #page{padding-bottom:76px} }
-  @media (max-width:520px){ .heroAction{width:40px!important;height:40px!important}.heroAction svg{width:15px!important;height:15px!important}.heroPill{font-size:9.5px!important;padding:3px 7px!important}.heroActions{gap:8px!important;margin-top:18px!important}.heroFacts{gap:6px!important;margin-top:10px!important}.heroPhoto{object-position:55% 25%!important} }
+  @media (max-width:520px){ .heroSection{align-items:flex-end!important}.heroContent{padding:0 24px 118px!important;gap:14px!important}.heroTextBlock{width:min(300px,calc(100vw - 74px))!important;max-width:300px!important}.heroAction{width:40px!important;height:40px!important}.heroAction svg{width:15px!important;height:15px!important}.heroPill{font-size:9.5px!important;padding:3px 7px!important}.heroActions{gap:8px!important;margin-top:18px!important}.heroFacts{gap:6px!important;margin-top:10px!important}.heroPhoto{object-position:58% 25%!important} }
+  @media (max-width:380px){ .heroContent{padding-bottom:108px!important}.heroTextBlock{width:min(292px,calc(100vw - 58px))!important} }
   @media (max-width:820px){ .dossier{flex-direction:column!important;min-height:0!important} .dossierKeys{width:100%!important;border-right:1px solid rgba(242,235,221,0.12)!important;border-bottom:none!important;border-radius:12px 12px 0 0!important} .dossierPanel{border-radius:0 0 12px 12px!important} .storyGrid{grid-template-columns:1fr!important} .footGrid{grid-template-columns:1fr!important} .adminPanel{width:100%!important} }
 </style>
 </helmet>
@@ -116,7 +117,7 @@
 <div id="page" style="position:relative;width:100%;overflow-x:hidden">
 
   <!-- HERO -->
-  <section id="hero" style="position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden">
+  <section id="hero" class="heroSection" style="position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden">
     <div style="position:absolute;inset:0;overflow:hidden">
       <div style="position:absolute;inset:-12.5%;width:125%;height:125%;animation:kenburns 22s ease-out forwards">
         <sc-if value="{{ hasHeroImg }}" hint-placeholder-val="{{ false }}"><img class="heroPhoto" alt="{{ name }}" ref="{{ heroImgRef }}" loading="eager" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 25%"></sc-if>
@@ -128,9 +129,9 @@
     <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(22,18,15,0.97) 0%,rgba(22,18,15,0.4) 26%,rgba(22,18,15,0) 55%)"></div>
     <div style="position:absolute;top:0;left:0;right:0;height:88px;pointer-events:none;background:linear-gradient(180deg,rgba(10,8,6,0.6),transparent)"></div>
 
-    <div style="position:relative;pointer-events:none;width:100%;max-width:1180px;margin:0 auto;padding:clamp(34px,5vh,72px) clamp(16px,4vw,40px) clamp(30px,5vh,70px);display:flex;gap:22px">
+    <div class="heroContent" style="position:relative;pointer-events:none;width:100%;max-width:1180px;margin:0 auto;padding:clamp(34px,5vh,72px) clamp(16px,4vw,40px) clamp(30px,5vh,70px);display:flex;gap:22px">
       <div style="flex-shrink:0;width:1px;margin-top:8px;background:linear-gradient(180deg,transparent,#C99B45 22%,#C99B45 78%,transparent)"></div>
-      <div style="min-width:0;flex:0 1 auto;width:min(760px,calc(100vw - 76px));max-width:760px">
+      <div class="heroTextBlock" style="min-width:0;flex:0 1 auto;width:min(760px,calc(100vw - 76px));max-width:760px">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
           <span style="font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:#CBA97C;font-weight:600">{{ eyebrow }}</span>
         </div>
