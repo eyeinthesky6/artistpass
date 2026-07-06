@@ -1,90 +1,156 @@
-# ArtistPass Demo - Casting EPK Template
+<p align="center">
+  <img src="docs/readme-logo.svg" alt="ArtistPass logo" width="820">
+</p>
 
-A single-page cinematic casting EPK demo using a fictional actor profile,
-Ananya Rao. Static site, no build step. Just serve `index.html`.
+<p align="center">
+  <strong>A cinematic artist EPK template with simple browser admin, share cards, reels, headshots and Vercel publishing.</strong>
+</p>
 
-Local demo URL: `http://127.0.0.1:4177/`
-Production demo URL: `https://artistpass-epk-demo.vercel.app`
+<p align="center">
+  <a href="https://artistpass.vercel.app"><strong>Live Site</strong></a>
+  ·
+  <a href="#screenshots"><strong>Screenshots</strong></a>
+  ·
+  <a href="#admin-flow"><strong>Admin Flow</strong></a>
+  ·
+  <a href="#deploy"><strong>Deploy</strong></a>
+</p>
 
-## Files
-- `index.html` - the whole site and admin interface.
-- `support.js` - runtime dependency, keep next to `index.html`.
-- `artist-config.js` - optional published content overrides exported from Admin.
-- `image-slot.js` - drag-and-drop image helper.
-- `portfolio/demo-ananya/` - fictional demo images and short MP4 clips.
-- `robots.txt`, `sitemap.xml`, `favicon.svg` - SEO/AEO basics.
-- `vercel.json` - zero-config hosting settings.
+<p align="center">
+  <img alt="Static site" src="https://img.shields.io/badge/static-site-16120F?style=for-the-badge">
+  <img alt="No CMS" src="https://img.shields.io/badge/no-heavy_CMS-C99B45?style=for-the-badge&labelColor=16120F">
+  <img alt="Vercel" src="https://img.shields.io/badge/Vercel-ready-000000?style=for-the-badge&logo=vercel">
+  <img alt="Admin publisher" src="https://img.shields.io/badge/admin-publish_live-C99B45?style=for-the-badge&labelColor=16120F">
+</p>
 
-## Why this base is useful
-This is a deliberately simple architecture for non-technical users:
+## What It Is
 
-- No heavy CMS.
-- No database required for the default version.
-- Admin edits follow the visible page order.
-- Preview is local, Publish live can push `artist-config.js` to GitHub through a
-  Vercel API route.
-- A future agent/skill can set up deployment, collect media links, write the
-  config, and guide domain setup with only a Vercel account.
+ArtistPass is a share-ready profile website for actors, singers, creators and performers who need a polished portfolio without a heavy CMS. It gives them a cinematic public page, a simple admin panel, downloadable materials, and share flows that work for casting and production conversations.
 
-This makes the project a useful base for actor portfolios, singer EPKs,
-creator press kits, founder pages, character dossiers, or book/movie pitch
-pages where the user mostly needs text, images, reels, share cards and contact
-links.
+The current profile is a sample fictional artist. Swap the config, images and reel links to make a new artist site.
 
-## Editing
-- Open the site and scroll to the footer, then click **Admin**.
-- Password: **demo2026**. Change this in `index.html` before any public launch.
-- Admin follows the page order: Hero, Story, Casting dossier, Reel, Casting
-  facts, Selected work, Headshots, Pass it on, Footer/contact, then Advanced.
-- In **Pass it on / casting card**, edit the share image and the profile,
-  role-fit, and clip share message templates.
-- In **Footer/contact links**, edit phone, email, social links and the direct
-  contact draft shown to visitors.
-- **Preview locally** updates only the current browser and downloads a backup
-  `artist-config.js`.
-- **Publish live** asks for the publish password, then saves `artist-config.js`
-  to GitHub through the Vercel API route. GitHub/Vercel then deploys the change
-  so everyone sees the same update.
+## Screenshots
 
-## Deploy to Vercel
-Framework preset: **Other**. No build command. Output/root = the repo root.
-Vercel serves `index.html` at the root.
+<p align="center">
+  <img src="docs/screenshots/artistpass-home.png" alt="ArtistPass home screenshot" width="780">
+</p>
 
-If you use the Admin publish route, configure these Vercel environment variables:
+<p align="center">
+  <img src="docs/screenshots/artistpass-admin.png" alt="ArtistPass admin panel screenshot" width="390">
+  <img src="docs/screenshots/artistpass-mobile.png" alt="ArtistPass mobile screenshot" width="210">
+</p>
 
-- `ADMIN_PUBLISH_PASSWORD` - server-side publish password.
-- `GITHUB_TOKEN` - GitHub token with contents read/write access to this repo.
-- `GITHUB_REPO` - optional, defaults to `eyeinthesky6/artistpass-epk-demo`.
-- `GITHUB_BRANCH` - optional, defaults to `main`.
-- `GITHUB_COMMITTER_NAME` / `GITHUB_COMMITTER_EMAIL` - optional commit identity.
+## Why This Base Works
+
+| Need | ArtistPass approach |
+| --- | --- |
+| Fast launch | Static `index.html`, no build pipeline required. |
+| Non-technical edits | Admin panel follows the page order and writes a config file. |
+| Shared live updates | `Publish live` can write `artist-config.js` to GitHub through a Vercel API route. |
+| Casting workflow | Role-fit cards, reel section, headshots, resume, casting card image/PDF and share messages. |
+| Low maintenance | No database by default. Media can live in the repo, YouTube, Google Drive, Cloudinary or Vercel Blob. |
+
+## Features
+
+- Cinematic first screen with profile CTA buttons.
+- Role-fit dossier for casting context.
+- Reel carousel with matching clips.
+- Headshot gallery with one-click image downloads.
+- Casting card image and PDF export.
+- Resume PDF download.
+- Native share flows with editable message templates.
+- Browser admin panel with local preview and live publishing.
+- SEO/AEO basics: canonical URL, social preview image, JSON-LD, sitemap and robots file.
+
+## Admin Flow
+
+```mermaid
+flowchart LR
+  A["Open site"] --> B["Footer Admin"]
+  B --> C["Edit sections in page order"]
+  C --> D["Preview locally"]
+  D --> E{"Looks right?"}
+  E -- "No" --> C
+  E -- "Yes" --> F["Publish live"]
+  F --> G["artist-config.js in GitHub"]
+  G --> H["Vercel deploy"]
+  H --> I["Everyone sees the update"]
+```
+
+Admin is deliberately simple:
+
+- **Preview locally** changes only your current browser.
+- **Publish live** pushes the config to GitHub and lets Vercel deploy it.
+- Images and videos are link/path based. For full uploads, add Cloudinary or Vercel Blob behind authentication.
+
+## Project Structure
+
+```text
+.
+├── api/publish-config.js       # Optional GitHub publisher for Admin
+├── artist-config.js            # Published content override
+├── downloads/                  # Resume and generated static downloads
+├── docs/                       # README logo and screenshots
+├── portfolio/demo-ananya/      # Sample profile images and short clips
+├── index.html                  # Site, admin panel and runtime logic
+├── support.js                  # Runtime dependency
+├── robots.txt
+├── sitemap.xml
+└── vercel.json
+```
+
+## Local Use
+
+Serve the folder with any static server:
+
+```bash
+python -m http.server 4177
+```
+
+Then open:
+
+```text
+http://127.0.0.1:4177/
+```
+
+## Deploy
+
+Vercel settings:
+
+- Framework preset: **Other**
+- Build command: none
+- Output/root: repo root
+
+If you use the Admin publish route, add these Vercel environment variables:
+
+| Variable | Purpose |
+| --- | --- |
+| `ADMIN_PUBLISH_PASSWORD` | Server-side publish password. |
+| `GITHUB_TOKEN` | GitHub token with contents read/write access to this repo. |
+| `GITHUB_REPO` | Optional. Defaults to `eyeinthesky6/artistpass-epk-demo`. |
+| `GITHUB_BRANCH` | Optional. Defaults to `main`. |
+| `GITHUB_COMMITTER_NAME` | Optional commit identity. |
+| `GITHUB_COMMITTER_EMAIL` | Optional commit email. |
 
 ## Media Guidance
-Admin is a link/path editor, not a full media uploader.
 
-- Public reels: YouTube unlisted is easiest for playback and sharing.
-- Private clips: Google Drive links are simple and less searchable, but anyone
-  with the link can forward them.
-- More controlled sharing: DocSend-style tools add passcodes, expiry, viewer
-  verification, download controls and analytics, but they add process overhead.
-- Images/headshots: committed files in `portfolio/` are simplest. For repeated
-  client use, prefer Cloudinary or Vercel Blob with server-side upload handling.
-- Future direct uploads: use Vercel Blob or Cloudinary with authentication,
-  size limits and optimization. Do not bolt raw file uploads onto the static
-  page without that backend.
+ArtistPass is a link/path editor by default, not a full media storage backend.
+
+- Public reels: YouTube unlisted is the easiest playback option.
+- Private/restricted clips: Google Drive links are simple and less publicly searchable, but anyone with the link can forward them.
+- Controlled sharing: DocSend-style tools add passcodes, expiry, viewer verification, download controls and analytics.
+- Images/headshots: committed files in `portfolio/` are simplest.
+- Future direct uploads: use Cloudinary or Vercel Blob with authentication, size limits and optimization.
 
 ## Template Directions
-The current site can stay close to its present layout for actor/artist EPKs.
-For other use cases, keep the same base stack and swap templates:
+
+This base can support more than one vertical:
 
 - Actor/artist EPK: current layout, reels, role fits, share card.
-- Singer/musician EPK: audio/video reel, set list, genres, performance clips,
-  booking CTA.
+- Singer/musician EPK: audio/video reel, genres, set list, booking CTA.
 - Founder/expert profile: proof, talks, press, advisory fit, lead capture.
-- Fictional character profile: character dossier, world lore, image/video
-  gallery, teaser clips, future game hooks.
+- Fictional character profile: character dossier, lore gallery, teaser clips and future game hooks.
 
-For a young adult fantasy/book direction, do not force reuse if the objective
-becomes story discovery or gameplay. The current substrate is good for a single
-shareable profile or small character dossier. Multiple characters would need a
-character index, reusable config per character, and clearer navigation before it
-becomes a proper story/game companion.
+## License Note
+
+The sample profile, images and clips are placeholder/demo materials for showing the template flow. Replace them before using the template for a real artist or public client project.

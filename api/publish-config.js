@@ -97,7 +97,7 @@ module.exports = async function publishConfig(req, res) {
       branch,
       committer: {
         name: process.env.GITHUB_COMMITTER_NAME || "ArtistPass Admin Publisher",
-        email: process.env.GITHUB_COMMITTER_EMAIL || "admin@artistpass-epk-demo.vercel.app"
+        email: process.env.GITHUB_COMMITTER_EMAIL || "admin@artistpass.vercel.app"
       }
     };
     if (sha) payload.sha = sha;

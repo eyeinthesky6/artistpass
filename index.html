@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ananya Rao | Fictional Actor EPK Demo</title>
-<meta name="description" content="Ananya Rao is a fictional Mumbai actor profile demo built to show a share-ready artist EPK for casting, reels, headshots and simple self-managed updates.">
+<title>Ananya Rao | Actor EPK</title>
+<meta name="description" content="Ananya Rao is a Mumbai actor profile built for casting, reels, headshots, role-fit notes and simple self-managed updates.">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://artistpass-epk-demo.vercel.app">
+<link rel="canonical" href="https://artistpass.vercel.app">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Ananya Rao - Fictional actor EPK demo">
-<meta property="og:description" content="Fictional Mumbai actor profile for corporate, legal, investigator, doctor, professor and urban-professional roles. Watch the demo reel.">
+<meta property="og:title" content="Ananya Rao - Actor EPK">
+<meta property="og:description" content="Mumbai actor profile for corporate, legal, investigator, doctor, professor and urban-professional roles. Watch the reel.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://artistpass-epk-demo.vercel.app">
-<meta property="og:site_name" content="ArtistPass Demo">
-<meta property="og:image" content="https://artistpass-epk-demo.vercel.app/portfolio/demo-ananya/ananya-headshot.png">
-<meta property="og:image:alt" content="Ananya Rao fictional actor headshot">
+<meta property="og:url" content="https://artistpass.vercel.app">
+<meta property="og:site_name" content="ArtistPass">
+<meta property="og:image" content="https://artistpass.vercel.app/portfolio/demo-ananya/ananya-headshot.png">
+<meta property="og:image:alt" content="Ananya Rao actor headshot">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ananya Rao | Fictional Actor EPK Demo">
-<meta name="twitter:description" content="Screen-ready demo profile for corporate, legal, investigator, doctor, professor and urban character roles.">
-<meta name="twitter:image" content="https://artistpass-epk-demo.vercel.app/portfolio/demo-ananya/ananya-headshot.png">
+<meta name="twitter:title" content="Ananya Rao | Actor EPK">
+<meta name="twitter:description" content="Screen-ready actor profile for corporate, legal, investigator, doctor, professor and urban character roles.">
+<meta name="twitter:image" content="https://artistpass.vercel.app/portfolio/demo-ananya/ananya-headshot.png">
 <meta name="theme-color" content="#16120F">
 <script type="application/ld+json">
 {
@@ -29,12 +29,12 @@
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://artistpass-epk-demo.vercel.app/#person",
+      "@id": "https://artistpass.vercel.app/#person",
       "name": "Ananya Rao",
-      "url": "https://artistpass-epk-demo.vercel.app",
-      "image": "https://artistpass-epk-demo.vercel.app/portfolio/demo-ananya/ananya-headshot.png",
+      "url": "https://artistpass.vercel.app",
+      "image": "https://artistpass.vercel.app/portfolio/demo-ananya/ananya-headshot.png",
       "jobTitle": "Actor",
-      "description": "Fictional Mumbai-based actor profile suited for corporate, legal, investigator, doctor, professor, mother and urban character roles.",
+      "description": "Mumbai-based actor profile suited for corporate, legal, investigator, doctor, professor, mother and urban character roles.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Mumbai",
@@ -52,11 +52,11 @@
     },
     {
       "@type": "WebSite",
-      "@id": "https://artistpass-epk-demo.vercel.app/#website",
-      "url": "https://artistpass-epk-demo.vercel.app",
-      "name": "ArtistPass Demo Casting Page",
+      "@id": "https://artistpass.vercel.app/#website",
+      "url": "https://artistpass.vercel.app",
+      "name": "ArtistPass Casting Page",
       "publisher": {
-        "@id": "https://artistpass-epk-demo.vercel.app/#person"
+        "@id": "https://artistpass.vercel.app/#person"
       }
     }
   ]
@@ -266,7 +266,7 @@
     <div style="max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)">
       <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:30px">
         <div>
-          <div style="font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:#CBA97C;font-weight:600;margin-bottom:14px">Proof - demo clips</div>
+          <div style="font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:#CBA97C;font-weight:600;margin-bottom:14px">Proof - selected scenes</div>
           <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,6vw,72px);line-height:0.98;letter-spacing:-0.5px">The reel</h2>
         </div>
         <sc-if value="{{ hasActive }}" hint-placeholder-val="{{ false }}">
@@ -510,7 +510,7 @@
       <div class="footGrid" style="display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:start">
         <div>
           <div style="font-family:'Instrument Serif',serif;font-size:clamp(30px,5vw,48px);line-height:1;color:#F4EDDF">Ananya Rao</div>
-          <p style="font-size:14px;color:#A3927C;margin-top:12px;max-width:44ch">Fictional actor profile demo. Built for corporate, legal, investigative, medical, family and urban-professional roles.</p>
+          <p style="font-size:14px;color:#A3927C;margin-top:12px;max-width:44ch">Mumbai actor. Built for corporate, legal, investigative, medical, family and urban-professional roles.</p>
           <sc-if value="{{ hasEmail }}" hint-placeholder-val="{{ false }}">
             <a href="{{ emailUrl }}" style="display:inline-flex;align-items:center;gap:8px;color:#D8CBB6;text-decoration:none;font-size:14px;margin-top:14px" style-hover="color:#E4B85E">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
@@ -539,8 +539,9 @@
         </div>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(242,235,221,0.08)">
-        <span style="font-size:12px;color:#6E6152">© 2026 ArtistPass Demo · Fictional profile</span>
-        <button onClick="{{ openAdmin }}" style="cursor:pointer;display:flex;align-items:center;gap:7px;border:none;background:transparent;color:#6E6152;font-family:inherit;font-size:12px;font-weight:600;padding:4px" style-hover="color:#C99B45">
+        <span style="font-size:12px;color:#6E6152">Sample profile for ArtistPass. To make your own, contact 6edroid@gmail.com.</span>
+        <button onClick="{{ openAdmin }}" style="cursor:pointer;display:flex;align-items:center;gap:7px;border:1px solid rgba(201,155,69,0.35);background:rgba(201,155,69,0.12);color:#E4B85E;font-family:inherit;font-size:12px;font-weight:700;padding:8px 13px;border-radius:999px;box-shadow:0 8px 24px -16px rgba(201,155,69,0.9)" style-hover="background:rgba(201,155,69,0.2);border-color:#C99B45;color:#F2EBDD">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
           Admin
         </button>
       </div>
@@ -607,12 +608,15 @@
   <!-- ADMIN DRAWER -->
   <sc-if value="{{ adminOpen }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed;inset:0;z-index:100;display:flex;justify-content:flex-end">
-      <div onClick="{{ closeAdmin }}" style="position:absolute;inset:0;background:rgba(8,6,5,0.7);backdrop-filter:blur(2px)"></div>
-      <div class="adminPanel adminScroll" style="position:relative;width:min(560px,100%);height:100%;overflow-y:auto;background:#1A1512;border-left:1px solid rgba(242,235,221,0.14);box-shadow:-30px 0 80px rgba(0,0,0,0.5)">
-        <div style="position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:rgba(26,21,18,0.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(242,235,221,0.1)">
+      <div onClick="{{ closeAdmin }}" style="position:absolute;inset:0;background:rgba(8,6,5,0.72);backdrop-filter:blur(3px)"></div>
+      <div class="adminPanel adminScroll" style="position:relative;width:min(560px,100%);height:100%;overflow-y:auto;background:#1A1512;border-left:2px solid #C99B45;box-shadow:-34px 0 90px rgba(0,0,0,0.56),-6px 0 30px rgba(201,155,69,0.12)">
+        <div style="position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:linear-gradient(135deg,rgba(31,24,19,0.98),rgba(26,21,18,0.96));backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,155,69,0.26)">
           <div>
-            <div style="font-family:'Instrument Serif',serif;font-size:22px;color:#F4EDDF">Admin</div>
-            <div style="font-size:11px;color:#8A7B67;letter-spacing:0.04em">Preview is local · Publish updates everyone</div>
+            <div style="display:inline-flex;align-items:center;gap:8px;color:#C99B45;font-size:10px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:4px">
+              <span style="width:7px;height:7px;border-radius:50%;background:#C99B45;box-shadow:0 0 18px rgba(201,155,69,0.7)"></span> Website editor
+            </div>
+            <div style="font-family:'Instrument Serif',serif;font-size:24px;color:#F4EDDF">Admin</div>
+            <div style="font-size:11px;color:#A3927C;letter-spacing:0.04em">Edit sections in page order. Preview locally, then Publish live.</div>
           </div>
           <button onClick="{{ closeAdmin }}" style="cursor:pointer;width:36px;height:36px;border-radius:50%;border:1px solid rgba(242,235,221,0.16);background:transparent;color:#C4B6A3;font-size:18px" style-hover="background:rgba(242,235,221,0.08)">✕</button>
         </div>
@@ -621,7 +625,7 @@
           <div style="padding:40px 24px;display:flex;flex-direction:column;gap:16px;max-width:360px;margin:0 auto">
             <div style="text-align:center">
               <div style="font-family:'Instrument Serif',serif;font-size:26px;color:#F4EDDF">Enter password</div>
-              <p style="font-size:13px;color:#8A7B67;margin-top:6px">Demo admin password. Default: <span style="color:#C99B45">demo2026</span></p>
+              <p style="font-size:13px;color:#8A7B67;margin-top:6px">Admin password. Default: <span style="color:#C99B45">demo2026</span></p>
             </div>
             <input type="password" placeholder="Password" value="{{ passField.value }}" onInput="{{ passField.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:15px;padding:13px 14px;text-align:center;letter-spacing:0.1em">
             <button onClick="{{ tryUnlock }}" style="cursor:pointer;border:none;background:#C99B45;color:#1A130A;font-family:inherit;font-size:14px;font-weight:700;padding:13px;border-radius:8px" style-hover="background:#E4B85E">Unlock</button>
@@ -825,7 +829,7 @@
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.KEY = "artistDemoConfig_v1";
+    this.KEY = "artistPassConfig_v1";
     this.ADMIN = "demo2026";
     this.OPTIMIZED_IMAGES = {};
     this.draft = null;
@@ -951,14 +955,14 @@ class Component extends DCLogic {
     }
   }
 
-  siteUrl() { return "https://artistpass-epk-demo.vercel.app"; }
+  siteUrl() { return "https://artistpass.vercel.app"; }
 
   syncShareMeta() {
     if (typeof document === "undefined") return;
     const cfg = this.state.config || {};
     const image = this.assetUrl(this.shareImageSrc() || "portfolio/demo-ananya/ananya-headshot.png");
     const profileText = this.profileShareText(this.siteUrl(), this.prettyPhone(), "");
-    const title = (cfg.name || "Ananya Rao") + " | Fictional Actor EPK Demo";
+    const title = (cfg.name || "Ananya Rao") + " | Actor EPK";
     const description = profileText.split(/\n/)[0].slice(0, 240);
     const set = (selector, value) => {
       const node = document.head && document.head.querySelector(selector);
@@ -995,7 +999,7 @@ class Component extends DCLogic {
     try {
       const u = new URL(raw);
       if (u.hostname === "wsrv.nl" || u.hostname === "images.weserv.nl") return raw;
-      if (u.hostname === "artistpass-epk-demo.vercel.app") {
+      if (u.hostname === "artistpass.vercel.app") {
         const local = u.pathname.replace(/^\//, "");
         if (this.OPTIMIZED_IMAGES[local]) return this.siteUrl() + "/" + this.OPTIMIZED_IMAGES[local];
       }
@@ -1314,15 +1318,15 @@ class Component extends DCLogic {
   defaults() {
     return {
       name: "Ananya Rao",
-      eyebrow: "Fictional demo - Mumbai",
+      eyebrow: "Now casting - Mumbai",
       positioning: "A composed screen presence for rooms where every word matters.",
-      subline: "Actor profile demo. Screen-ready for corporate, legal, investigative, medical, family and urban character roles.",
+      subline: "Screen-ready for corporate, legal, investigative, medical, family and urban character roles.",
       quickFacts: ["Late 30s/40s", "Hindi", "English", "Self-test"],
       contact: { whatsapp: "919000000000", email: "6edroid@gmail.com", instagram: "", youtube: "", linkedin: "", imdb: "", directory: "" },
       images: { hero: "portfolio/demo-ananya/ananya-hero.png", story: "portfolio/demo-ananya/ananya-investigator.png", headshot: "portfolio/demo-ananya/ananya-headshot.png" },
       sharing: {
         image: "portfolio/demo-ananya/ananya-headshot.png",
-        profileText: "Ananya Rao\nActor - Mumbai\n\nFictional demo profile for a share-ready artist EPK.\nStrong fit for:\nCorporate - Legal - Investigator - Doctor - Mother - Professor - Journalist\n\nLate 30s / early 40s - Hindi - English\nSelf-test ready - TV - OTT - Ads - Theatre - VO\n\nCasting card: {site}\nContact: {contact}",
+        profileText: "Ananya Rao\nActor - Mumbai\n\nComposed screen presence for authority, family and urban-professional roles.\nStrong fit for:\nCorporate - Legal - Investigator - Doctor - Mother - Professor - Journalist\n\nLate 30s / early 40s - Hindi - English\nSelf-test ready - TV - OTT - Ads - Theatre - VO\n\nCasting card: {site}\nContact: {contact}",
         roleText: "Ananya Rao - fit for {role} roles.\n{note}\nRole fit: {roleUrl}\nContact: {contact}",
         clipText: "{roleText}\nVideo: {videoUrl}",
         contactText: "Hi Jai, I saw your website and want to explore if I can use it or make my own."
@@ -1330,17 +1334,17 @@ class Component extends DCLogic {
       castingCard: {
         label: "Casting card",
         roleLine: "Actor - Mumbai",
-        summary: "Fictional demo profile. Strong fit for corporate, legal, investigative, medical, family and urban-professional roles.",
+        summary: "Strong fit for corporate, legal, investigative, medical, family and urban-professional roles.",
         chips: ["Late 30s / early 40s", "Hindi - English", "Self-test ready", "TV - OTT - Ads - Theatre - VO"]
       },
       story: {
         kicker: "The story",
         headline: "She does not rush the scene.",
         accent: "She holds it.",
-        body: "Ananya Rao is a fictional actor profile created to demonstrate a fast, share-ready artist EPK. The template is built for performers who need a clean casting card, reel links, stills, role-fit copy and simple admin-led updates without a heavy CMS.",
-        markers: [{ t: "Presence", d: "Calm, watchful, precise." }, { t: "Range", d: "Corporate, legal, family and thriller." }, { t: "Use case", d: "A demo profile for the platform." }]
+        body: "Ananya Rao brings a still, attentive quality to scenes that need authority without noise. She fits boardrooms, legal rooms, hospitals, interrogation spaces and family dramas where one look can carry the pressure of the moment.",
+        markers: [{ t: "Presence", d: "Calm, watchful, precise." }, { t: "Range", d: "Corporate, legal, family and thriller." }, { t: "Screen fit", d: "Authority with emotional restraint." }]
       },
-      reel: { youtube: "portfolio/demo-ananya/ananya-boardroom.mp4", playlist: "", poster: "portfolio/demo-ananya/ananya-corporate.png", title: "The demo reel", meta: "3 short synthetic clips - Hindi & English ready" },
+      reel: { youtube: "portfolio/demo-ananya/ananya-boardroom.mp4", playlist: "", poster: "portfolio/demo-ananya/ananya-corporate.png", title: "Selected scenes", meta: "3 short scenes - Hindi & English ready" },
       roles: [
         { slug: "corporate", tag: "Boardroom", title: "Corporate Leader / CFO / Founder", line: "The calm at the head of the table.", note: "Controlled, senior, boardroom-ready presence that can carry strategy, pressure and authority.", intensity: "Restrained", formats: "OTT - Business drama - Corporate films", clipUrl: "portfolio/demo-ananya/ananya-boardroom.mp4" },
         { slug: "lawyer", tag: "Institution", title: "Lawyer / Bureaucrat / Policy Head", line: "The rulebook, and the conscience under it.", note: "Precise, procedural authority under pressure - institution with a pulse.", intensity: "Precise", formats: "Courtroom - Government - Social drama", clipUrl: "portfolio/demo-ananya/ananya-lawyer.mp4" },
@@ -1351,27 +1355,27 @@ class Component extends DCLogic {
         { slug: "voiceover", tag: "Voice", title: "Voice-over / Narration", line: "A measured voice for serious stories.", note: "A documentary, brand film and institutional narration voice with unhurried authority.", intensity: "Authoritative", formats: "VO - Documentary - Corporate explainer", clipUrl: "" }
       ],
       clips: [
-        { slug: "boardroom-authority", title: "Boardroom Authority", lane: "Demo scene - Corporate", duration: "10 sec", language: "Hindi / English", intensity: "Restrained", tags: ["corporate", "antagonist"], youtube: "portfolio/demo-ananya/ananya-boardroom.mp4", poster: "portfolio/demo-ananya/ananya-corporate.png", posterHint: "Synthetic demo clip: boardroom authority" },
-        { slug: "procedure", title: "Procedure", lane: "Demo scene - Legal", duration: "10 sec", language: "Hindi / English", intensity: "Precise", tags: ["lawyer", "family"], youtube: "portfolio/demo-ananya/ananya-lawyer.mp4", poster: "portfolio/demo-ananya/ananya-lawyer.png", posterHint: "Synthetic demo clip: legal or bureaucratic authority" },
-        { slug: "evidence-room", title: "Evidence Room", lane: "Demo scene - Investigator", duration: "10 sec", language: "Hindi / English", intensity: "Focused", tags: ["investigator", "antagonist"], youtube: "portfolio/demo-ananya/ananya-investigator.mp4", poster: "portfolio/demo-ananya/ananya-investigator.png", posterHint: "Synthetic demo clip: investigative pressure" }
+        { slug: "boardroom-authority", title: "Boardroom Authority", lane: "Scene - Corporate", duration: "10 sec", language: "Hindi / English", intensity: "Restrained", tags: ["corporate", "antagonist"], youtube: "portfolio/demo-ananya/ananya-boardroom.mp4", poster: "portfolio/demo-ananya/ananya-corporate.png", posterHint: "Boardroom authority clip" },
+        { slug: "procedure", title: "Procedure", lane: "Scene - Legal", duration: "10 sec", language: "Hindi / English", intensity: "Precise", tags: ["lawyer", "family"], youtube: "portfolio/demo-ananya/ananya-lawyer.mp4", poster: "portfolio/demo-ananya/ananya-lawyer.png", posterHint: "Legal or bureaucratic authority clip" },
+        { slug: "evidence-room", title: "Evidence Room", lane: "Scene - Investigator", duration: "10 sec", language: "Hindi / English", intensity: "Focused", tags: ["investigator", "antagonist"], youtube: "portfolio/demo-ananya/ananya-investigator.mp4", poster: "portfolio/demo-ananya/ananya-investigator.png", posterHint: "Investigative pressure clip" }
       ],
       facts: [
         { k: "Base", v: "Mumbai" },
         { k: "Playing age", v: "Late 30s / early 40s - senior professional, mother, authority" },
         { k: "Languages", v: "Hindi - English" },
-        { k: "Profile", v: "Fictional demo actor" },
+        { k: "Profile", v: "Actor for senior professional, family and authority roles" },
         { k: "Skills", v: "Acting - voice-over - anchoring - serious drama" },
-        { k: "Availability", v: "Demo contact details only" },
+        { k: "Availability", v: "Available for self-tests, readings and casting discussions" },
         { k: "Formats", v: "TV - OTT - Ads - Corporate films - Theatre - Vertical - VO" },
-        { k: "Use case", v: "Share-ready artist EPK template" }
+        { k: "Materials", v: "Casting card, resume, headshots, role-fit notes and reel links" }
       ],
       credits: [
-        { title: "Boardroom Authority", format: "Synthetic demo", role: "Corporate lead", year: "2026", link: "", note: "Generated still/video for template testing" },
-        { title: "Procedure", format: "Synthetic demo", role: "Legal authority", year: "2026", link: "", note: "Generated still/video for template testing" },
-        { title: "Evidence Room", format: "Synthetic demo", role: "Investigator", year: "2026", link: "", note: "Generated still/video for template testing" },
-        { title: "Portrait pack", format: "AI image set", role: "Headshots and looks", year: "2026", link: "", note: "Synthetic demo assets" }
+        { title: "Boardroom Authority", format: "Showreel scene", role: "Corporate lead", year: "2026", link: "", note: "Strategic confrontation" },
+        { title: "Procedure", format: "Showreel scene", role: "Legal authority", year: "2026", link: "", note: "Measured institutional pressure" },
+        { title: "Evidence Room", format: "Showreel scene", role: "Investigator", year: "2026", link: "", note: "Focused interrogation beat" },
+        { title: "Portrait pack", format: "Headshots", role: "Professional looks", year: "2026", link: "", note: "Corporate, legal and character stills" }
       ],
-      downloads: { resumePdf: "downloads/ananya-rao-demo-resume.pdf", headshotPack: "", castingCardPdf: "" },
+      downloads: { resumePdf: "downloads/ananya-rao-resume.pdf", headshotPack: "", castingCardPdf: "" },
       gallery: [
         "portfolio/demo-ananya/ananya-headshot.png",
         "portfolio/demo-ananya/ananya-corporate.png",
@@ -1810,7 +1814,7 @@ class Component extends DCLogic {
     const site = this.siteUrl();
     const shareCardUrl = site + "/?share=card#share";
     const shareProfileUrl = site + "/?share=profile";
-    const defaultResumePdf = "downloads/ananya-rao-demo-resume.pdf";
+    const defaultResumePdf = "downloads/ananya-rao-resume.pdf";
     const defaultDirectory = "";
     const waNumber = this.contactNumber();
     const waPretty = this.prettyPhone(waNumber);
