@@ -9,11 +9,13 @@
 <p align="center">
   <a href="https://artistpass.vercel.app"><strong>Live Site</strong></a>
   ·
-  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+the+password+that+unlocks+the+website+Admin+panel+and+Publish+live+button.&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D"><strong>Make It Yours</strong></a>
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo%23admin-flow&demo-title=ArtistPass+EPK+Demo&demo-description=Cinematic+artist+profile+with+simple+admin%2C+share+cards%2C+reels+and+Vercel+Blob+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D"><strong>Make It Yours</strong></a>
   ·
   <a href="#screenshots"><strong>Screenshots</strong></a>
   ·
   <a href="#admin-flow"><strong>Admin Flow</strong></a>
+  ·
+  <a href="docs/ONE_CLICK_DEPLOY.md"><strong>One-Click Setup</strong></a>
   ·
   <a href="#deploy"><strong>Deploy</strong></a>
 </p>
@@ -93,14 +95,14 @@ The simplest user journey is:
 
 1. A creator, artist or manager sees the demo or GitHub page.
 2. They click **Make It Yours** or ask for an assisted setup.
-3. The site is deployed on Vercel with an Admin password and Blob storage.
-4. They open the live site, click **Admin**, and update the page section by section.
+3. Vercel creates their project, asks for a private Admin password, and connects Blob storage.
+4. They open their live site, click **Admin**, enter the same password, and update the page section by section.
 5. They upload images/PDFs or paste reel links from YouTube, Google Drive, Vimeo or another host.
 6. They use **Preview locally** to check changes in their own browser.
 7. They click **Publish live** so everyone sees the update after refresh.
 8. They share the profile, casting card, reel links or contact card from the public site.
 
-For non-technical users, the cleanest path is assisted setup: they never need to touch GitHub. They only use Admin after the site is live.
+For DIY users, this is a Vercel one-click template. For non-technical users, the cleanest path is assisted setup: they never need to touch GitHub. They only use Admin after the site is live.
 
 ## Project Structure
 
@@ -139,12 +141,21 @@ http://127.0.0.1:4177/
 Fastest setup:
 
 <p>
-  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+the+password+that+unlocks+the+website+Admin+panel+and+Publish+live+button.&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D">
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo%23admin-flow&demo-title=ArtistPass+EPK+Demo&demo-description=Cinematic+artist+profile+with+simple+admin%2C+share+cards%2C+reels+and+Vercel+Blob+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D">
     <img src="https://vercel.com/button" alt="Deploy with Vercel">
   </a>
 </p>
 
-The button clones the template, creates a Vercel project, asks for the Admin password, and connects a public Blob store for live config.
+The button clones the template, creates a Vercel project, asks for the Admin password, and connects a public Blob store for live config and admin uploads.
+
+After deployment:
+
+1. Open the Vercel URL.
+2. Scroll to the footer and click **Admin**.
+3. Enter the Admin password you chose during deployment.
+4. Replace the sample profile section by section.
+5. Click **Preview locally** to check your browser.
+6. Click **Publish live** so everyone sees the update.
 
 No-GitHub user path:
 
