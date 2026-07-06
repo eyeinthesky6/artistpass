@@ -73,14 +73,14 @@ flowchart LR
   E -- "No" --> C
   E -- "Yes" --> F["Publish live"]
   F --> G["artist-config.js in GitHub"]
-  G --> H["Vercel deploy"]
-  H --> I["Everyone sees the update"]
+  G --> H["Live site reads /api/config"]
+  H --> I["Everyone sees the update after refresh"]
 ```
 
 Admin is deliberately simple:
 
 - **Preview locally** changes only your current browser.
-- **Publish live** pushes the config to GitHub and lets Vercel deploy it.
+- **Publish live** pushes the config to GitHub. The live site reads the latest config on refresh.
 - Images and videos are link/path based. For full uploads, add Cloudinary or Vercel Blob behind authentication.
 
 ## Project Structure
