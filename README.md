@@ -4,7 +4,7 @@ A single-page cinematic casting EPK demo using a fictional actor profile,
 Ananya Rao. Static site, no build step. Just serve `index.html`.
 
 Local demo URL: `http://127.0.0.1:4177/`
-Placeholder production URL: `https://artistpass-demo.vercel.app`
+Production demo URL: `https://artistpass-epk-demo.vercel.app`
 
 ## Files
 - `index.html` - the whole site and admin interface.
@@ -54,7 +54,7 @@ If you use the Admin publish route, configure these Vercel environment variables
 
 - `ADMIN_PUBLISH_PASSWORD` - server-side publish password.
 - `GITHUB_TOKEN` - GitHub token with contents read/write access to this repo.
-- `GITHUB_REPO` - optional, defaults to `eyeinthesky6/artistpass-demo`.
+- `GITHUB_REPO` - optional, defaults to `eyeinthesky6/artistpass-epk-demo`.
 - `GITHUB_BRANCH` - optional, defaults to `main`.
 - `GITHUB_COMMITTER_NAME` / `GITHUB_COMMITTER_EMAIL` - optional commit identity.
 

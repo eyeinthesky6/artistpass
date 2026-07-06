@@ -6,14 +6,14 @@
 <title>Ananya Rao | Fictional Actor EPK Demo</title>
 <meta name="description" content="Ananya Rao is a fictional Mumbai actor profile demo built to show a share-ready artist EPK for casting, reels, headshots and simple self-managed updates.">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://artistpass-demo.vercel.app">
+<link rel="canonical" href="https://artistpass-epk-demo.vercel.app">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Ananya Rao - Fictional actor EPK demo">
 <meta property="og:description" content="Fictional Mumbai actor profile for corporate, legal, investigator, doctor, professor and urban-professional roles. Watch the demo reel.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://artistpass-demo.vercel.app">
+<meta property="og:url" content="https://artistpass-epk-demo.vercel.app">
 <meta property="og:site_name" content="ArtistPass Demo">
-<meta property="og:image" content="https://artistpass-demo.vercel.app/portfolio/demo-ananya/ananya-headshot.png">
+<meta property="og:image" content="https://artistpass-epk-demo.vercel.app/portfolio/demo-ananya/ananya-headshot.png">
 <meta property="og:image:alt" content="Ananya Rao fictional actor headshot">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ananya Rao | Fictional Actor EPK Demo">
 <meta name="twitter:description" content="Screen-ready demo profile for corporate, legal, investigator, doctor, professor and urban character roles.">
-<meta name="twitter:image" content="https://artistpass-demo.vercel.app/portfolio/demo-ananya/ananya-headshot.png">
+<meta name="twitter:image" content="https://artistpass-epk-demo.vercel.app/portfolio/demo-ananya/ananya-headshot.png">
 <meta name="theme-color" content="#16120F">
 <script type="application/ld+json">
 {
@@ -29,10 +29,10 @@
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://artistpass-demo.vercel.app/#person",
+      "@id": "https://artistpass-epk-demo.vercel.app/#person",
       "name": "Ananya Rao",
-      "url": "https://artistpass-demo.vercel.app",
-      "image": "https://artistpass-demo.vercel.app/portfolio/demo-ananya/ananya-headshot.png",
+      "url": "https://artistpass-epk-demo.vercel.app",
+      "image": "https://artistpass-epk-demo.vercel.app/portfolio/demo-ananya/ananya-headshot.png",
       "jobTitle": "Actor",
       "description": "Fictional Mumbai-based actor profile suited for corporate, legal, investigator, doctor, professor, mother and urban character roles.",
       "address": {
@@ -52,11 +52,11 @@
     },
     {
       "@type": "WebSite",
-      "@id": "https://artistpass-demo.vercel.app/#website",
-      "url": "https://artistpass-demo.vercel.app",
+      "@id": "https://artistpass-epk-demo.vercel.app/#website",
+      "url": "https://artistpass-epk-demo.vercel.app",
       "name": "ArtistPass Demo Casting Page",
       "publisher": {
-        "@id": "https://artistpass-demo.vercel.app/#person"
+        "@id": "https://artistpass-epk-demo.vercel.app/#person"
       }
     }
   ]
@@ -951,7 +951,7 @@ class Component extends DCLogic {
     }
   }
 
-  siteUrl() { return "https://artistpass-demo.vercel.app"; }
+  siteUrl() { return "https://artistpass-epk-demo.vercel.app"; }
 
   syncShareMeta() {
     if (typeof document === "undefined") return;
@@ -995,7 +995,7 @@ class Component extends DCLogic {
     try {
       const u = new URL(raw);
       if (u.hostname === "wsrv.nl" || u.hostname === "images.weserv.nl") return raw;
-      if (u.hostname === "artistpass-demo.vercel.app") {
+      if (u.hostname === "artistpass-epk-demo.vercel.app") {
         const local = u.pathname.replace(/^\//, "");
         if (this.OPTIMIZED_IMAGES[local]) return this.siteUrl() + "/" + this.OPTIMIZED_IMAGES[local];
       }
@@ -1203,14 +1203,17 @@ class Component extends DCLogic {
   }
 
   downloadFiles(files) {
-    files.forEach((file) => {
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(file);
-      a.download = file.name;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    files.forEach((file, i) => {
+      setTimeout(() => {
+        const url = URL.createObjectURL(file);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = file.name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 5000);
+      }, i * 250);
     });
   }
 
@@ -1242,15 +1245,22 @@ class Component extends DCLogic {
     }
   }
 
-  downloadGalleryImages() {
+  browserAssetPath(src) {
+    const raw = String(src || "").trim();
+    if (!raw) return "";
+    if (/^(https?:|data:|blob:)/i.test(raw)) return raw;
+    return raw.replace(/^\.\//, "");
+  }
+
+  async downloadGalleryImages() {
     const seen = new Set();
     const items = (this.state.config.gallery || []).map((src, i) => {
-      const url = this.assetUrl(src);
+      const url = this.browserAssetPath(src);
       if (!url || seen.has(url)) return null;
       seen.add(url);
       return {
         url,
-        name: "Ananya-Rao-" + String(i + 1).padStart(2, "0") + "." + this.fileExt(url)
+        name: "Ananya-Rao-" + String(i + 1).padStart(2, "0") + "." + this.fileExt(src)
       };
     }).filter(Boolean);
 
@@ -1259,16 +1269,27 @@ class Component extends DCLogic {
       return;
     }
 
-    items.forEach((item) => {
-      const a = document.createElement("a");
-      a.href = item.url;
-      a.download = item.name;
-      a.rel = "noopener";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    });
-    this.flash("Downloading " + items.length + " images");
+    this.flash("Preparing " + items.length + " images...");
+    const files = [];
+    let skipped = 0;
+    for (const item of items) {
+      try {
+        const response = await fetch(item.url, { cache: "force-cache" });
+        if (!response.ok) throw new Error("Image unavailable");
+        const blob = await response.blob();
+        const ext = this.fileExt(item.name);
+        files.push(new File([blob], item.name, { type: blob.type || this.mimeFromExt(ext) }));
+      } catch (e) {
+        skipped += 1;
+      }
+    }
+
+    if (!files.length) {
+      this.flash("Could not prepare gallery downloads");
+      return;
+    }
+    this.downloadFiles(files);
+    this.flash("Downloading " + files.length + " images" + (skipped ? " · " + skipped + " skipped" : ""));
   }
 
   async exportCard(kind) {
@@ -1350,7 +1371,7 @@ class Component extends DCLogic {
         { title: "Evidence Room", format: "Synthetic demo", role: "Investigator", year: "2026", link: "", note: "Generated still/video for template testing" },
         { title: "Portrait pack", format: "AI image set", role: "Headshots and looks", year: "2026", link: "", note: "Synthetic demo assets" }
       ],
-      downloads: { resumePdf: "", headshotPack: "", castingCardPdf: "" },
+      downloads: { resumePdf: "downloads/ananya-rao-demo-resume.pdf", headshotPack: "", castingCardPdf: "" },
       gallery: [
         "portfolio/demo-ananya/ananya-headshot.png",
         "portfolio/demo-ananya/ananya-corporate.png",
@@ -1789,7 +1810,7 @@ class Component extends DCLogic {
     const site = this.siteUrl();
     const shareCardUrl = site + "/?share=card#share";
     const shareProfileUrl = site + "/?share=profile";
-    const defaultResumePdf = "";
+    const defaultResumePdf = "downloads/ananya-rao-demo-resume.pdf";
     const defaultDirectory = "";
     const waNumber = this.contactNumber();
     const waPretty = this.prettyPhone(waNumber);
@@ -2034,7 +2055,7 @@ class Component extends DCLogic {
       emailUrl: c.email ? this.emailContactUrl(contactText) : "#",
       resumeUrl, hasResume: !!resumeUrl,
       headshotUrl, hasHeadshot: !!headshotUrl,
-      openResume: () => { if (resumeUrl) window.open(this.assetUrl(resumeUrl), "_blank"); else this.flash("Resume PDF not configured"); },
+      openResume: () => { if (resumeUrl) window.open(this.browserAssetPath(resumeUrl), "_blank"); else this.flash("Resume PDF not configured"); },
       openHeadshots: () => { if (headshotUrl) window.open(headshotUrl, "_blank"); },
       downloadGalleryImages: () => this.downloadGalleryImages(),
       exportCardImage: () => this.exportCard("image"),

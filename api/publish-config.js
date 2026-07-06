@@ -1,4 +1,4 @@
-const DEFAULT_REPO = "eyeinthesky6/artistpass-demo";
+const DEFAULT_REPO = "eyeinthesky6/artistpass-epk-demo";
 const DEFAULT_BRANCH = "main";
 const CONFIG_PATH = "artist-config.js";
 
@@ -97,7 +97,7 @@ module.exports = async function publishConfig(req, res) {
       branch,
       committer: {
         name: process.env.GITHUB_COMMITTER_NAME || "ArtistPass Admin Publisher",
-        email: process.env.GITHUB_COMMITTER_EMAIL || "admin@artistpass-demo.vercel.app"
+        email: process.env.GITHUB_COMMITTER_EMAIL || "admin@artistpass-epk-demo.vercel.app"
       }
     };
     if (sha) payload.sha = sha;

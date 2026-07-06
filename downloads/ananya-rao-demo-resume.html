@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ananya Rao Demo Resume</title>
+<style>
+  @page { size: A4; margin: 18mm; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: #1d1814;
+    background: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.42;
+  }
+  .page { width: 100%; }
+  header {
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    gap: 18px;
+    align-items: center;
+    border-bottom: 2px solid #c99b45;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  }
+  .photo {
+    width: 112px;
+    height: 132px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center top;
+    border: 1px solid #ddd6ca;
+  }
+  h1 {
+    margin: 0 0 4px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31pt;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  .role {
+    margin: 0 0 8px;
+    color: #7b5b21;
+    font-size: 12pt;
+    font-weight: 700;
+  }
+  .contact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3px 18px;
+    color: #514941;
+  }
+  section { margin-top: 13px; }
+  h2 {
+    margin: 0 0 7px;
+    color: #7b5b21;
+    font-size: 9pt;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+  p { margin: 0 0 7px; }
+  ul { margin: 0; padding-left: 17px; }
+  li { margin: 0 0 5px; }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 22px;
+  }
+  .tagline {
+    font-size: 11.5pt;
+    color: #2b251f;
+  }
+  .muted { color: #665d54; }
+  .item-title { font-weight: 700; color: #1d1814; }
+  .footer-note {
+    margin-top: 16px;
+    padding-top: 10px;
+    border-top: 1px solid #e4ddd2;
+    color: #6b6259;
+    font-size: 9.3pt;
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <img class="photo" src="../portfolio/demo-ananya/ananya-headshot.png" alt="Ananya Rao headshot">
+    <div>
+      <h1>Ananya Rao</h1>
+      <p class="role">Fictional Actor Profile - Mumbai</p>
+      <div class="contact">
+        <div><strong>Phone:</strong> +91 90000 00000</div>
+        <div><strong>Email:</strong> 6edroid@gmail.com</div>
+        <div><strong>Languages:</strong> Hindi, English</div>
+        <div><strong>Portfolio:</strong> artistpass-epk-demo.vercel.app</div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Profile</h2>
+    <p class="tagline">Composed screen presence for corporate, legal, investigative, medical, family and urban character roles.</p>
+    <p class="muted">This is a fictional demo resume for the ArtistPass EPK template. All listed work is sample material created for product demonstration.</p>
+  </section>
+
+  <section class="grid">
+    <div>
+      <h2>Casting Fit</h2>
+      <ul>
+        <li>Corporate authority, CFO, auditor, boardroom professional</li>
+        <li>Advocate, bureaucrat, professor, doctor, investigator</li>
+        <li>Mother, principal, journalist, urban family lead</li>
+        <li>Polite antagonist and restrained authority roles</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Core Details</h2>
+      <ul>
+        <li>Playing age: late 30s / early 40s</li>
+        <li>Formats: TV, OTT, ads, corporate films, theatre, VO</li>
+        <li>Location: Mumbai</li>
+        <li>Self-test ready: yes</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Demo Work</h2>
+    <ul>
+      <li><span class="item-title">Boardroom Authority</span> - synthetic demo scene, corporate lead, 2026.</li>
+      <li><span class="item-title">Procedure</span> - synthetic demo scene, legal authority, 2026.</li>
+      <li><span class="item-title">Evidence Room</span> - synthetic demo scene, investigator, 2026.</li>
+      <li><span class="item-title">Portrait Pack</span> - AI-generated fictional headshots and character looks for template testing.</li>
+    </ul>
+  </section>
+
+  <section class="grid">
+    <div>
+      <h2>Skills</h2>
+      <ul>
+        <li>Screen acting</li>
+        <li>Voice-over and narration</li>
+        <li>Anchoring / presenter-style delivery</li>
+        <li>Serious drama and institutional roles</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Materials</h2>
+      <ul>
+        <li>Share-ready casting card</li>
+        <li>Headshots and stills</li>
+        <li>Short demo reel clips</li>
+        <li>Simple editable web profile</li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="footer-note">Demo contact message: I saw your website and want to explore if I can use it or make my own.</p>
+</main>
+</body>
+</html>

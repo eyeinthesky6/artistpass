@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://artistpass-demo.vercel.app/sitemap.xml
+Sitemap: https://artistpass-epk-demo.vercel.app/sitemap.xml
