@@ -284,7 +284,7 @@
 
       <!-- MAIN REEL -->
       <sc-if value="{{ reel.showMain }}" hint-placeholder-val="{{ true }}">
-        <div data-reel-main="true" ref="{{ reel.frameRef }}" style="position:relative;border-radius:10px;overflow:hidden;border:1px solid rgba(242,235,221,0.1);margin-bottom:14px;aspect-ratio:16/8;background:#0E0B09">
+        <div data-reel-main="true" ref="{{ reel.frameRef }}" style="position:relative;border-radius:10px;overflow:hidden;border:1px solid rgba(242,235,221,0.1);margin-bottom:14px;aspect-ratio:16/9;background:#0E0B09">
           <sc-if value="{{ reel.hasVideo }}" hint-placeholder-val="{{ false }}"><video ref="{{ reel.videoRef }}" title="{{ name }} reel" controls playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#0E0B09;object-fit:contain;opacity:{{ reel.videoOpacity }};pointer-events:{{ reel.videoPointer }}"></video></sc-if>
           <sc-if value="{{ reel.playing }}" hint-placeholder-val="{{ false }}">
             <sc-if value="{{ reel.hasFrame }}" hint-placeholder-val="{{ true }}"><iframe ref="{{ reel.embedRef }}" title="{{ name }} reel" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></sc-if>
@@ -1427,7 +1427,7 @@ class Component extends DCLogic {
       positioning: "A composed screen presence for rooms where every word matters.",
       subline: "Screen-ready for corporate, legal, investigative, medical, family and urban character roles.",
       quickFacts: ["Late 30s/40s", "Hindi", "English", "Self-test"],
-      contact: { whatsapp: "919000000000", email: "6edroid@gmail.com", instagram: "", youtube: "", linkedin: "", imdb: "", directory: "" },
+      contact: { whatsapp: "919000000000", email: "6edroid@gmail.com", instagram: "https://www.instagram.com/", youtube: "https://www.youtube.com/", linkedin: "https://www.linkedin.com/", imdb: "", directory: "" },
       images: { hero: "portfolio/demo-ananya/ananya-hero.png", story: "portfolio/demo-ananya/ananya-investigator.png", headshot: "portfolio/demo-ananya/ananya-headshot.png", favicon: "favicon.svg" },
       sharing: {
         image: "",
@@ -1449,7 +1449,7 @@ class Component extends DCLogic {
         body: "Ananya Rao brings a still, attentive quality to scenes that need authority without noise. She fits boardrooms, legal rooms, hospitals, interrogation spaces and family dramas where one look can carry the pressure of the moment.",
         markers: [{ t: "Presence", d: "Calm, watchful, precise." }, { t: "Range", d: "Corporate, legal, family and thriller." }, { t: "Screen fit", d: "Authority with emotional restraint." }]
       },
-      reel: { youtube: "portfolio/demo-ananya/ananya-boardroom.mp4", playlist: "", poster: "portfolio/demo-ananya/ananya-corporate.png", title: "Selected scenes", meta: "3 short scenes - Hindi & English ready" },
+      reel: { youtube: "portfolio/demo-ananya/ananya-boardroom.mp4", playlist: "", poster: "portfolio/demo-ananya/ananya-boardroom-poster.jpg", title: "Selected scenes", meta: "3 short scenes - Hindi & English ready" },
       roles: [
         { slug: "corporate", tag: "Boardroom", title: "Corporate Leader / CFO / Founder", line: "The calm at the head of the table.", note: "Controlled, senior, boardroom-ready presence that can carry strategy, pressure and authority.", intensity: "Restrained", formats: "OTT - Business drama - Corporate films", clipUrl: "portfolio/demo-ananya/ananya-boardroom.mp4" },
         { slug: "lawyer", tag: "Institution", title: "Lawyer / Bureaucrat / Policy Head", line: "The rulebook, and the conscience under it.", note: "Precise, procedural authority under pressure - institution with a pulse.", intensity: "Precise", formats: "Courtroom - Government - Social drama", clipUrl: "portfolio/demo-ananya/ananya-lawyer.mp4" },
@@ -1460,9 +1460,9 @@ class Component extends DCLogic {
         { slug: "voiceover", tag: "Voice", title: "Voice-over / Narration", line: "A measured voice for serious stories.", note: "A documentary, brand film and institutional narration voice with unhurried authority.", intensity: "Authoritative", formats: "VO - Documentary - Corporate explainer", clipUrl: "" }
       ],
       clips: [
-        { slug: "boardroom-authority", title: "Boardroom Authority", lane: "Scene - Corporate", duration: "10 sec", language: "Hindi / English", intensity: "Restrained", tags: ["corporate", "antagonist"], youtube: "portfolio/demo-ananya/ananya-boardroom.mp4", poster: "portfolio/demo-ananya/ananya-corporate.png", posterHint: "Boardroom authority clip" },
-        { slug: "procedure", title: "Procedure", lane: "Scene - Legal", duration: "10 sec", language: "Hindi / English", intensity: "Precise", tags: ["lawyer", "family"], youtube: "portfolio/demo-ananya/ananya-lawyer.mp4", poster: "portfolio/demo-ananya/ananya-lawyer.png", posterHint: "Legal or bureaucratic authority clip" },
-        { slug: "evidence-room", title: "Evidence Room", lane: "Scene - Investigator", duration: "10 sec", language: "Hindi / English", intensity: "Focused", tags: ["investigator", "antagonist"], youtube: "portfolio/demo-ananya/ananya-investigator.mp4", poster: "portfolio/demo-ananya/ananya-investigator.png", posterHint: "Investigative pressure clip" }
+        { slug: "boardroom-authority", title: "Boardroom Authority", lane: "Scene - Corporate", duration: "10 sec", language: "Hindi / English", intensity: "Restrained", tags: ["corporate", "antagonist"], youtube: "portfolio/demo-ananya/ananya-boardroom.mp4", poster: "portfolio/demo-ananya/ananya-boardroom-poster.jpg", posterHint: "Boardroom authority clip" },
+        { slug: "procedure", title: "Procedure", lane: "Scene - Legal", duration: "10 sec", language: "Hindi / English", intensity: "Precise", tags: ["lawyer", "family"], youtube: "portfolio/demo-ananya/ananya-lawyer.mp4", poster: "portfolio/demo-ananya/ananya-lawyer-poster.jpg", posterHint: "Legal or bureaucratic authority clip" },
+        { slug: "evidence-room", title: "Evidence Room", lane: "Scene - Investigator", duration: "10 sec", language: "Hindi / English", intensity: "Focused", tags: ["investigator", "antagonist"], youtube: "portfolio/demo-ananya/ananya-investigator.mp4", poster: "portfolio/demo-ananya/ananya-investigator-poster.jpg", posterHint: "Investigative pressure clip" }
       ],
       facts: [
         { k: "Base", v: "Mumbai" },
