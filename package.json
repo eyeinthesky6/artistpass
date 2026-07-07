@@ -1,5 +1,5 @@
 {
-  "name": "artistpass-epk-demo",
+  "name": "artistpass",
   "version": "0.1.0",
   "description": "Cinematic artist EPK template with browser admin, share cards, reels and Vercel Blob publishing.",
   "private": true,
@@ -7,7 +7,7 @@
   "homepage": "https://artistpass.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eyeinthesky6/artistpass-epk-demo.git"
+    "url": "https://github.com/eyeinthesky6/artistpass.git"
   },
   "keywords": [
     "artist-portfolio",

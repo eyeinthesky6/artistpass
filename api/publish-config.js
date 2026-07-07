@@ -1,4 +1,4 @@
-const DEFAULT_REPO = "eyeinthesky6/artistpass-epk-demo";
+const DEFAULT_REPO = "eyeinthesky6/artistpass";
 const DEFAULT_BRANCH = "main";
 const CONFIG_PATH = "artist-config.js";
 const BLOB_CONFIG_PATH = "config/artist-config.js";
