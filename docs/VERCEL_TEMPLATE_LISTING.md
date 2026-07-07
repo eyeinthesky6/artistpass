@@ -31,7 +31,31 @@ The template avoids a heavy CMS. Vercel Blob stores live Admin updates and uploa
 
 ## Tags
 
-`actor-portfolio`, `artist-portfolio`, `portfolio-website`, `showreel`, `demo-reel`, `headshots`, `casting-profile`, `casting-card`, `actor-resume`, `artist-epk`, `electronic-press-kit`, `media-kit`, `music-portfolio`, `personal-website`, `vercel-template`, `vercel-blob`, `cms-lite`, `static-site`, `no-code-admin`
+`actor-portfolio`, `artist-portfolio`, `portfolio-website`, `website-template`, `creator-website`, `actor-website`, `showreel`, `headshots`, `casting-profile`, `casting-card`, `actor-resume`, `artist-epk`, `electronic-press-kit`, `media-kit`, `music-portfolio`, `personal-website`, `vercel-template`, `vercel-blob`, `static-site`, `no-code-admin`
+
+## Publish Recommendation
+
+Yes, submit ArtistPass to Vercel Templates once the public repo and one-click deploy path stay stable for a few days.
+
+Why it is worth doing:
+
+- Vercel Templates are a natural discovery surface for developers and makers looking for deployable starting points.
+- ArtistPass already has a deploy button, sample data, MIT license, screenshots and Vercel Blob setup.
+- The template story is specific: actor portfolio website / artist EPK with browser admin and no heavy CMS.
+
+Why not rush it:
+
+- Vercel template visitors expect the deploy button to work smoothly.
+- The sample profile must remain fictional and rights-safe.
+- The README must be clear enough that a stranger understands the setup without us explaining it in chat.
+
+Recommended path:
+
+1. Keep the GitHub repo public and marked as a template.
+2. Let a fresh browser or second account run through the deploy button once.
+3. Confirm Blob-backed Admin publish works on the copied project.
+4. Submit with the listing copy above.
+5. Use GitHub and social posts first; treat Vercel Templates as an additional distribution channel, not the only launch.
 
 ## Submission Checklist
 
@@ -42,3 +66,5 @@ The template avoids a heavy CMS. Vercel Blob stores live Admin updates and uploa
 - [ ] Sample assets are clearly labelled as sample/demo.
 - [ ] License is present.
 - [ ] Template copy does not promise no-account deployment.
+- [ ] Fresh-account deploy test completed.
+- [ ] GitHub topics and repo description match the template listing.

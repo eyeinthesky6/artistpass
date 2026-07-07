@@ -22,17 +22,51 @@
 
 <p align="center">
   <img alt="Static site" src="https://img.shields.io/badge/static-site-16120F?style=for-the-badge">
+  <img alt="GitHub template" src="https://img.shields.io/badge/GitHub-template-C99B45?style=for-the-badge&labelColor=16120F&logo=github">
   <img alt="No CMS" src="https://img.shields.io/badge/no-heavy_CMS-C99B45?style=for-the-badge&labelColor=16120F">
   <img alt="Vercel" src="https://img.shields.io/badge/Vercel-ready-000000?style=for-the-badge&logo=vercel">
   <img alt="Admin publisher" src="https://img.shields.io/badge/admin-publish_live-C99B45?style=for-the-badge&labelColor=16120F">
   <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-C99B45?style=for-the-badge&labelColor=16120F">
 </p>
 
+## Table Of Contents
+
+- [What It Is](#what-it-is)
+- [Quick Decision](#quick-decision)
+- [Quick Start](#quick-start)
+- [Screenshots](#screenshots)
+- [Market Language](#market-language)
+- [Why This Base Works](#why-this-base-works)
+- [Admin Flow](#admin-flow)
+- [Deploy](#deploy)
+- [Media Guidance](#media-guidance)
+- [Template Directions](#template-directions)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## What It Is
 
 ArtistPass is a share-ready actor portfolio website and artist EPK template for actors, singers, creators, models, dancers, musicians and performers who need a polished profile without a heavy CMS. It gives them a cinematic public page, showreel/reel section, headshots, casting profile, resume/CV, simple admin panel, downloadable materials, and share flows that work for casting, booking and production conversations.
 
 The current profile is a sample fictional artist. Swap the config, images and reel links to make a new artist site.
+
+## Quick Decision
+
+| You are | Use ArtistPass for |
+| --- | --- |
+| Actor, singer or performer | A portfolio website with showreel, headshots, resume/CV, casting card and share-ready contact flows. |
+| Website maker or agency | A reusable portfolio website template you can deploy, customize and hand over without running a heavy CMS. |
+| Developer | A small static/Vercel Blob reference for browser-admin publishing, uploads and share cards. |
+| Creator founder | A proof project showing how to package a useful site as a GitHub/Vercel template. |
+
+## Quick Start
+
+1. Open the [live demo](https://artistpass.vercel.app).
+2. Click **Make It Yours** to clone and deploy on Vercel.
+3. Choose an `ADMIN_PUBLISH_PASSWORD` during setup.
+4. Open the deployed site, go to **Admin**, replace the sample profile, then click **Publish live**.
+
+For non-technical artists, use the assisted path: deploy once for them, give them the website link, Admin link and password, and let them handle routine text/image/PDF updates from the browser.
 
 ## Current Status
 
@@ -224,6 +258,18 @@ This base can support more than one vertical:
 - Singer/musician EPK: audio/video reel, genres, set list, booking CTA.
 - Founder/expert profile: proof, talks, press, advisory fit, lead capture.
 - Fictional character profile: character dossier, lore gallery, teaser clips and future game hooks.
+
+## Contributing
+
+Contributions are welcome if they keep the template simple, fictional/sample-only and useful for non-technical artists. Good first areas:
+
+- new performer layouts or verticals;
+- cleaner admin wording;
+- share/download reliability fixes;
+- smaller media files and better gallery handling;
+- documentation improvements for non-technical users.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
 ## License
 

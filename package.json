@@ -13,6 +13,9 @@
     "artist-portfolio",
     "actor-portfolio",
     "portfolio-website",
+    "website-template",
+    "creator-website",
+    "actor-website",
     "showreel",
     "demo-reel",
     "headshots",
@@ -30,6 +33,7 @@
     "vercel-blob",
     "portfolio-template",
     "vercel-template",
+    "static-site",
     "no-code-admin"
   ],
   "dependencies": {
