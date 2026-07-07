@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://artistpass.vercel.app"><strong>Live Site</strong></a>
   ·
-  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo%23admin-flow&demo-title=ArtistPass+EPK+Demo&demo-description=Cinematic+artist+profile+with+simple+admin%2C+share+cards%2C+reels+and+Vercel+Blob+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D"><strong>Make It Yours</strong></a>
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+EPK+Template&demo-description=Cinematic+artist+profile+with+simple+admin%2C+share+cards%2C+reels+and+Vercel+Blob+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D"><strong>Make It Yours</strong></a>
   ·
   <a href="#screenshots"><strong>Screenshots</strong></a>
   ·
@@ -25,6 +25,7 @@
   <img alt="No CMS" src="https://img.shields.io/badge/no-heavy_CMS-C99B45?style=for-the-badge&labelColor=16120F">
   <img alt="Vercel" src="https://img.shields.io/badge/Vercel-ready-000000?style=for-the-badge&logo=vercel">
   <img alt="Admin publisher" src="https://img.shields.io/badge/admin-publish_live-C99B45?style=for-the-badge&labelColor=16120F">
+  <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-C99B45?style=for-the-badge&labelColor=16120F">
 </p>
 
 ## What It Is
@@ -149,7 +150,7 @@ http://127.0.0.1:4177/
 Fastest setup:
 
 <p>
-  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass-epk-demo%23admin-flow&demo-title=ArtistPass+EPK+Demo&demo-description=Cinematic+artist+profile+with+simple+admin%2C+share+cards%2C+reels+and+Vercel+Blob+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D">
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+EPK+Template&demo-description=Cinematic+artist+profile+with+simple+admin%2C+share+cards%2C+reels+and+Vercel+Blob+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D">
     <img src="https://vercel.com/button" alt="Deploy with Vercel">
   </a>
 </p>
@@ -188,7 +189,7 @@ The website loads `/api/config` at runtime, so Admin updates can appear on refre
 | `ADMIN_PUBLISH_PASSWORD` | Server-side publish password. |
 | `BLOB_READ_WRITE_TOKEN` | Preferred. Enables live config plus admin image/PDF uploads. Added automatically when a Vercel Blob store is connected. |
 | `GITHUB_TOKEN` | Optional fallback. GitHub token with contents read/write access to this repo. |
-| `GITHUB_REPO` | Optional fallback repo. Defaults to `eyeinthesky6/artistpass-epk-demo`. |
+| `GITHUB_REPO` | Optional fallback repo. Defaults to `eyeinthesky6/artistpass`. |
 | `GITHUB_BRANCH` | Optional fallback branch. Defaults to `main`. |
 | `GITHUB_COMMITTER_NAME` | Optional fallback commit identity. |
 | `GITHUB_COMMITTER_EMAIL` | Optional fallback commit email. |
@@ -214,6 +215,6 @@ This base can support more than one vertical:
 - Founder/expert profile: proof, talks, press, advisory fit, lead capture.
 - Fictional character profile: character dossier, lore gallery, teaser clips and future game hooks.
 
-## License Note
+## License
 
-The sample profile, images and clips are placeholder/demo materials for showing the template flow. Replace them before using the template for a real artist or public client project.
+The code is released under the MIT License. The sample profile, images and clips are placeholder materials for showing the template flow. Replace them before using the template for a real artist or public client project.
