@@ -33,6 +33,14 @@ ArtistPass is a share-ready profile website for actors, singers, creators and pe
 
 The current profile is a sample fictional artist. Swap the config, images and reel links to make a new artist site.
 
+## Current Status
+
+- **Live demo:** `https://artistpass.vercel.app`
+- **Repo:** public GitHub template repo, ready for Vercel clone/deploy.
+- **Self-serve path:** click **Make It Yours**, choose an Admin password, deploy on Vercel, then edit from the website Admin panel.
+- **Assisted path:** deploy once for a non-technical artist, hand them the website link, Admin link and password.
+- **Latest UAT:** hero, mobile nav, role filters, reel playback, footer socials, downloads, SEO files, Admin guidance and deploy button checked on the live site.
+
 ## Screenshots
 
 <p align="center">
