@@ -276,7 +276,7 @@
         </div>
         <sc-if value="{{ hasActive }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;align-items:center;gap:12px;background:rgba(201,155,69,0.1);border:1px solid rgba(201,155,69,0.35);padding:10px 14px;border-radius:12px">
-            <span style="font-size:13px;color:#E6D7BE">Focused on <strong style="color:#E4B85E;font-weight:700">{{ activeTitle }}</strong> · {{ clipCount }} clips</span>
+            <span style="font-size:13px;color:#E6D7BE">Focused on <strong style="color:#E4B85E;font-weight:700">{{ activeTitle }}</strong> · {{ clipCountLabel }}</span>
             <button onClick="{{ clearRole }}" style="cursor:pointer;border:none;background:transparent;color:#A3927C;font-family:inherit;font-size:12px;font-weight:600;text-decoration:underline;padding:0">Clear</button>
           </div>
         </sc-if>
@@ -1449,19 +1449,23 @@ class Component extends DCLogic {
         body: "Ananya Rao brings a still, attentive quality to scenes that need authority without noise. She fits boardrooms, legal rooms, hospitals, interrogation spaces and family dramas where one look can carry the pressure of the moment.",
         markers: [{ t: "Presence", d: "Calm, watchful, precise." }, { t: "Range", d: "Corporate, legal, family and thriller." }, { t: "Screen fit", d: "Authority with emotional restraint." }]
       },
-      reel: { youtube: "portfolio/demo-ananya/boardroom.mp4", playlist: "", poster: "portfolio/demo-ananya/boardroom-poster.jpg", title: "Selected scenes", meta: "2 short scenes - Hindi & English ready" },
+      reel: { youtube: "portfolio/demo-ananya/boardroom.mp4", playlist: "", poster: "portfolio/demo-ananya/boardroom-poster.jpg", title: "Selected scenes", meta: "6 role-matched moments - Hindi & English ready" },
       roles: [
         { slug: "corporate", tag: "Boardroom", title: "Corporate Leader / CFO / Founder", line: "The calm at the head of the table.", note: "Controlled, senior, boardroom-ready presence that can carry strategy, pressure and authority.", intensity: "Restrained", formats: "OTT - Business drama - Corporate films", clipUrl: "portfolio/demo-ananya/boardroom.mp4" },
         { slug: "lawyer", tag: "Institution", title: "Lawyer / Bureaucrat / Policy Head", line: "The rulebook, and the conscience under it.", note: "Precise, procedural authority under pressure - institution with a pulse.", intensity: "Precise", formats: "Courtroom - Government - Social drama", clipUrl: "portfolio/demo-ananya/office tiger.mp4" },
         { slug: "investigator", tag: "Interrogation", title: "Investigator / Journalist / Fraud Analyst", line: "Three questions, and the room changes.", note: "Calm pressure and intelligent observation - restrained intensity that gets to the truth.", intensity: "Focused", formats: "Crime OTT - Legal drama - Thriller", clipUrl: "portfolio/demo-ananya/office tiger.mp4" },
-        { slug: "doctor", tag: "Medical", title: "Doctor / Therapist / Hospital Admin", line: "Warmth with professional steel.", note: "A grounded care-giver presence for emotional medical, counselling and family scenes.", intensity: "Warm", formats: "TV - OTT - Family drama", clipUrl: "" },
-        { slug: "family", tag: "Family", title: "Mother / Mentor / Professor", line: "The person everyone trusts.", note: "Mature emotional authority for scenes that need wisdom, restraint and tenderness.", intensity: "Tender", formats: "TV - Family drama - Education", clipUrl: "" },
+        { slug: "doctor", tag: "Medical", title: "Doctor / Therapist / Hospital Admin", line: "Warmth with professional steel.", note: "A grounded care-giver presence for emotional medical, counselling and family scenes.", intensity: "Warm", formats: "TV - OTT - Family drama", clipUrl: "portfolio/demo-ananya/boardroom.mp4" },
+        { slug: "family", tag: "Family", title: "Mother / Mentor / Professor", line: "The person everyone trusts.", note: "Mature emotional authority for scenes that need wisdom, restraint and tenderness.", intensity: "Tender", formats: "TV - Family drama - Education", clipUrl: "portfolio/demo-ananya/boardroom.mp4" },
         { slug: "antagonist", tag: "Antagonist", title: "Polite Antagonist / Gatekeeper", line: "A threat, delivered softly.", note: "Menace wrapped in perfect civility - the antagonist who never needs to shout.", intensity: "Cold", formats: "OTT antagonist - Thriller", clipUrl: "portfolio/demo-ananya/office tiger.mp4" },
-        { slug: "voiceover", tag: "Voice", title: "Voice-over / Narration", line: "A measured voice for serious stories.", note: "A documentary, brand film and institutional narration voice with unhurried authority.", intensity: "Authoritative", formats: "VO - Documentary - Corporate explainer", clipUrl: "" }
+        { slug: "voiceover", tag: "Voice", title: "Voice-over / Narration", line: "A measured voice for serious stories.", note: "A documentary, brand film and institutional narration voice with unhurried authority.", intensity: "Authoritative", formats: "VO - Documentary - Corporate explainer", clipUrl: "portfolio/demo-ananya/boardroom.mp4" }
       ],
       clips: [
         { slug: "boardroom-pitch", title: "Boardroom Pitch", lane: "Scene - Corporate", duration: "10 sec", language: "Hindi / English", intensity: "Composed", tags: ["corporate"], youtube: "portfolio/demo-ananya/boardroom.mp4", poster: "portfolio/demo-ananya/boardroom-poster.jpg", posterHint: "Boardroom presentation clip" },
-        { slug: "office-pressure", title: "Office Pressure", lane: "Scene - Authority", duration: "10 sec", language: "Hindi / English", intensity: "Controlled", tags: ["lawyer", "investigator", "antagonist"], youtube: "portfolio/demo-ananya/office tiger.mp4", poster: "portfolio/demo-ananya/office-tiger-poster.jpg", posterHint: "Office pressure clip" }
+        { slug: "legal-procedure", title: "Legal Procedure", lane: "Scene - Legal", duration: "10 sec", language: "Hindi / English", intensity: "Precise", tags: ["lawyer"], youtube: "portfolio/demo-ananya/office tiger.mp4", poster: "portfolio/demo-ananya/office-legal-poster.jpg", posterHint: "Legal authority clip" },
+        { slug: "evidence-review", title: "Evidence Review", lane: "Scene - Investigator", duration: "10 sec", language: "Hindi / English", intensity: "Focused", tags: ["investigator"], youtube: "portfolio/demo-ananya/office tiger.mp4", poster: "portfolio/demo-ananya/office-investigator-poster.jpg", posterHint: "Investigation clip" },
+        { slug: "hospital-admin", title: "Hospital Admin", lane: "Scene - Medical", duration: "10 sec", language: "Hindi / English", intensity: "Warm", tags: ["doctor"], youtube: "portfolio/demo-ananya/boardroom.mp4", poster: "portfolio/demo-ananya/boardroom-admin-poster.jpg", posterHint: "Medical administrator clip" },
+        { slug: "mentor-counsel", title: "Mentor Counsel", lane: "Scene - Family", duration: "10 sec", language: "Hindi / English", intensity: "Tender", tags: ["family", "voiceover"], youtube: "portfolio/demo-ananya/boardroom.mp4", poster: "portfolio/demo-ananya/boardroom-review-poster.jpg", posterHint: "Mentor or family counsel clip" },
+        { slug: "polite-gatekeeper", title: "Polite Gatekeeper", lane: "Scene - Antagonist", duration: "10 sec", language: "Hindi / English", intensity: "Cold", tags: ["antagonist"], youtube: "portfolio/demo-ananya/office tiger.mp4", poster: "portfolio/demo-ananya/office-gatekeeper-poster.jpg", posterHint: "Polite antagonist clip" }
       ],
       facts: [
         { k: "Base", v: "Mumbai" },
@@ -1475,7 +1479,11 @@ class Component extends DCLogic {
       ],
       credits: [
         { title: "Boardroom Pitch", format: "Showreel scene", role: "Corporate lead", year: "2026", link: "", note: "Presentation room authority" },
-        { title: "Office Pressure", format: "Showreel scene", role: "Authority role", year: "2026", link: "", note: "Measured institutional pressure" },
+        { title: "Legal Procedure", format: "Showreel scene", role: "Legal authority", year: "2026", link: "", note: "Measured institutional pressure" },
+        { title: "Evidence Review", format: "Showreel scene", role: "Investigator", year: "2026", link: "", note: "Focused observation beat" },
+        { title: "Hospital Admin", format: "Showreel scene", role: "Medical admin", year: "2026", link: "", note: "Professional warmth" },
+        { title: "Mentor Counsel", format: "Showreel scene", role: "Mentor / family", year: "2026", link: "", note: "Mature emotional authority" },
+        { title: "Polite Gatekeeper", format: "Showreel scene", role: "Antagonist", year: "2026", link: "", note: "Quiet resistance" },
         { title: "Portrait pack", format: "Headshots", role: "Professional looks", year: "2026", link: "", note: "Corporate, legal and character stills" }
       ],
       downloads: { resumePdf: "downloads/ananya-rao-resume.pdf", headshotPack: "", castingCardPdf: "" },
@@ -2161,7 +2169,7 @@ class Component extends DCLogic {
     // When a role is selected and the admin has attached a clip link to it,
     // the main reel becomes that role's clip. Otherwise it's the configured reel.
     const activeMedia = activeObj && activeObj.clipUrl ? this.mediaFromLink(activeObj.clipUrl) : { embed: "", video: "", poster: "" };
-    const activeClipPoster = activeObj && activeObj.clipUrl ? (((cfg.clips || []).find(cl => cl.youtube === activeObj.clipUrl) || {}).poster || "") : "";
+    const activeClipPoster = activeObj && activeObj.clipUrl ? ((((cfg.clips || []).find(cl => cl.youtube === activeObj.clipUrl && (cl.tags || []).includes(activeObj.slug))) || ((cfg.clips || []).find(cl => cl.youtube === activeObj.clipUrl)) || {}).poster || "") : "";
     const configuredMedia = this.mediaFromLink(reelCfg.youtube);
     const firstClip = (active ? filtered : clips).find(cl => cl.video || cl.embed) || null;
     const fallbackMedia = firstClip ? { embed: firstClip.embed, video: firstClip.video, poster: firstClip.poster || "" } : { embed: "", video: "", poster: "" };
@@ -2282,6 +2290,8 @@ class Component extends DCLogic {
       });
     };
 
+    const clipWord = (n) => n === 1 ? "clip" : "clips";
+
     return {
       name: cfg.name, eyebrow: cfg.eyebrow, positioning: cfg.positioning, subline: cfg.subline,
       quickFacts: cfg.quickFacts || [],
@@ -2302,6 +2312,7 @@ class Component extends DCLogic {
       hasActive: !!active, noActive: !active,
       activeTitle: activeObj ? activeObj.title : "",
       clipCount: filtered.length,
+      clipCountLabel: filtered.length + " " + clipWord(filtered.length),
       featuredNum: activeObj ? String(activeIdx + 1).padStart(2, "0") : "",
       featuredTag: activeObj ? activeObj.tag : "",
       featuredTitle: activeObj ? activeObj.title : "",
@@ -2310,7 +2321,7 @@ class Component extends DCLogic {
       featuredIntensity: activeObj ? activeObj.intensity : "",
       featuredFormats: activeObj ? activeObj.formats : "",
       reel,
-      stripHint: active ? (filtered.length + " clips in this role type") : (clips.length + " clips across every role type"),
+      stripHint: active ? (filtered.length + " " + clipWord(filtered.length) + " in this role type") : (clips.length + " " + clipWord(clips.length) + " across every role type"),
       headshotImgRef: (n) => this.setImg(n, cfg.images.headshot || cfg.images.hero || "", 900),
       toast: this.state.toast, showToast: !!this.state.toast,
       contactOpen: this.state.contactOpen,
