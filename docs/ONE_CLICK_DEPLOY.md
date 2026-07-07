@@ -5,11 +5,19 @@ ArtistPass can be used in two ways:
 - **DIY setup:** click the Vercel deploy button and make your own copy.
 - **Assisted setup:** ask someone technical to deploy it once, then use the Admin panel yourself.
 
+## Who This Is For
+
+ArtistPass is positioned around the words artists and website makers already use:
+
+- Actors: actor portfolio website, acting portfolio, actor profile, casting profile, showreel, demo reel, headshots, actor resume/CV and casting card.
+- Singers and performers: artist portfolio website, singer portfolio, musician website, music portfolio, EPK, electronic press kit, press kit and media kit.
+- Website makers: portfolio website template, personal portfolio website, creator website, no-code admin, self-managed website and Vercel template.
+
 ## DIY Setup
 
 Click:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+EPK+Template&demo-description=Cinematic+artist+profile+with+simple+admin%2C+share+cards%2C+reels+and+Vercel+Blob+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+Actor+Portfolio+Template&demo-description=Actor+portfolio+website+and+artist+EPK+template+with+showreel%2C+headshots%2C+casting+card%2C+resume%2C+native+shares+and+simple+Admin+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D)
 
 Vercel will:
 

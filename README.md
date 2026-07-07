@@ -3,13 +3,13 @@
 </p>
 
 <p align="center">
-  <strong>A cinematic artist EPK template with simple browser admin, share cards, reels, headshots and Vercel publishing.</strong>
+  <strong>A cinematic actor portfolio website and artist EPK template with showreels, headshots, casting cards, resumes and simple Vercel admin publishing.</strong>
 </p>
 
 <p align="center">
   <a href="https://artistpass.vercel.app"><strong>Live Site</strong></a>
   ·
-  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+EPK+Template&demo-description=Cinematic+artist+profile+with+simple+admin%2C+share+cards%2C+reels+and+Vercel+Blob+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D"><strong>Make It Yours</strong></a>
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+Actor+Portfolio+Template&demo-description=Actor+portfolio+website+and+artist+EPK+template+with+showreel%2C+headshots%2C+casting+card%2C+resume%2C+native+shares+and+simple+Admin+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D"><strong>Make It Yours</strong></a>
   ·
   <a href="#screenshots"><strong>Screenshots</strong></a>
   ·
@@ -30,7 +30,7 @@
 
 ## What It Is
 
-ArtistPass is a share-ready profile website for actors, singers, creators and performers who need a polished portfolio without a heavy CMS. It gives them a cinematic public page, a simple admin panel, downloadable materials, and share flows that work for casting and production conversations.
+ArtistPass is a share-ready actor portfolio website and artist EPK template for actors, singers, creators, models, dancers, musicians and performers who need a polished profile without a heavy CMS. It gives them a cinematic public page, showreel/reel section, headshots, casting profile, resume/CV, simple admin panel, downloadable materials, and share flows that work for casting, booking and production conversations.
 
 The current profile is a sample fictional artist. Swap the config, images and reel links to make a new artist site.
 
@@ -53,6 +53,16 @@ The current profile is a sample fictional artist. Swap the config, images and re
   <img src="docs/screenshots/artistpass-mobile.png" alt="ArtistPass mobile screenshot" width="210">
 </p>
 
+## Market Language
+
+Use the clean brand name **ArtistPass**, but keep these market terms in public copy, docs, tags and SEO:
+
+- **Actors and casting:** actor portfolio website, acting portfolio, actor profile, casting profile, casting card, showreel, demo reel, headshots, actor resume, actor CV, Mumbai actor profile, India actor website.
+- **Singers and performers:** artist portfolio website, singer portfolio, musician website, music portfolio, artist EPK, electronic press kit, press kit, media kit.
+- **Developers and marketplaces:** portfolio website template, personal portfolio website, creator website, no-code admin, self-managed website, Vercel template, static site, Vercel Blob.
+
+`EPK` is useful for musicians, singers and press-kit searches. For Indian actors, clearer words are usually **portfolio**, **profile**, **showreel**, **headshots**, **casting** and **resume/CV**. So `EPK` stays in keywords and docs, but not in the main repo name.
+
 ## Why This Base Works
 
 | Need | ArtistPass approach |
@@ -60,17 +70,17 @@ The current profile is a sample fictional artist. Swap the config, images and re
 | Fast launch | Static `index.html`, no build pipeline required. |
 | Non-technical edits | Admin panel opens one page section at a time, with simple upload buttons and live publishing. |
 | Shared live updates | `Publish live` writes the live config to Vercel Blob, with GitHub fallback for older installs. |
-| Casting workflow | Role-fit cards, reel section, headshots, resume, casting card image/PDF and share messages. |
+| Casting workflow | Role-fit cards, showreel/reel section, headshots, actor resume/CV, casting card image/PDF and share messages. |
 | Low maintenance | No database and no heavy CMS. Images/PDFs can upload to Vercel Blob; videos can stay on YouTube, Google Drive or another host. |
 
 ## Features
 
 - Cinematic first screen with profile CTA buttons.
 - Role-fit dossier for casting context.
-- Reel carousel with matching clips.
+- Showreel / demo reel carousel with matching clips.
 - Headshot gallery with one-click image downloads.
 - Casting card image and PDF export.
-- Resume PDF download.
+- Actor resume/CV PDF download.
 - Native share flows with editable message templates.
 - Browser admin panel with one-section editing, local preview, favicon/image/PDF uploads and live publishing.
 - SEO/AEO basics: canonical URL, social preview image, JSON-LD, sitemap and robots file.
@@ -150,7 +160,7 @@ http://127.0.0.1:4177/
 Fastest setup:
 
 <p>
-  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+EPK+Template&demo-description=Cinematic+artist+profile+with+simple+admin%2C+share+cards%2C+reels+and+Vercel+Blob+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D">
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+Actor+Portfolio+Template&demo-description=Actor+portfolio+website+and+artist+EPK+template+with+showreel%2C+headshots%2C+casting+card%2C+resume%2C+native+shares+and+simple+Admin+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D">
     <img src="https://vercel.com/button" alt="Deploy with Vercel">
   </a>
 </p>

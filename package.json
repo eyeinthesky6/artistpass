@@ -1,7 +1,7 @@
 {
   "name": "artistpass",
   "version": "0.1.0",
-  "description": "Cinematic artist EPK template with browser admin, share cards, reels and Vercel Blob publishing.",
+  "description": "Actor portfolio website and artist EPK template with showreels, headshots, casting cards, resumes and Vercel Blob admin publishing.",
   "private": true,
   "license": "MIT",
   "homepage": "https://artistpass.vercel.app",
@@ -11,12 +11,26 @@
   },
   "keywords": [
     "artist-portfolio",
+    "actor-portfolio",
+    "portfolio-website",
+    "showreel",
+    "demo-reel",
+    "headshots",
+    "casting-profile",
+    "casting-card",
+    "actor-resume",
     "epk",
+    "electronic-press-kit",
+    "media-kit",
+    "music-portfolio",
+    "personal-website",
     "creator",
     "actor",
     "vercel",
     "vercel-blob",
-    "portfolio-template"
+    "portfolio-template",
+    "vercel-template",
+    "no-code-admin"
   ],
   "dependencies": {
     "@vercel/blob": "^2.5.0"
