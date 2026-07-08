@@ -17,6 +17,8 @@
   ·
   <a href="docs/ONE_CLICK_DEPLOY.md"><strong>One-Click Setup</strong></a>
   ·
+  <a href="docs/BUSINESS_PLAN.md"><strong>Business Plan</strong></a>
+  ·
   <a href="#deploy"><strong>Deploy</strong></a>
 </p>
 

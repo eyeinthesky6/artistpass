@@ -77,6 +77,8 @@ Official reference:
 | Agency starter kit | Website makers | Paid support or customization | They can reuse the base for many artist sites. |
 | Vertical templates | Singers, dancers, speakers, authors | Template pack or service package | Same architecture, different content structure. |
 
+For the detailed revenue model, package pricing and 90-day execution plan, see [BUSINESS_PLAN.md](BUSINESS_PLAN.md).
+
 ## Launch Sequence
 
 1. Keep the live demo stable and fictional/sample-only.
