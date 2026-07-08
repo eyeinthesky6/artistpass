@@ -40,6 +40,7 @@
 - [Admin Flow](#admin-flow)
 - [Deploy](#deploy)
 - [Media Guidance](#media-guidance)
+- [Distribution](#distribution)
 - [Template Directions](#template-directions)
 - [Contributing](#contributing)
 - [License](#license)
@@ -74,6 +75,7 @@ For non-technical artists, use the assisted path: deploy once for them, give the
 - **Repo:** public GitHub template repo, ready for Vercel clone/deploy.
 - **Self-serve path:** click **Make It Yours**, choose an Admin password, deploy on Vercel, then edit from the website Admin panel.
 - **Assisted path:** deploy once for a non-technical artist, hand them the website link, Admin link and password.
+- **Distribution path:** GitHub template and live demo are ready. Vercel Templates are optional; see [DISTRIBUTION_PLAN.md](docs/DISTRIBUTION_PLAN.md).
 - **Latest UAT:** hero, mobile nav, role filters, reel playback, footer socials, downloads, SEO files, Admin guidance and deploy button checked on the live site.
 
 ## Screenshots
@@ -249,6 +251,12 @@ ArtistPass keeps media management intentionally light.
 - Favicon/browser tab icon: upload or paste it in the Hero section. SVG, PNG, WebP, JPEG and ICO are accepted.
 - PDFs: use Admin upload for resume and casting-card PDFs.
 - Videos: paste links. Direct video upload is intentionally not included yet because video hosting, transcoding and privacy controls need more product decisions.
+
+## Distribution
+
+ArtistPass is distribution-ready through the GitHub template repo, live demo and Vercel deploy button. Vercel Templates are worth trying, but they are not the only route.
+
+The broader plan is documented in [docs/DISTRIBUTION_PLAN.md](docs/DISTRIBUTION_PLAN.md): GitHub discovery, Product Hunt, creator communities, dev communities, paid assisted setup, and later Netlify/static or vertical template editions.
 
 ## Template Directions
 

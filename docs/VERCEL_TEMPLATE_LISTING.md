@@ -1,6 +1,6 @@
 # Vercel Template Listing Packet
 
-Use this when submitting ArtistPass to the Vercel template gallery.
+Use this when submitting ArtistPass to the Vercel template gallery. This is an optional distribution channel, not the launch gate.
 
 ## Template Basics
 
@@ -35,7 +35,7 @@ The template avoids a heavy CMS. Vercel Blob stores live Admin updates and uploa
 
 ## Publish Recommendation
 
-Yes, submit ArtistPass to Vercel Templates once the public repo and one-click deploy path stay stable for a few days.
+Submit ArtistPass to Vercel Templates if the submission path is available and the deploy flow stays stable. Do not wait on Vercel review before distributing the project elsewhere.
 
 Why it is worth doing:
 
@@ -55,7 +55,33 @@ Recommended path:
 2. Let a fresh browser or second account run through the deploy button once.
 3. Confirm Blob-backed Admin publish works on the copied project.
 4. Submit with the listing copy above.
-5. Use GitHub and social posts first; treat Vercel Templates as an additional distribution channel, not the only launch.
+5. Use GitHub, the live demo, Product Hunt, creator communities and assisted setup offers first; treat Vercel Templates as an additional channel, not the only launch.
+
+## Submission Status
+
+Current status: **ready if we choose to submit through a logged-in Vercel account**.
+
+What is done:
+
+- Public GitHub repo is live and marked as a template.
+- Live demo is live at `https://artistpass.vercel.app`.
+- Deploy button is present in README and footer.
+- Listing title, description, tags and deploy URL are prepared above.
+- Fresh public clone smoke test passed on 2026-07-07:
+  - cloned `https://github.com/eyeinthesky6/artistpass.git`;
+  - checked commit `e0a0a1f`;
+  - ran `npm ci`;
+  - ran `npm exec -- vercel build --prod --yes`;
+  - build completed successfully.
+
+What still needs a logged-in human click if we submit:
+
+- Open `https://vercel.com/templates/submit`.
+- Sign in to the Vercel account that should submit the template.
+- Paste the listing fields from this file.
+- Submit for Vercel review.
+
+Note: the submission page is behind Vercel login. A local CLI build can verify the template package, but final gallery submission is a dashboard/form action. If Vercel does not accept or prioritize the template, keep distributing through the broader plan in [DISTRIBUTION_PLAN.md](DISTRIBUTION_PLAN.md).
 
 ## Submission Checklist
 
@@ -66,5 +92,7 @@ Recommended path:
 - [ ] Sample assets are clearly labelled as sample/demo.
 - [ ] License is present.
 - [ ] Template copy does not promise no-account deployment.
-- [ ] Fresh-account deploy test completed.
+- [x] Fresh public clone build test completed.
+- [ ] Fresh-account deploy-button test completed.
 - [ ] GitHub topics and repo description match the template listing.
+- [ ] Logged-in Vercel submission form completed.
