@@ -234,11 +234,11 @@ Gross margin should be high because this is service plus reusable software. The 
 ### Days 1-7
 
 - Finish fresh-account Vercel deploy-button test.
-- Add "paid assisted setup" CTA to README and live demo.
-- Create a simple intake form.
-- Create a 90-second demo video showing public site, Admin edit, Publish live.
-- Publish one build story on LinkedIn and Dev.to.
-- Prepare outreach lists:
+- Add "paid assisted setup" CTA to README and live demo. Done in repo.
+- Create a simple intake form. See [INTAKE_FORM.md](INTAKE_FORM.md).
+- Create a 90-second demo video showing public site, Admin edit, Publish live. Script ready in [DEMO_VIDEO_SCRIPT.md](DEMO_VIDEO_SCRIPT.md); recording still pending.
+- Publish one build story on LinkedIn and Dev.to. Draft ready in [BUILD_STORY_DRAFT.md](BUILD_STORY_DRAFT.md); posting still pending.
+- Prepare outreach lists. Template, starter leads and scripts ready in [OUTREACH_PLAYBOOK.md](OUTREACH_PLAYBOOK.md), [outreach-leads-template.csv](outreach-leads-template.csv) and [outreach-leads-starter.csv](outreach-leads-starter.csv):
   - 25 photographers.
   - 25 acting coaches/classes.
   - 25 reel editors.

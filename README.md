@@ -42,6 +42,7 @@
 - [Admin Flow](#admin-flow)
 - [Deploy](#deploy)
 - [Media Guidance](#media-guidance)
+- [Execution Kit](#execution-kit)
 - [Distribution](#distribution)
 - [Template Directions](#template-directions)
 - [Contributing](#contributing)
@@ -71,12 +72,15 @@ The current profile is a sample fictional artist. Swap the config, images and re
 
 For non-technical artists, use the assisted path: deploy once for them, give them the website link, Admin link and password, and let them handle routine text/image/PDF updates from the browser.
 
+Need help setting it up? Email [6edroid@gmail.com](mailto:6edroid@gmail.com?subject=ArtistPass%20assisted%20setup&body=Hi%20Jai%2C%0A%0AI%20want%20an%20ArtistPass%20portfolio%20website.%0A%0AArtist%20name%3A%0AArtist%20type%3A%20Actor%20%2F%20Singer%20%2F%20Model%20%2F%20Other%0ACity%3A%0AExisting%20links%20%28Instagram%2C%20YouTube%2C%20Drive%2C%20IMDb%2C%20website%29%3A%0AAssets%20ready%3A%20Headshots%20%2F%20Videos%20%2F%20Resume%20%2F%20Bio%0ADo%20you%20want%20a%20custom%20domain%3F%3A%0ATimeline%3A%0ABudget%20range%3A%0A%0AThanks.) with the intake details.
+
 ## Current Status
 
 - **Live demo:** `https://artistpass.vercel.app`
 - **Repo:** public GitHub template repo, ready for Vercel clone/deploy.
 - **Self-serve path:** click **Make It Yours**, choose an Admin password, deploy on Vercel, then edit from the website Admin panel.
-- **Assisted path:** deploy once for a non-technical artist, hand them the website link, Admin link and password.
+- **Assisted path:** deploy once for a non-technical artist, hand them the website link, Admin link and password. Pilot setup offer: INR 9,999 for the first proof customers.
+- **First-week execution kit:** intake form, outreach playbook, demo-video script and build-story draft are ready in `docs/`.
 - **Distribution path:** GitHub template and live demo are ready. Vercel Templates are optional; see [DISTRIBUTION_PLAN.md](docs/DISTRIBUTION_PLAN.md).
 - **Latest UAT:** hero, mobile nav, role filters, reel playback, footer socials, downloads, SEO files, Admin guidance and deploy button checked on the live site.
 
@@ -253,6 +257,18 @@ ArtistPass keeps media management intentionally light.
 - Favicon/browser tab icon: upload or paste it in the Hero section. SVG, PNG, WebP, JPEG and ICO are accepted.
 - PDFs: use Admin upload for resume and casting-card PDFs.
 - Videos: paste links. Direct video upload is intentionally not included yet because video hosting, transcoding and privacy controls need more product decisions.
+
+## Execution Kit
+
+First-week business assets:
+
+- [Assisted setup intake](docs/INTAKE_FORM.md)
+- [Outreach playbook](docs/OUTREACH_PLAYBOOK.md)
+- [Outreach tracker CSV](docs/outreach-leads-template.csv)
+- [Starter outreach leads](docs/outreach-leads-starter.csv)
+- [90-second demo video script](docs/DEMO_VIDEO_SCRIPT.md)
+- [Build story draft](docs/BUILD_STORY_DRAFT.md)
+- [Fresh-account deploy test checklist](docs/FRESH_ACCOUNT_DEPLOY_TEST.md)
 
 ## Distribution
 
