@@ -1,7 +1,7 @@
 {
   "name": "artistpass",
   "version": "0.1.0",
-  "description": "Actor portfolio website and artist EPK template with showreels, headshots, casting cards, resumes and Vercel Blob admin publishing.",
+  "description": "Self-managed actor portfolio website template with showreel, headshots, casting card, resume and Vercel Blob Admin publishing.",
   "private": true,
   "license": "MIT",
   "homepage": "https://artistpass.vercel.app",
