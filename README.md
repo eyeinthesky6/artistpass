@@ -17,8 +17,6 @@
   ·
   <a href="docs/ONE_CLICK_DEPLOY.md"><strong>One-Click Setup</strong></a>
   ·
-  <a href="docs/BUSINESS_PLAN.md"><strong>Business Plan</strong></a>
-  ·
   <a href="#deploy"><strong>Deploy</strong></a>
 </p>
 
@@ -37,12 +35,10 @@
 - [Quick Decision](#quick-decision)
 - [Quick Start](#quick-start)
 - [Screenshots](#screenshots)
-- [Market Language](#market-language)
 - [Why This Base Works](#why-this-base-works)
 - [Admin Flow](#admin-flow)
 - [Deploy](#deploy)
 - [Media Guidance](#media-guidance)
-- [Execution Kit](#execution-kit)
 - [Distribution](#distribution)
 - [Template Directions](#template-directions)
 - [Contributing](#contributing)
@@ -80,8 +76,7 @@ Need help setting it up? Email [6edroid@gmail.com](mailto:6edroid@gmail.com?subj
 - **Repo:** public GitHub template repo, ready for Vercel clone/deploy.
 - **Self-serve path:** click **Make It Yours**, choose an Admin password, deploy on Vercel, then edit from the website Admin panel.
 - **Assisted path:** deploy once for a non-technical artist, hand them the website link, Admin link and password. Pilot setup offer: INR 9,999 for the first proof customers.
-- **First-week execution kit:** intake form, outreach playbook, demo-video script and build-story draft are ready in `docs/`.
-- **Distribution path:** GitHub template and live demo are ready. Vercel Templates are optional; see [DISTRIBUTION_PLAN.md](docs/DISTRIBUTION_PLAN.md).
+- **Distribution path:** GitHub template, live demo and Vercel deploy button are ready.
 - **Latest UAT:** hero, mobile nav, role filters, reel playback, footer socials, downloads, SEO files, Admin guidance and deploy button checked on the live site.
 
 ## Screenshots
@@ -94,16 +89,6 @@ Need help setting it up? Email [6edroid@gmail.com](mailto:6edroid@gmail.com?subj
   <img src="docs/screenshots/artistpass-admin.png" alt="ArtistPass admin panel screenshot" width="390">
   <img src="docs/screenshots/artistpass-mobile.png" alt="ArtistPass mobile screenshot" width="210">
 </p>
-
-## Market Language
-
-Use the clean brand name **ArtistPass**, but keep these market terms in public copy, docs, tags and SEO:
-
-- **Actors and casting:** actor portfolio website, acting portfolio, actor profile, casting profile, casting card, showreel, demo reel, headshots, actor resume, actor CV, Mumbai actor profile, India actor website.
-- **Singers and performers:** artist portfolio website, singer portfolio, musician website, music portfolio, artist EPK, electronic press kit, press kit, media kit.
-- **Developers and marketplaces:** portfolio website template, personal portfolio website, creator website, no-code admin, self-managed website, Vercel template, static site, Vercel Blob.
-
-`EPK` is useful for musicians, singers and press-kit searches. For Indian actors, clearer words are usually **portfolio**, **profile**, **showreel**, **headshots**, **casting** and **resume/CV**. So `EPK` stays in keywords and docs, but not in the main repo name.
 
 ## Why This Base Works
 
@@ -258,23 +243,9 @@ ArtistPass keeps media management intentionally light.
 - PDFs: use Admin upload for resume and casting-card PDFs.
 - Videos: paste links. Direct video upload is intentionally not included yet because video hosting, transcoding and privacy controls need more product decisions.
 
-## Execution Kit
-
-First-week business assets:
-
-- [Assisted setup intake](docs/INTAKE_FORM.md)
-- [Outreach playbook](docs/OUTREACH_PLAYBOOK.md)
-- [Outreach tracker CSV](docs/outreach-leads-template.csv)
-- [Starter outreach leads](docs/outreach-leads-starter.csv)
-- [90-second demo video script](docs/DEMO_VIDEO_SCRIPT.md)
-- [Build story draft](docs/BUILD_STORY_DRAFT.md)
-- [Fresh-account deploy test checklist](docs/FRESH_ACCOUNT_DEPLOY_TEST.md)
-
 ## Distribution
 
-ArtistPass is distribution-ready through the GitHub template repo, live demo and Vercel deploy button. Vercel Templates are worth trying, but they are not the only route.
-
-The broader plan is documented in [docs/DISTRIBUTION_PLAN.md](docs/DISTRIBUTION_PLAN.md): GitHub discovery, Product Hunt, creator communities, dev communities, paid assisted setup, and later Netlify/static or vertical template editions.
+ArtistPass is distribution-ready through the GitHub template repo, live demo and Vercel deploy button.
 
 ## Template Directions
 
