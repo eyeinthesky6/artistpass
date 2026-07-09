@@ -99,6 +99,7 @@ Need help setting it up? Email [6edroid@gmail.com](mailto:6edroid@gmail.com?subj
 | Shared live updates | `Publish live` writes the live config to Vercel Blob, with GitHub fallback for older installs. |
 | Casting workflow | Role-fit cards, showreel/reel section, headshots, actor resume/CV, casting card image/PDF and share messages. |
 | Low maintenance | No database and no heavy CMS. Images/PDFs can upload to Vercel Blob; videos can stay on YouTube, Google Drive or another host. |
+| Discovery loop | Footer attribution says **Made with ArtistPass** and links back to the demo, so partner/demo sites can create quiet discovery without hard-selling. |
 
 ## Features
 
@@ -110,6 +111,7 @@ Need help setting it up? Email [6edroid@gmail.com](mailto:6edroid@gmail.com?subj
 - Actor resume/CV PDF download.
 - Native share flows with editable message templates.
 - Browser admin panel with one-section editing, local preview, favicon/image/PDF uploads and live publishing.
+- Footer attribution badge for "Made with ArtistPass" discovery on demo and partner sites.
 - SEO/AEO basics: canonical URL, social preview image, JSON-LD, sitemap and robots file.
 
 ## Admin Flow
@@ -224,6 +226,7 @@ The website loads `/api/config` at runtime, so Admin updates can appear on refre
 | Variable | Purpose |
 | --- | --- |
 | `ADMIN_PUBLISH_PASSWORD` | Server-side publish password. |
+| `ARTISTPASS_DEMO_READONLY` | Optional. Set to `true` only on the official demo to block Admin publish/upload while keeping clones editable. |
 | `BLOB_READ_WRITE_TOKEN` | Preferred. Enables live config plus admin image/PDF uploads. Added automatically when a Vercel Blob store is connected. |
 | `GITHUB_TOKEN` | Optional fallback. GitHub token with contents read/write access to this repo. |
 | `GITHUB_REPO` | Optional fallback repo. Defaults to `eyeinthesky6/artistpass`. |

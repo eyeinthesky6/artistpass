@@ -4,6 +4,10 @@ const CONFIG_PATH = "artist-config.js";
 const BLOB_CONFIG_PATH = "config/artist-config.js";
 let blobSdk;
 
+function isDemoReadOnly() {
+  return /^(1|true|yes|on)$/i.test(String(process.env.ARTISTPASS_DEMO_READONLY || ""));
+}
+
 function sendJson(res, status, body) {
   res.statusCode = status;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -33,6 +37,12 @@ async function githubJson(url, options) {
 module.exports = async function publishConfig(req, res) {
   if (req.method === "OPTIONS") return sendJson(res, 200, { ok: true });
   if (req.method !== "POST") return sendJson(res, 405, { ok: false, error: "Use POST" });
+  if (isDemoReadOnly()) {
+    return sendJson(res, 403, {
+      ok: false,
+      error: "This ArtistPass demo is read-only. Use Make it yours to edit your own copy."
+    });
+  }
 
   const publishPassword = process.env.ADMIN_PUBLISH_PASSWORD || process.env.ARTIST_ADMIN_PASSWORD;
   const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
