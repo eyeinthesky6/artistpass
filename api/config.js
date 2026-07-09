@@ -4,6 +4,20 @@ const CONFIG_PATH = "artist-config.js";
 const BLOB_CONFIG_PATH = "config/artist-config.js";
 let blobSdk;
 
+function isDemoReadOnly() {
+  return /^(1|true|yes|on)$/i.test(String(process.env.ARTISTPASS_DEMO_READONLY || ""));
+}
+
+function runtimeScript() {
+  return "window.ARTISTPASS_RUNTIME = " + JSON.stringify({
+    adminReadOnly: isDemoReadOnly()
+  }) + ";\n";
+}
+
+function withRuntime(content) {
+  return String(content || "window.ARTIST_CONFIG = {};\n") + runtimeScript();
+}
+
 function repoPath(path) {
   return path.split("/").map(encodeURIComponent).join("/");
 }
@@ -41,13 +55,13 @@ async function readBlobConfig() {
 
 module.exports = async function config(req, res) {
   if (req.method !== "GET" && req.method !== "HEAD") {
-    return sendJs(res, 405, "window.ARTIST_CONFIG = {};\n");
+    return sendJs(res, 405, withRuntime("window.ARTIST_CONFIG = {};\n"));
   }
 
   try {
     const blobContent = await readBlobConfig();
     if (validConfigJs(blobContent)) {
-      return sendJs(res, 200, blobContent);
+      return sendJs(res, 200, withRuntime(blobContent));
     }
   } catch (error) {
     // Fall back to GitHub/static config for older installs or missing Blob stores.
@@ -67,14 +81,14 @@ module.exports = async function config(req, res) {
   try {
     const current = await githubJson(apiBase + "?ref=" + encodeURIComponent(branch), { headers });
     if (!current.response.ok || !current.data.content) {
-      return sendJs(res, 200, "window.ARTIST_CONFIG = {};\n");
+      return sendJs(res, 200, withRuntime("window.ARTIST_CONFIG = {};\n"));
     }
     const content = Buffer.from(String(current.data.content).replace(/\s/g, ""), "base64").toString("utf8");
     if (!validConfigJs(content)) {
-      return sendJs(res, 200, "window.ARTIST_CONFIG = {};\n");
+      return sendJs(res, 200, withRuntime("window.ARTIST_CONFIG = {};\n"));
     }
-    return sendJs(res, 200, content);
+    return sendJs(res, 200, withRuntime(content));
   } catch (error) {
-    return sendJs(res, 200, "window.ARTIST_CONFIG = {};\n");
+    return sendJs(res, 200, withRuntime("window.ARTIST_CONFIG = {};\n"));
   }
 };

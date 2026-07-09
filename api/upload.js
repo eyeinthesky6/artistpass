@@ -5,6 +5,10 @@ const PDF_TYPES = ["application/pdf"];
 
 let blobClient;
 
+function isDemoReadOnly() {
+  return /^(1|true|yes|on)$/i.test(String(process.env.ARTISTPASS_DEMO_READONLY || ""));
+}
+
 function sendJson(res, status, body) {
   res.statusCode = status;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -37,6 +41,12 @@ function cleanPath(pathname) {
 module.exports = async function upload(req, res) {
   if (req.method === "OPTIONS") return sendJson(res, 200, { ok: true });
   if (req.method !== "POST") return sendJson(res, 405, { ok: false, error: "Use POST" });
+  if (isDemoReadOnly()) {
+    return sendJson(res, 403, {
+      ok: false,
+      error: "This ArtistPass demo is read-only. Use Make it yours to edit your own copy."
+    });
+  }
 
   const publishPassword = process.env.ADMIN_PUBLISH_PASSWORD || process.env.ARTIST_ADMIN_PASSWORD;
   if (!publishPassword || !process.env.BLOB_READ_WRITE_TOKEN) {

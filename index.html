@@ -554,7 +554,23 @@
         </div>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(242,235,221,0.08)">
-        <span style="font-size:12px;color:#6E6152">ArtistPass profile template. Make your own or get assisted setup from 6edroid@gmail.com.</span>
+        <a href="https://artistpass.vercel.app" target="_blank" rel="noreferrer" aria-label="Made with ArtistPass" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#D8CBB6;min-width:min(100%,260px)" style-hover="color:#F2EBDD">
+          <svg width="34" height="34" viewBox="0 0 64 64" role="img" aria-hidden="true" style="flex:0 0 auto">
+            <defs>
+              <linearGradient id="artistpassFooterMark" x1="12" y1="50" x2="54" y2="12" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6D3FF4"/>
+                <stop offset="1" stop-color="#A476FF"/>
+              </linearGradient>
+            </defs>
+            <rect width="64" height="64" rx="16" fill="#16120F"/>
+            <path d="M11 50 25 12l8 38-9-7-13 7Z" fill="url(#artistpassFooterMark)"/>
+            <path d="M34 44 53 14l-5 36-9-10-5 4Z" fill="url(#artistpassFooterMark)" opacity="0.94"/>
+          </svg>
+          <span style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:12.5px;font-weight:800;color:#F2EBDD">Made with ArtistPass</span>
+            <span style="font-size:11.5px;color:#8A7B67">Make your own or get assisted setup</span>
+          </span>
+        </a>
         <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">
           <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+-+Actor+Portfolio+Website+%26+Artist+EPK&demo-description=Self-managed+actor+portfolio+website+with+showreel%2C+headshots%2C+casting+card%2C+resume+and+browser+Admin+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D" target="_blank" rel="noreferrer" style="display:flex;align-items:center;gap:7px;text-decoration:none;border:none;background:#C99B45;color:#1A130A;font-family:inherit;font-size:12px;font-weight:800;padding:8px 13px;border-radius:999px;box-shadow:0 8px 24px -16px rgba(201,155,69,0.9)" style-hover="background:#E4B85E">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 3 7v10l9 5 9-5V7zm0 2.3L18.4 8 12 11.7 5.6 8zm-7 5.4 6 3.5v6.1l-6-3.3zm8 9.6v-6.1l6-3.5V16z"/></svg>
@@ -646,11 +662,17 @@
         <sc-if value="{{ locked }}" hint-placeholder-val="{{ true }}">
           <div style="padding:40px 24px;display:flex;flex-direction:column;gap:16px;max-width:360px;margin:0 auto">
             <div style="text-align:center">
-              <div style="font-family:'Instrument Serif',serif;font-size:26px;color:#F4EDDF">Enter password</div>
-              <p style="font-size:13px;color:#8A7B67;margin-top:6px">Use the Admin password you chose during Vercel deployment. It is checked when you upload or publish.</p>
+              <div style="font-family:'Instrument Serif',serif;font-size:26px;color:#F4EDDF">{{ adminPasswordTitle }}</div>
+              <p style="font-size:13px;color:#8A7B67;margin-top:6px">{{ adminPasswordHelp }}</p>
             </div>
-            <input type="password" placeholder="Password" value="{{ passField.value }}" onInput="{{ passField.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:15px;padding:13px 14px;text-align:center;letter-spacing:0.1em">
-            <button onClick="{{ tryUnlock }}" style="cursor:pointer;border:none;background:#C99B45;color:#1A130A;font-family:inherit;font-size:14px;font-weight:700;padding:13px;border-radius:8px" style-hover="background:#E4B85E">Unlock</button>
+            <sc-if value="{{ adminReadOnly }}" hint-placeholder-val="{{ false }}">
+              <input type="password" placeholder="Disabled on the public demo" disabled="disabled" readonly="readonly" aria-disabled="true" tabindex="-1" style="width:100%;background:#120F0D;border:1px solid rgba(242,235,221,0.12);border-radius:8px;color:#8A7B67;font-family:inherit;font-size:15px;padding:13px 14px;text-align:center;letter-spacing:0.04em">
+              <button disabled="disabled" aria-disabled="true" tabindex="-1" style="cursor:not-allowed;border:none;background:rgba(201,155,69,0.28);color:#8A6B34;font-family:inherit;font-size:14px;font-weight:700;padding:13px;border-radius:8px">Demo read-only</button>
+            </sc-if>
+            <sc-if value="{{ adminCanUnlock }}" hint-placeholder-val="{{ true }}">
+              <input type="password" placeholder="Password" value="{{ passField.value }}" onInput="{{ passField.onInput }}" style="width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:8px;color:#F2EBDD;font-family:inherit;font-size:15px;padding:13px 14px;text-align:center;letter-spacing:0.1em">
+              <button onClick="{{ tryUnlock }}" style="cursor:pointer;border:none;background:#C99B45;color:#1A130A;font-family:inherit;font-size:14px;font-weight:700;padding:13px;border-radius:8px" style-hover="background:#E4B85E">Unlock</button>
+            </sc-if>
             <div style="margin-top:14px;border:1px solid rgba(242,235,221,0.1);border-radius:10px;padding:16px;background:#16120F">
               <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C99B45;margin-bottom:9px">How editing works</div>
               <ul style="margin:0;padding-left:18px;font-size:12.5px;line-height:1.65;color:#9C8D78">
@@ -1836,9 +1858,22 @@ class Component extends DCLogic {
   }
 
   // ADMIN
-  openAdmin() { this.draft = this.clone(this.state.config); this.setState({ adminOpen: true }); }
+  runtimeConfig() {
+    return (typeof window !== "undefined" && window.ARTISTPASS_RUNTIME) || {};
+  }
+  adminReadOnly() {
+    return !!this.runtimeConfig().adminReadOnly;
+  }
+  readOnlyMessage() {
+    return "This demo is read-only. Use Make it yours to edit your own copy.";
+  }
+  openAdmin() {
+    this.draft = this.clone(this.state.config);
+    this.setState({ adminOpen: true });
+  }
   closeAdmin() { this.setState({ adminOpen: false }); }
   tryUnlock() {
+    if (this.adminReadOnly()) return this.flash(this.readOnlyMessage());
     const pass = String(this.state.pass || "").trim();
     if (!pass) return this.flash("Enter the Admin password you set in Vercel");
     this.setState({ pass, unlocked: true });
@@ -1891,6 +1926,10 @@ class Component extends DCLogic {
     }
   }
   async uploadSelectedFiles(event, kind, label, options) {
+    if (this.adminReadOnly()) {
+      this.flash(this.readOnlyMessage());
+      return [];
+    }
     const input = event && event.target;
     const files = Array.from((input && input.files) || []);
     if (!files.length) return [];
@@ -2011,6 +2050,7 @@ class Component extends DCLogic {
     this.downloadConfig("Preview updated in this browser; backup config.js downloaded");
   }
   async publishAdmin() {
+    if (this.adminReadOnly()) return this.flash(this.readOnlyMessage());
     const cfg = this.clone(this.draft);
     const publishPassword = String(this.state.pass || "").trim() || (typeof window !== "undefined" ? window.prompt("Publish password") : "");
     if (!publishPassword) {
@@ -2368,6 +2408,12 @@ class Component extends DCLogic {
       exportCardImage: () => this.exportCard("image"),
       exportCardPdf: () => this.exportCard("pdf"),
       passField: { value: this.state.pass, onInput: (e) => this.setState({ pass: e.target.value }) },
+      adminReadOnly: this.adminReadOnly(),
+      adminCanUnlock: !this.adminReadOnly(),
+      adminPasswordTitle: this.adminReadOnly() ? "Public demo is read-only" : "Enter password",
+      adminPasswordHelp: this.adminReadOnly()
+        ? "This demo profile cannot be edited. Click Make it yours to create your own copy, then use the Admin password you choose during deployment."
+        : "Use the Admin password you chose during Vercel deployment. It is checked when you upload or publish.",
       publishLabel: this.state.publishing ? "Publishing..." : "Publish live",
       importField: { value: this.state.importText, onInput: (e) => this.setState({ importText: e.target.value }) },
       // handlers
