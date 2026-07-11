@@ -251,6 +251,7 @@ The public story pack is ready to adapt for a blog, newsletter or social post:
 - [Why I built ArtistPass for scattered artist portfolios](stories/01-why-i-built-artistpass.md)
 - [How the browser Admin publishes with Vercel Blob](stories/02-building-a-browser-admin-with-vercel-blob.md)
 - [Why ArtistPass is open source with an assisted setup path](stories/03-open-source-plus-assisted-setup.md)
+- [ArtistPass v0.1.0 launch posts for LinkedIn, X, Instagram and stories](stories/04-launch-posts.md)
 
 These are honest build notes, not traction claims. The project is working and public; user and revenue validation is still early.
 
