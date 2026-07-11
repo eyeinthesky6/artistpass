@@ -1,0 +1,52 @@
+name: Bug report
+description: Tell us about something that is broken or confusing.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve ArtistPass. Do not include passwords, tokens or private artist material.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Tell us what you saw and what you expected instead.
+      placeholder: I clicked... I expected... Instead...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can we reproduce it?
+      description: Give the shortest set of steps that shows the problem.
+      placeholder: |
+        1. Open...
+        2. Click...
+        3. See...
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page or deployment URL
+      placeholder: https://artistpass.vercel.app/ or your safe test URL
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: Chrome 140 on Windows 11, or Safari on iPhone
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Safe screenshots or error text
+      description: Remove passwords, tokens, contact details and private media first.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked that this is not already reported in an open issue.
+          required: true
+        - label: This report contains no secrets or private artist material.
+          required: true

@@ -9,15 +9,13 @@
 <p align="center">
   <a href="https://artistpass.vercel.app"><strong>Live Site</strong></a>
   ·
-  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+-+Actor+Portfolio+Website+%26+Artist+EPK&demo-description=Self-managed+actor+portfolio+website+with+showreel%2C+headshots%2C+casting+card%2C+resume+and+browser+Admin+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D"><strong>Make It Yours</strong></a>
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+-+Actor+Portfolio+Website+%26+Artist+EPK&demo-description=Self-managed+actor+portfolio+website+with+showreel%2C+headshots%2C+casting+card%2C+resume+and+browser+Admin+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&redirect-url=https%3A%2F%2Fartistpass.vercel.app%2Fdeployed.html&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D"><strong>Developer</strong></a>
+  ·
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=6edroid%40gmail.com&su=ArtistPass%20assisted%20setup&body=Hi%20Jai%2C%0A%0AI%20want%20an%20ArtistPass%20portfolio%20website.%0A%0AArtist%20name%3A%0AArtist%20type%3A%20Actor%20%2F%20Singer%20%2F%20Model%20%2F%20Other%0ACity%3A%0AExisting%20links%20%28Instagram%2C%20YouTube%2C%20Drive%2C%20IMDb%2C%20website%29%3A%0AAssets%20ready%3A%20Headshots%20%2F%20Videos%20%2F%20Resume%20%2F%20Bio%0ACustom%20domain%3A%20Yes%20%2F%20No%0ATimeline%3A%0ABudget%20range%3A%0A%0AThanks."><strong>Assisted Setup</strong></a>
   ·
   <a href="#screenshots"><strong>Screenshots</strong></a>
   ·
-  <a href="#admin-flow"><strong>Admin Flow</strong></a>
-  ·
-  <a href="docs/ONE_CLICK_DEPLOY.md"><strong>One-Click Setup</strong></a>
-  ·
-  <a href="#deploy"><strong>Deploy</strong></a>
+  <a href="#build-stories"><strong>Build Stories</strong></a>
 </p>
 
 <p align="center">
@@ -29,20 +27,20 @@
   <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-C99B45?style=for-the-badge&labelColor=16120F">
 </p>
 
-## Table Of Contents
+## Screenshots
 
-- [What It Is](#what-it-is)
-- [Quick Decision](#quick-decision)
-- [Quick Start](#quick-start)
-- [Screenshots](#screenshots)
-- [Why This Base Works](#why-this-base-works)
-- [Admin Flow](#admin-flow)
-- [Deploy](#deploy)
-- [Media Guidance](#media-guidance)
-- [Distribution](#distribution)
-- [Template Directions](#template-directions)
-- [Contributing](#contributing)
-- [License](#license)
+<p align="center">
+  <a href="https://artistpass.vercel.app">
+    <img src="docs/screenshots/artistpass-home.png" alt="ArtistPass cinematic actor portfolio homepage" width="780">
+  </a>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/artistpass-admin.png" alt="ArtistPass browser Admin panel" width="390">
+  <img src="docs/screenshots/artistpass-mobile.png" alt="ArtistPass mobile actor portfolio" width="210">
+</p>
+
+<p align="center"><em>Public portfolio, browser Admin and mobile presentation. Click the large screenshot to open the live demo.</em></p>
 
 ## What It Is
 
@@ -62,33 +60,22 @@ The current profile is a sample fictional artist. Swap the config, images and re
 ## Quick Start
 
 1. Open the [live demo](https://artistpass.vercel.app).
-2. Click **Make It Yours** to clone and deploy on Vercel.
+2. Click **Developer** to clone and deploy on Vercel.
 3. Choose an `ADMIN_PUBLISH_PASSWORD` during setup.
 4. Open the deployed site, go to **Admin**, replace the sample profile, then click **Publish live**.
 
 For non-technical artists, use the assisted path: deploy once for them, give them the website link, Admin link and password, and let them handle routine text/image/PDF updates from the browser.
 
-Need help setting it up? Email [6edroid@gmail.com](mailto:6edroid@gmail.com?subject=ArtistPass%20assisted%20setup&body=Hi%20Jai%2C%0A%0AI%20want%20an%20ArtistPass%20portfolio%20website.%0A%0AArtist%20name%3A%0AArtist%20type%3A%20Actor%20%2F%20Singer%20%2F%20Model%20%2F%20Other%0ACity%3A%0AExisting%20links%20%28Instagram%2C%20YouTube%2C%20Drive%2C%20IMDb%2C%20website%29%3A%0AAssets%20ready%3A%20Headshots%20%2F%20Videos%20%2F%20Resume%20%2F%20Bio%0ADo%20you%20want%20a%20custom%20domain%3F%3A%0ATimeline%3A%0ABudget%20range%3A%0A%0AThanks.) with the intake details.
+Need help setting it up? [Start an assisted setup request in Gmail](https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=6edroid%40gmail.com&su=ArtistPass%20assisted%20setup&body=Hi%20Jai%2C%0A%0AI%20want%20an%20ArtistPass%20portfolio%20website.%0A%0AArtist%20name%3A%0AArtist%20type%3A%20Actor%20%2F%20Singer%20%2F%20Model%20%2F%20Other%0ACity%3A%0AExisting%20links%20%28Instagram%2C%20YouTube%2C%20Drive%2C%20IMDb%2C%20website%29%3A%0AAssets%20ready%3A%20Headshots%20%2F%20Videos%20%2F%20Resume%20%2F%20Bio%0ACustom%20domain%3A%20Yes%20%2F%20No%0ATimeline%3A%0ABudget%20range%3A%0A%0AThanks.) or email `6edroid@gmail.com` manually.
 
 ## Current Status
 
 - **Live demo:** `https://artistpass.vercel.app`
 - **Repo:** public GitHub template repo, ready for Vercel clone/deploy.
-- **Self-serve path:** click **Make It Yours**, choose an Admin password, deploy on Vercel, then edit from the website Admin panel.
-- **Assisted path:** deploy once for a non-technical artist, hand them the website link, Admin link and password. Pilot setup offer: INR 9,999 for the first proof customers.
+- **Developer path:** click **Developer**, choose an Admin password, deploy on Vercel, then edit from the website Admin panel.
+- **Assisted path:** deploy once for a non-technical artist, hand them the website link, Admin link and password. A small number of pilot setups are available.
 - **Distribution path:** GitHub template, live demo and Vercel deploy button are ready.
 - **Latest UAT:** hero, mobile nav, role filters, reel playback, footer socials, downloads, SEO files, Admin guidance and deploy button checked on the live site.
-
-## Screenshots
-
-<p align="center">
-  <img src="docs/screenshots/artistpass-home.png" alt="ArtistPass home screenshot" width="780">
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/artistpass-admin.png" alt="ArtistPass admin panel screenshot" width="390">
-  <img src="docs/screenshots/artistpass-mobile.png" alt="ArtistPass mobile screenshot" width="210">
-</p>
 
 ## Why This Base Works
 
@@ -142,7 +129,7 @@ Admin is deliberately simple:
 The simplest user journey is:
 
 1. A creator, artist or manager sees the demo or GitHub page.
-2. They click **Make It Yours** or ask for an assisted setup.
+2. A developer clicks **Developer**, or a non-technical artist asks for assisted setup.
 3. Vercel creates their project, asks for a private Admin password, and connects Blob storage.
 4. They open their live site, click **Admin**, enter the same password, and update the page section by section.
 5. They upload images/PDFs or paste reel links from YouTube, Google Drive, Vimeo or another host.
@@ -163,6 +150,7 @@ For DIY users, this is a Vercel one-click template. For non-technical users, the
 ├── downloads/                  # Resume and generated static downloads
 ├── docs/                       # README logo and screenshots
 ├── portfolio/demo-ananya/      # Sample profile images and short clips
+├── stories/                    # Publication-ready build stories
 ├── index.html                  # Site, admin panel and runtime logic
 ├── support.js                  # Runtime dependency
 ├── robots.txt
@@ -189,7 +177,7 @@ http://127.0.0.1:4177/
 Fastest setup:
 
 <p>
-  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+-+Actor+Portfolio+Website+%26+Artist+EPK&demo-description=Self-managed+actor+portfolio+website+with+showreel%2C+headshots%2C+casting+card%2C+resume+and+browser+Admin+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D">
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+-+Actor+Portfolio+Website+%26+Artist+EPK&demo-description=Self-managed+actor+portfolio+website+with+showreel%2C+headshots%2C+casting+card%2C+resume+and+browser+Admin+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&redirect-url=https%3A%2F%2Fartistpass.vercel.app%2Fdeployed.html&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D">
     <img src="https://vercel.com/button" alt="Deploy with Vercel">
   </a>
 </p>
@@ -234,6 +222,12 @@ The website loads `/api/config` at runtime, so Admin updates can appear on refre
 | `GITHUB_COMMITTER_NAME` | Optional fallback commit identity. |
 | `GITHUB_COMMITTER_EMAIL` | Optional fallback commit email. |
 
+## Measurement
+
+The official demo uses Vercel Web Analytics for privacy-friendly page views, visitors, countries, devices and referrers. The deploy button returns to `/deployed.html` only after Vercel finishes a successful clone/deploy, so that page is the simple completion count.
+
+Repository owners can also use **GitHub > Insights > Traffic** for the last 14 days of repository visitors, referrers, popular pages and full clone activity. Clone counts can include developer tools and automation, so do not treat them as customer signups.
+
 ## Media Guidance
 
 ArtistPass keeps media management intentionally light.
@@ -249,6 +243,17 @@ ArtistPass keeps media management intentionally light.
 ## Distribution
 
 ArtistPass is distribution-ready through the GitHub template repo, live demo and Vercel deploy button.
+
+## Build Stories
+
+The public story pack is ready to adapt for a blog, newsletter or social post:
+
+- [Why I built ArtistPass for scattered artist portfolios](stories/01-why-i-built-artistpass.md)
+- [How the browser Admin publishes with Vercel Blob](stories/02-building-a-browser-admin-with-vercel-blob.md)
+- [Why ArtistPass is open source with an assisted setup path](stories/03-open-source-plus-assisted-setup.md)
+- [ArtistPass v0.1.0 launch posts for LinkedIn, X, Instagram and stories](stories/04-launch-posts.md)
+
+These are honest build notes, not traction claims. The project is working and public; user and revenue validation is still early.
 
 ## Template Directions
 
@@ -269,7 +274,7 @@ Contributions are welcome if they keep the template simple, fictional/sample-onl
 - smaller media files and better gallery handling;
 - documentation improvements for non-technical users.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. For help and project expectations, use [SUPPORT.md](SUPPORT.md), [SECURITY.md](SECURITY.md) and the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## License
 

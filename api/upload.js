@@ -44,7 +44,7 @@ module.exports = async function upload(req, res) {
   if (isDemoReadOnly()) {
     return sendJson(res, 403, {
       ok: false,
-      error: "This ArtistPass demo is read-only. Use Make it yours to edit your own copy."
+      error: "This ArtistPass demo is read-only. Use Developer to deploy and edit your own copy."
     });
   }
 
