@@ -12,12 +12,15 @@ tmp/
 # Local GTM/operator notes. Keep these off the public template repo.
 docs/BUSINESS_PLAN.md
 docs/BUILD_STORY_DRAFT.md
+docs/CITY_GTM_DECISION.md
 docs/DEMO_VIDEO_SCRIPT.md
 docs/DISTRIBUTION_PLAN.md
 docs/FRESH_ACCOUNT_DEPLOY_TEST.md
 docs/INTAKE_FORM.md
 docs/MARKET_LANGUAGE.md
 docs/OUTREACH_PLAYBOOK.md
+docs/PARTNER_GTM_OPERATING_PLAN.md
 docs/VERCEL_TEMPLATE_LISTING.md
+docs/CURATED_DESIGN_SWITCHER_UPGRADE_PATH.md
 docs/outreach-leads-starter.csv
 docs/outreach-leads-template.csv

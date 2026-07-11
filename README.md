@@ -14,8 +14,6 @@
   <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=6edroid%40gmail.com&su=ArtistPass%20assisted%20setup&body=Hi%20Jai%2C%0A%0AI%20want%20an%20ArtistPass%20portfolio%20website.%0A%0AArtist%20name%3A%0AArtist%20type%3A%20Actor%20%2F%20Singer%20%2F%20Model%20%2F%20Other%0ACity%3A%0AExisting%20links%20%28Instagram%2C%20YouTube%2C%20Drive%2C%20IMDb%2C%20website%29%3A%0AAssets%20ready%3A%20Headshots%20%2F%20Videos%20%2F%20Resume%20%2F%20Bio%0ACustom%20domain%3A%20Yes%20%2F%20No%0ATimeline%3A%0ABudget%20range%3A%0A%0AThanks."><strong>Assisted Setup</strong></a>
   ·
   <a href="#screenshots"><strong>Screenshots</strong></a>
-  ·
-  <a href="#build-stories"><strong>Build Stories</strong></a>
 </p>
 
 <p align="center">
@@ -150,7 +148,6 @@ For DIY users, this is a Vercel one-click template. For non-technical users, the
 ├── downloads/                  # Resume and generated static downloads
 ├── docs/                       # README logo and screenshots
 ├── portfolio/demo-ananya/      # Sample profile images and short clips
-├── stories/                    # Publication-ready build stories
 ├── index.html                  # Site, admin panel and runtime logic
 ├── support.js                  # Runtime dependency
 ├── robots.txt
@@ -243,17 +240,6 @@ ArtistPass keeps media management intentionally light.
 ## Distribution
 
 ArtistPass is distribution-ready through the GitHub template repo, live demo and Vercel deploy button.
-
-## Build Stories
-
-The public story pack is ready to adapt for a blog, newsletter or social post:
-
-- [Why I built ArtistPass for scattered artist portfolios](stories/01-why-i-built-artistpass.md)
-- [How the browser Admin publishes with Vercel Blob](stories/02-building-a-browser-admin-with-vercel-blob.md)
-- [Why ArtistPass is open source with an assisted setup path](stories/03-open-source-plus-assisted-setup.md)
-- [ArtistPass v0.1.0 launch posts for LinkedIn, X, Instagram and stories](stories/04-launch-posts.md)
-
-These are honest build notes, not traction claims. The project is working and public; user and revenue validation is still early.
 
 ## Template Directions
 
