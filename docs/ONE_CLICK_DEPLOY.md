@@ -17,7 +17,7 @@ ArtistPass is positioned around the words artists and website makers already use
 
 Click:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+-+Actor+Portfolio+Website+%26+Artist+EPK&demo-description=Self-managed+actor+portfolio+website+with+showreel%2C+headshots%2C+casting+card%2C+resume+and+browser+Admin+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+-+Actor+Portfolio+Website+%26+Artist+EPK&demo-description=Self-managed+actor+portfolio+website+with+showreel%2C+headshots%2C+casting+card%2C+resume+and+browser+Admin+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&redirect-url=https%3A%2F%2Fartistpass.vercel.app%2Fdeployed.html&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D)
 
 Vercel will:
 
@@ -63,7 +63,7 @@ When the site is ready:
 
 The Admin password is not a full CMS account system. It is a simple publish key for this lightweight template. Keep it private. If it leaks, rotate `ADMIN_PUBLISH_PASSWORD` in Vercel.
 
-For the official public demo, set `ARTISTPASS_DEMO_READONLY=true` in Vercel. That blocks Admin publish/upload on the demo while keeping **Make it yours** clones editable with their own Admin password.
+For the official public demo, set `ARTISTPASS_DEMO_READONLY=true` in Vercel. That blocks Admin publish/upload on the demo while keeping **Developer** deployments editable with their own Admin password.
 
 Official references:
 
