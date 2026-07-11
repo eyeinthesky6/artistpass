@@ -53,6 +53,6 @@ Every extra feature creates another decision for the artist and another maintena
 
 ArtistPass is public and working. Whether it becomes a wider product, a collection of category-specific templates or simply a useful open-source experiment should be decided by real usage—not by adding more features in advance.
 
-Live demo: https://artistpass.vercel.app  
-Source: https://github.com/eyeinthesky6/artistpass
+Live demo: https://artistpass.vercel.app
 
+Source: https://github.com/eyeinthesky6/artistpass

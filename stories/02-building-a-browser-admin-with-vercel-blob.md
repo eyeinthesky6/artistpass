@@ -63,6 +63,6 @@ The architecture matches the actual job:
 
 The lesson was simple: a small publishing path can be more useful than a large editing platform when the content structure is already known.
 
-Live demo: https://artistpass.vercel.app  
-Source: https://github.com/eyeinthesky6/artistpass
+Live demo: https://artistpass.vercel.app
 
+Source: https://github.com/eyeinthesky6/artistpass

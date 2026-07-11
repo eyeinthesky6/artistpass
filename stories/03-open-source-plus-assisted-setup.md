@@ -62,6 +62,6 @@ So the plan is intentionally light:
 
 This is a comfortable stopping point. The product can remain useful even if it never becomes a large SaaS business.
 
-Live demo: https://artistpass.vercel.app  
-Source: https://github.com/eyeinthesky6/artistpass
+Live demo: https://artistpass.vercel.app
 
+Source: https://github.com/eyeinthesky6/artistpass
