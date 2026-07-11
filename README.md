@@ -273,7 +273,7 @@ Contributions are welcome if they keep the template simple, fictional/sample-onl
 - smaller media files and better gallery handling;
 - documentation improvements for non-technical users.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. For help and project expectations, use [SUPPORT.md](SUPPORT.md), [SECURITY.md](SECURITY.md) and the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## License
 

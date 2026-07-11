@@ -1,0 +1,49 @@
+name: Feature request
+description: Suggest a focused improvement for artists, makers or contributors.
+title: "[Idea]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: ArtistPass stays small on purpose. Explain the user need before proposing a large system.
+  - type: dropdown
+    id: user
+    attributes:
+      label: Who is this for?
+      options:
+        - Artist or performer
+        - Manager or collaborator
+        - Website maker or agency
+        - Developer or contributor
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What are they trying to do?
+      placeholder: A musician needs to show... so that a booker can...
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: What happens today?
+      description: Describe the current workaround or point of confusion.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would a useful improvement look like?
+      description: A small example, sketch or reference link is welcome.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Sample material
+      options:
+        - label: Any example profile or media in this request is fictional or approved for public use.
+          required: true
