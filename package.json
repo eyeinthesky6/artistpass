@@ -1,7 +1,7 @@
 {
   "name": "artistpass",
   "version": "0.1.0",
-  "description": "Self-managed actor portfolio website template with showreel, headshots, casting card, resume and Vercel Blob Admin publishing.",
+  "description": "Open-source actor and artist portfolio website template with showreel, headshots, casting card, resume and Vercel Blob Admin publishing.",
   "private": true,
   "license": "MIT",
   "homepage": "https://artistpass.vercel.app",
@@ -15,13 +15,17 @@
     "portfolio-website",
     "website-template",
     "creator-website",
+    "artist-website",
     "actor-website",
+    "acting-portfolio",
+    "performer-portfolio",
     "showreel",
     "demo-reel",
     "headshots",
     "casting-profile",
     "casting-card",
     "actor-resume",
+    "actor-cv",
     "epk",
     "electronic-press-kit",
     "media-kit",
@@ -34,7 +38,11 @@
     "portfolio-template",
     "vercel-template",
     "static-site",
-    "no-code-admin"
+    "no-code-admin",
+    "no-cms",
+    "browser-admin",
+    "self-managed-website",
+    "open-source-template"
   ],
   "dependencies": {
     "@vercel/blob": "^2.5.0"
