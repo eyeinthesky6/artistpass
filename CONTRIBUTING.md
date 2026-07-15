@@ -24,6 +24,13 @@ By participating, you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Local Check
 
+Install dependencies and run the repository checks:
+
+```bash
+npm ci
+npm run validate
+```
+
 Serve the folder:
 
 ```bash
@@ -36,7 +43,7 @@ Then open:
 http://127.0.0.1:4177/
 ```
 
-For production checks:
+For a production check from a Vercel-linked checkout:
 
 ```bash
 npm exec -- vercel build --prod --yes

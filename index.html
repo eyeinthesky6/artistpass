@@ -138,11 +138,14 @@
   ]
 }
 </script>
+<script src="./artist-config.js"></script>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && location.protocol !== "file:") {
+    document.write('<script src="/api/config"><' + '/script>');
+    document.write('<script defer src="/_vercel/insights/script.js"><' + '/script>');
+  }
 </script>
-<script defer src="/_vercel/insights/script.js"></script>
-<script src="/api/config"></script>
 <script src="./support.js"></script>
 </head>
 <body>

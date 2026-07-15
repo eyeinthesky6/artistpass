@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.1.1 - 2026-07-15
+
+Launch-readiness and contributor-safety hardening.
+
+### Added
+
+- Pinned GitHub Actions for repository validation, secret scanning and CodeQL analysis.
+- Weekly Dependabot updates for npm and GitHub Actions dependencies.
+- A Gitleaks pre-commit hook, API smoke tests and automated public-asset validation.
+- A public agent guide and third-party/sample-asset notices.
+
+### Fixed
+
+- Clean local checkouts no longer request Vercel-only configuration or analytics endpoints while being served locally.
+- Contribution and pull-request guidance now uses the same validation command as CI.
+
 ## v0.1.0 - 2026-07-11
 
 The first public ArtistPass release.
