@@ -9,6 +9,10 @@
     "type": "git",
     "url": "https://github.com/eyeinthesky6/artistpass.git"
   },
+  "scripts": {
+    "test": "npm run validate",
+    "validate": "node --check api/config.js && node --check api/publish-config.js && node --check api/upload.js && node --check artist-config.js && node scripts/validate.mjs && node scripts/api-smoke.mjs"
+  },
   "keywords": [
     "artist-portfolio",
     "actor-portfolio",

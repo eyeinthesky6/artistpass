@@ -9,6 +9,8 @@
 <p align="center">
   <a href="https://artistpass.vercel.app"><strong>Live Site</strong></a>
   ·
+  <a href="https://github.com/eyeinthesky6/artistpass"><strong>Source</strong></a>
+  ·
   <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass&project-name=artistpass&repository-name=artistpass&env=ADMIN_PUBLISH_PASSWORD&envDescription=Choose+a+private+Admin+password.+This+password+unlocks+Publish+live+and+uploads+in+your+ArtistPass+admin+panel.&envLink=https%3A%2F%2Fgithub.com%2Feyeinthesky6%2Fartistpass%23admin-flow&demo-title=ArtistPass+-+Actor+Portfolio+Website+%26+Artist+EPK&demo-description=Open-source+actor+and+artist+portfolio+website+template+with+showreel%2C+headshots%2C+casting+card%2C+resume+and+browser+Admin+publishing.&demo-url=https%3A%2F%2Fartistpass.vercel.app&demo-image=https%3A%2F%2Fartistpass.vercel.app%2Fdocs%2Fscreenshots%2Fartistpass-home.png&redirect-url=https%3A%2F%2Fartistpass.vercel.app%2Fdeployed.html&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D"><strong>Developer</strong></a>
   ·
   <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=6edroid%40gmail.com&su=ArtistPass%20assisted%20setup&body=Hi%20Jai%2C%0A%0AI%20want%20an%20ArtistPass%20portfolio%20website.%0A%0AArtist%20name%3A%0AArtist%20type%3A%20Actor%20%2F%20Singer%20%2F%20Model%20%2F%20Other%0ACity%3A%0AExisting%20links%20%28Instagram%2C%20YouTube%2C%20Drive%2C%20IMDb%2C%20website%29%3A%0AAssets%20ready%3A%20Headshots%20%2F%20Videos%20%2F%20Resume%20%2F%20Bio%0ACustom%20domain%3A%20Yes%20%2F%20No%0ATimeline%3A%0ABudget%20range%3A%0A%0AThanks."><strong>Assisted Setup</strong></a>
@@ -180,6 +182,13 @@ For DIY users, this is a Vercel one-click template. For non-technical users, the
 
 ## Local Use
 
+Install dependencies and run the launch checks:
+
+```bash
+npm ci
+npm run validate
+```
+
 Serve the folder with any static server:
 
 ```bash
@@ -287,4 +296,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. For help a
 
 ## License
 
-The code is released under the MIT License. The sample profile, images and clips are placeholder materials for showing the template flow. Replace them before using the template for a real artist or public client project.
+The code is released under the MIT License. The sample profile, images and clips are fictional placeholder materials for showing the template flow. Replace them before using the template for a real artist or public client project. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for sample-asset and dependency notes.
