@@ -7,7 +7,9 @@
 </p>
 
 <p align="center">
-  <a href="https://artistpass.vercel.app"><strong>Live Site</strong></a>
+  <a href="https://eyeinthesky6.github.io/artistpass/"><strong>Project Site</strong></a>
+  ·
+  <a href="https://artistpass.vercel.app"><strong>Live Demo</strong></a>
   ·
   <a href="https://github.com/eyeinthesky6/artistpass"><strong>Source</strong></a>
   ·
@@ -144,8 +146,10 @@ Admin is deliberately simple:
 - **Preview locally** changes only your current browser.
 - **Publish live** pushes the config to Vercel Blob. The live site reads the latest config on refresh.
 - **Upload** buttons store favicon/images/PDFs in Vercel Blob and place the URL into the right field.
-- Common items are edited once: the main headshot drives the casting card and normal share preview, while contact details drive footer/contact/share text.
+- Common items are edited once: the main headshot drives the casting card and the image attached to native profile shares, while contact details drive footer/contact/share text.
 - Videos stay link-based for now. Use YouTube, Google Drive, Vimeo or another video host, then paste the link.
+
+Admin publishing updates the live page and native share payload. It does not rewrite the static Open Graph tags used by WhatsApp, LinkedIn and other link-preview crawlers. A template owner must update those tags in `index.html` and redeploy when changing the public identity.
 
 ## From Discovery To Use
 

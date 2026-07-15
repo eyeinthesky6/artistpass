@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.1.2 - 2026-07-15
+
+### Added
+
+- A GitHub Pages project site for discovery, setup paths and open-source distribution.
+- GitHub Discussions and clearer support/issue routing for community questions.
+
+### Fixed
+
+- Removed incorrect fixed Open Graph dimensions from the portrait social-preview image.
+- Clarified that Admin updates native share attachments, while crawler-facing Open Graph tags remain a deployment-time setting.
+
 ## v0.1.1 - 2026-07-15
 
 Launch-readiness and contributor-safety hardening.
