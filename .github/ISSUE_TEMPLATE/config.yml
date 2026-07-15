@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask the ArtistPass community
+    url: https://github.com/eyeinthesky6/artistpass/discussions/categories/q-a
+    about: Ask setup, customization and usage questions in GitHub Discussions.
+  - name: Read the support guide
+    url: https://github.com/eyeinthesky6/artistpass/blob/main/SUPPORT.md
+    about: Start here for deployment, bug-reporting and assisted-setup routes.

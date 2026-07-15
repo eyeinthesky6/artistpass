@@ -51,3 +51,11 @@ npm exec -- vercel build --prod --yes
 - For Admin changes, verify local preview and the read-only official demo state.
 - For deployment changes, verify the Vercel preview, `/api/config`, `robots.txt`, `sitemap.xml`, `llms.txt` and the deploy-button URL.
 - Before public release or promotion, run a full-history secret scan and review generated/release assets.
+
+## Codex Coordinator
+
+- This repository is Codex Coordinator-enabled.
+- Project identity is in `.codex/coordination/project.yaml`; current coordination state is in `.codex/coordination/CURRENT.md`.
+- Load the globally installed `codex-coordinator` skill before substantial, overlapping, parallel, or cross-thread work.
+- Respect the project ID and assigned task boundary; reject missing or mismatched cross-thread project bindings.
+- Treat Coordinator internals as protected; only an explicitly user-authorised `COORDINATOR_MAINTAINER` may modify them.

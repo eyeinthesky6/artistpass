@@ -6,6 +6,7 @@
 node_modules/
 output/
 tmp/
+.tmp-pages-site/
 
 .env*
 .vercel
@@ -13,3 +14,6 @@ tmp/
 # Local agent, GTM and writing material. Keep these off the public template repo.
 docs/private-project-docs/
 docs/blog-drafts/
+
+.codex/coordination/*
+!.codex/coordination/project.yaml

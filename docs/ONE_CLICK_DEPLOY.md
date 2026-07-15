@@ -65,6 +65,8 @@ When the site is ready:
 
 The Admin password is not a full CMS account system. It is a simple publish key for this lightweight template. Keep it private. If it leaks, rotate `ADMIN_PUBLISH_PASSWORD` in Vercel.
 
+Admin publishing updates the live page and native share payload, but it does not rewrite the static Open Graph tags used by link-preview crawlers. Update the profile metadata in `index.html` and redeploy when changing the public identity.
+
 For the official public demo, set `ARTISTPASS_DEMO_READONLY=true` in Vercel. That blocks Admin publish/upload on the demo while keeping **Developer** deployments editable with their own Admin password.
 
 Official references:
