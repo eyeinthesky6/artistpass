@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const requiredFiles = [
   "index.html",
+  "api/render-index.js",
   "artist-config.js",
   "support.js",
   "favicon.svg",

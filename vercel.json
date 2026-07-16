@@ -1,4 +1,12 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/api/render-index" }
+  ],
+  "functions": {
+    "api/render-index.js": {
+      "includeFiles": "index.html"
+    }
+  }
 }
