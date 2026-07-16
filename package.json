@@ -49,6 +49,6 @@
     "open-source-template"
   ],
   "dependencies": {
-    "@vercel/blob": "^2.5.0"
+    "@vercel/blob": "^2.6.1"
   }
 }
