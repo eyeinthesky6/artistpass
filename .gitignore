@@ -4,6 +4,8 @@
 .vercel
 .env.local
 node_modules/
+test-results/
+playwright-report/
 output/
 tmp/
 .tmp-pages-site/
