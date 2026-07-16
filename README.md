@@ -29,6 +29,14 @@
   <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-C99B45?style=for-the-badge&labelColor=16120F">
 </p>
 
+<p align="center">
+  <a href="https://github.com/eyeinthesky6/artistpass/actions/workflows/validate.yml"><img alt="Validation status" src="https://img.shields.io/github/actions/workflow/status/eyeinthesky6/artistpass/validate.yml?branch=main&style=flat-square&logo=githubactions&logoColor=white&label=validation&labelColor=16120F&color=C99B45"></a>
+  <a href="https://github.com/eyeinthesky6/artistpass/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/eyeinthesky6/artistpass?style=flat-square&logo=github&logoColor=white&label=stars&labelColor=16120F&color=C99B45"></a>
+  <a href="https://github.com/eyeinthesky6/artistpass/forks"><img alt="GitHub forks" src="https://img.shields.io/github/forks/eyeinthesky6/artistpass?style=flat-square&logo=github&logoColor=white&label=forks&labelColor=16120F&color=C99B45"></a>
+  <a href="https://github.com/eyeinthesky6/artistpass/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/eyeinthesky6/artistpass?style=flat-square&logo=github&logoColor=white&label=contributors&labelColor=16120F&color=C99B45"></a>
+  <a href="https://github.com/eyeinthesky6/artistpass/pulse"><img alt="Monthly commit activity" src="https://img.shields.io/github/commit-activity/m/eyeinthesky6/artistpass?style=flat-square&logo=git&logoColor=white&label=commits%2Fmonth&labelColor=16120F&color=C99B45"></a>
+</p>
+
 ## Screenshots
 
 <p align="center">
@@ -260,6 +268,8 @@ The website loads `/api/config` at runtime, so Admin updates can appear on refre
 The official demo uses Vercel Web Analytics for privacy-friendly page views, visitors, countries, devices and referrers. The deploy button returns to `/deployed.html` only after Vercel finishes a successful clone/deploy, so that page is the simple completion count.
 
 Repository owners can also use **GitHub > Insights > Traffic** for the last 14 days of repository visitors, referrers, popular pages and full clone activity. Clone counts can include developer tools and automation, so do not treat them as customer signups.
+
+The README and GitHub Pages site expose only durable public signals: validation status, stars, forks, contributors and recent commit activity. These update automatically. Private traffic totals are deliberately kept out of public claims; named users, successful deployments and outside contributions are stronger adoption proof when they arrive.
 
 ## Media Guidance
 

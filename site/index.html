@@ -214,6 +214,38 @@
     }
     .proof-grid div:last-child { border-right: 0; }
 
+    .activity-band {
+      padding: 34px 0;
+      background: rgba(255, 255, 255, .025);
+      border-bottom: 1px solid var(--line);
+    }
+    .activity-inner {
+      display: grid;
+      grid-template-columns: minmax(220px, .7fr) minmax(0, 1.3fr);
+      gap: 34px;
+      align-items: center;
+    }
+    .activity-copy h2 {
+      margin-bottom: 6px;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+    .activity-copy p {
+      margin-bottom: 0;
+      color: #9f927f;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .activity-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .activity-badges a { display: inline-flex; }
+    .activity-badges img { width: auto; height: 24px; }
+
     .section { padding: clamp(92px, 12vw, 160px) 0; }
     .section-head {
       display: grid;
@@ -300,6 +332,8 @@
       .feature:nth-child(2n) { border-right: 0; }
       .open-source { grid-template-columns: 1fr; }
       .source-mark { max-width: 310px; }
+      .activity-inner { grid-template-columns: 1fr; }
+      .activity-badges { justify-content: flex-start; }
     }
 
     @media (max-width: 680px) {
@@ -370,6 +404,22 @@
         <div>Browser Admin</div>
       </div>
     </div>
+
+    <section class="activity-band" aria-labelledby="activity-title">
+      <div class="activity-inner shell">
+        <div class="activity-copy">
+          <h2 id="activity-title">Open-source activity</h2>
+          <p>Live public signals from GitHub. Clone and visitor traffic remains private to repository maintainers.</p>
+        </div>
+        <div class="activity-badges" aria-label="ArtistPass GitHub activity">
+          <a href="https://github.com/eyeinthesky6/artistpass/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/eyeinthesky6/artistpass/validate.yml?branch=main&amp;style=flat-square&amp;logo=githubactions&amp;logoColor=white&amp;label=validation&amp;labelColor=16120F&amp;color=C99B45" alt="Validation status"></a>
+          <a href="https://github.com/eyeinthesky6/artistpass/stargazers"><img src="https://img.shields.io/github/stars/eyeinthesky6/artistpass?style=flat-square&amp;logo=github&amp;logoColor=white&amp;label=stars&amp;labelColor=16120F&amp;color=C99B45" alt="GitHub stars"></a>
+          <a href="https://github.com/eyeinthesky6/artistpass/forks"><img src="https://img.shields.io/github/forks/eyeinthesky6/artistpass?style=flat-square&amp;logo=github&amp;logoColor=white&amp;label=forks&amp;labelColor=16120F&amp;color=C99B45" alt="GitHub forks"></a>
+          <a href="https://github.com/eyeinthesky6/artistpass/graphs/contributors"><img src="https://img.shields.io/github/contributors/eyeinthesky6/artistpass?style=flat-square&amp;logo=github&amp;logoColor=white&amp;label=contributors&amp;labelColor=16120F&amp;color=C99B45" alt="GitHub contributors"></a>
+          <a href="https://github.com/eyeinthesky6/artistpass/pulse"><img src="https://img.shields.io/github/commit-activity/m/eyeinthesky6/artistpass?style=flat-square&amp;logo=git&amp;logoColor=white&amp;label=commits%2Fmonth&amp;labelColor=16120F&amp;color=C99B45" alt="Monthly commit activity"></a>
+        </div>
+      </div>
+    </section>
 
     <section class="section shell" id="paths">
       <div class="section-head">
