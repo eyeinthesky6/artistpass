@@ -29,5 +29,11 @@ jobs:
       - name: Validate repository
         run: npm test
 
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Test keyboard accessibility
+        run: npm run test:browser
+
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high

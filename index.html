@@ -179,6 +179,10 @@
   .adminSelect{width:100%;background:#16120F;border:1px solid rgba(242,235,221,0.16);border-radius:9px;color:#F2EBDD;font-family:inherit;font-size:13.5px;font-weight:700;padding:11px 12px}
   input,textarea,select{outline:none}
   input:focus,textarea:focus{border-color:#C99B45!important}
+  :focus-visible{outline:2px solid #C99B45;outline-offset:2px;border-radius:2px}
+  button:focus-visible{border-radius:6px}
+  a:focus-visible{border-radius:4px}
+  input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #C99B45;outline-offset:2px;border-radius:2px}
   @media print { body *{visibility:hidden!important} #castingCard,#castingCard *{visibility:visible!important} #castingCard{position:absolute!important;left:0;top:0;width:100%!important;border:none!important;box-shadow:none!important} }
   #mobileBar{display:none}
   .heroAction{cursor:pointer;width:46px;height:46px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(242,235,221,0.24);background:rgba(242,235,221,0.06);color:#F2EBDD;padding:0;border-radius:999px;font-family:inherit;transition:background .2s ease,border-color .2s ease,color .2s ease}
@@ -1040,6 +1044,13 @@ class Component extends DCLogic {
     this.makeQR();
     this.syncShareMeta();
     this.setupMediaPauseGuards();
+    this._onKeyDown = (e) => {
+      if (e.key === "Escape") {
+        if (this.state.contactOpen) { e.stopPropagation(); this.closeContact(); }
+        else if (this.state.adminOpen) { e.stopPropagation(); this.closeAdmin(); }
+      }
+    };
+    if (typeof document !== "undefined") document.addEventListener("keydown", this._onKeyDown);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -1048,6 +1059,7 @@ class Component extends DCLogic {
 
   componentWillUnmount() {
     this.teardownMediaPauseGuards();
+    if (typeof document !== "undefined" && this._onKeyDown) document.removeEventListener("keydown", this._onKeyDown);
   }
 
   makeQR() {
@@ -1787,8 +1799,18 @@ class Component extends DCLogic {
     const cfg = this.state.config || {};
     return "mailto:" + email + "?subject=" + encodeURIComponent("Casting enquiry for " + (cfg.name || this.artistName())) + "&body=" + encodeURIComponent(text || this.contactShareText());
   }
-  openContact() { this.setState({ contactOpen: true }); }
-  closeContact() { this.setState({ contactOpen: false }); }
+  openContact() {
+    if (typeof document !== "undefined") this._lastFocusedEl = document.activeElement;
+    this.setState({ contactOpen: true });
+  }
+  closeContact() {
+    this.setState({ contactOpen: false }, () => {
+      if (this._lastFocusedEl && typeof this._lastFocusedEl.focus === "function") {
+        this._lastFocusedEl.focus({ preventScroll: true });
+        this._lastFocusedEl = null;
+      }
+    });
+  }
 
   roleUrl(slug) { return this.siteUrl() + "/?role=" + encodeURIComponent(slug) + "&share=role"; }
   cleanRoleNote(text) {
@@ -1942,9 +1964,17 @@ class Component extends DCLogic {
   }
   openAdmin() {
     this.draft = this.clone(this.state.config);
+    if (typeof document !== "undefined") this._lastFocusedEl = document.activeElement;
     this.setState({ adminOpen: true });
   }
-  closeAdmin() { this.setState({ adminOpen: false }); }
+  closeAdmin() {
+    this.setState({ adminOpen: false }, () => {
+      if (this._lastFocusedEl && typeof this._lastFocusedEl.focus === "function") {
+        this._lastFocusedEl.focus({ preventScroll: true });
+        this._lastFocusedEl = null;
+      }
+    });
+  }
   tryUnlock() {
     if (this.adminReadOnly()) return this.flash(this.readOnlyMessage());
     const pass = String(this.state.pass || "").trim();
