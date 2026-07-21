@@ -157,7 +157,7 @@ Admin is deliberately simple:
 - Common items are edited once: the main headshot drives the casting card and the image attached to native profile shares, while contact details drive footer/contact/share text.
 - Videos stay link-based for now. Use YouTube, Google Drive, Vimeo or another video host, then paste the link.
 
-Admin publishing updates the live page and native share payload. It does not rewrite the static Open Graph tags used by WhatsApp, LinkedIn and other link-preview crawlers. A template owner must update those tags in `index.html` and redeploy when changing the public identity.
+Admin publishing updates the live page, the native share payload and the crawler-facing Open Graph metadata used by WhatsApp, LinkedIn and similar link-preview scrapers. On a Vercel + Blob deployment the root URL is served by `api/render-index`, which reads the latest published config and rewrites `<title>`, `og:title/description/image` and the matching Twitter tags before returning the HTML. The response uses `Cache-Control: public, s-maxage=60`, so a fresh crawler request picks up published changes within about a minute; a preview may still be cached inside the crawler itself and can be forced to refresh with WhatsApp, LinkedIn or Facebook debugger tools. On static-only hosting (or before a Blob config has ever been published), the original `index.html` tags are served unchanged as the fallback — update those tags in `index.html` and redeploy when changing the public identity for that path. The official demo runs with `ARTISTPASS_DEMO_READONLY=true` and keeps the fictional sample metadata regardless of Blob state.
 
 ## From Discovery To Use
 
@@ -180,6 +180,7 @@ For DIY users, this is a Vercel one-click template. For non-technical users, the
 .
 ├── api/config.js               # Runtime config loader
 ├── api/publish-config.js       # Admin publisher: Blob first, GitHub fallback
+├── api/render-index.js         # Serves / with crawler-visible metadata from published config
 ├── api/upload.js               # Password-protected Blob uploads for images/PDFs
 ├── artist-config.js            # Published content override
 ├── downloads/                  # Resume and generated static downloads

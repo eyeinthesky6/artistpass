@@ -29,6 +29,7 @@ npm exec -- vercel build --prod --yes
 - `artist-config.js`: static content override and exported Admin backup format.
 - `api/config.js`: reads live configuration from Vercel Blob, then GitHub/static fallback.
 - `api/publish-config.js`: password-protected live configuration publisher.
+- `api/render-index.js`: serves `/` with crawler-visible Open Graph metadata derived from the published config, with the static `index.html` as the fallback.
 - `api/upload.js`: password-protected image and PDF uploads to Vercel Blob.
 - `support.js`: existing page renderer. Reuse it; do not introduce a new frontend framework casually.
 
