@@ -125,7 +125,7 @@ function siteOrigin(req) {
 function sendHtml(res, status, body) {
   res.statusCode = status;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
-  res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate=86400");
+  res.setHeader("Cache-Control", "public, s-maxage=60");
   res.end(body);
 }
 
