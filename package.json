@@ -50,7 +50,7 @@
     "open-source-template"
   ],
   "dependencies": {
-    "@vercel/blob": "^2.6.1"
+    "@vercel/blob": "^2.8.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1"
